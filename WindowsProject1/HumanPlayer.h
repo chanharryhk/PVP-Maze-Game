@@ -17,7 +17,12 @@ public:
     void moveDown();
     void moveLeft();
     void moveRight();
+    // TODO
+    // Add useItem method
 private:
     sf::Sprite mSprite;
     sf::Vector2i mSource;
+    // TODO
+    // Add heldItem attribute
+    // Add coordinate attributes (?) or currentMazeSquare attribute
 };
