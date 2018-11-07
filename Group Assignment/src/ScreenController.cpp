@@ -19,7 +19,7 @@ ScreenController::ScreenController() {
 	sf::Text text4;
 	sf::Font font;
 	font.loadFromFile("olympiccarriersuperital.ttf");
-	text1.setString("Placeholder For Name Of Game");
+	text1.setString("Placeholder For Name Of Game 2");
 	text1.setCharacterSize(37);
 	text1.setFont(font);
 	text1.setFillColor(sf::Color::Cyan);
