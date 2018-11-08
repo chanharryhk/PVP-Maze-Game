@@ -13,7 +13,7 @@ MazeSquare::MazeSquare(int row, int column) {	//each square starts with 4 walls 
 	rightWall = true;
 	upWall = true;
 	downWall = true;
-	x = row;
-	y = column;
+	x = column;
+	y = row;
 	visited = false;
 }
