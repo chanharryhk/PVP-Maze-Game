@@ -14,10 +14,9 @@ using namespace std;
 
 class ScreenController{
 public:
-	ScreenController();
+	ScreenController(sf::RenderWindow& window);
 	void screenTransfer();
 	string highScoreFile;
-	sf::RenderWindow window;
 };
 
 
