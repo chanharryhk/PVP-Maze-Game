@@ -2,6 +2,7 @@
 
 class MazeSquare {
 public:
+	MazeSquare();
 	MazeSquare(int column, int row);
 	bool visited;
 	bool leftWall;	//whether there's a wall to the left or not

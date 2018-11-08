@@ -3,6 +3,8 @@
 #include "MazeSquare.h"
 #include <vector>
 #include <time.h>
+#include<iostream>
+#include<string>
 
 using namespace std;
 
@@ -22,64 +24,71 @@ MazeConstructor::MazeConstructor(int size) {
 
 	xStart = 0;	// randomly decide which cell the maze generator will start in
 	yStart = 0;
-
+	maze[xStart][yStart].visited = true;
 	squareStack.push_back(maze[xStart][yStart]);	//squareStack begins with start cell in it
 
 
 	while (!squareStack.empty()) {	//body of the algorithm, runs until backtracked to the beginning and there are no more cells to visit
-		vector<MazeSquare> options = {};	//vector to store new locations to visit
 		MazeSquare currentSquare = squareStack.back();
 		vector<string> direction_to_go = {};	//companion vector to options that stores which direction you would go by going to the corresponding square in options. Used to figure out which walls to remove
 		currentSquare.visited = true;	//ensure we won't revisit this square unless backtracking
+
 		int currentX = currentSquare.x;
 		int current_y = currentSquare.y;
 
+		MazeSquare downSquare, upSquare, rightSquare, leftSquare;
 		if ((current_y + 1) < size)	//ensure there is a square below this one
-			if (!maze[currentX][current_y + 1].visited) {	//check square below this one
-				options.push_back(maze[currentX][current_y + 1]);	//make square below this one an option for visiting
-				direction_to_go.emplace_back("down");
-			}
+			downSquare = maze[currentX][current_y + 1];
+		if (!downSquare.visited) {	//check square below this one
+			direction_to_go.push_back("down");
+		}
 		if ((current_y - 1) > 0)	//ensure there is a square above this one
-			if (!maze[currentX][current_y - 1].visited) {	//check square above this one
-				options.push_back(maze[currentX][current_y - 1]);	//make square above this one an option for visiting
-				direction_to_go.emplace_back("up");
-			}
+			upSquare = maze[currentX][current_y - 1];
+		if (!upSquare.visited) {	//check square above this one
+			direction_to_go.push_back("up");
+		}
 		if ((currentX + 1) < size)	//ensure there is a square right of this one
-			if (!maze[currentX][currentX + 1].visited) {	//check square right of this one
-				options.push_back(maze[currentX + 1][current_y]);	//make square right of this one an option for visiting
-				direction_to_go.emplace_back("right");
-			}
+			rightSquare = maze[currentX + 1][current_y];
+		if (!rightSquare.visited) {	//check square right of this one
+			direction_to_go.push_back("right");
+		}
 		if ((currentX - 1) > size)	//ensure there is a square left of this one
-			if (!maze[currentX - 1][current_y].visited) {	//check square left of this one
-				options.push_back(maze[currentX - 1][current_y]);	//make square left of this one an option for visiting
-				direction_to_go.emplace_back("left");
-			}
-		if (options.empty()) {	//no more valid cells to go to, backtrack
+			leftSquare = maze[currentX - 1][current_y];
+		if (!leftSquare.visited) {	//check square left of this one
+			direction_to_go.push_back("left");
+		}
+		if (direction_to_go.empty()) {	//no more valid cells to go to, backtrack
 			squareStack.pop_back();
+			std::cout << "Poped \n";
 		}
 		else {
-			int randNum = rand() % options.size();	//choose one direction to go out of available
-
-			squareStack.push_back(options[randNum]);	//put new cell on back of stack
+			int randNum = rand() % direction_to_go.size();	//choose one direction to go out of available
 
 			string chosenDirection = direction_to_go[randNum];	//check which direction we're going to reach new cell
-
+			MazeSquare newSquare(0, 0);	// newsqaure is the square that's going to be the current Square at te next iteration
 			if (chosenDirection == "up") {	//depending on direction, remove walls from current and new cell
 				currentSquare.upWall = false;
-				squareStack.back().downWall = false;
+				newSquare = upSquare;
+				newSquare.downWall = false;
 			}
 			else if (chosenDirection == "down") {
 				currentSquare.downWall = false;
-				squareStack.back().upWall = false;
+				newSquare = downSquare;
+				newSquare.upWall = false;
 			}
 			else if (chosenDirection == "right") {
 				currentSquare.rightWall = false;
-				squareStack.back().leftWall = false;
+				newSquare = rightSquare;
+				newSquare.leftWall = false;
 			}
 			else {
 				currentSquare.leftWall = false;
-				squareStack.back().rightWall = false;
+				newSquare = leftSquare;
+				newSquare.rightWall = false;
 			}
+			maze[currentSquare.x][currentSquare.y] = currentSquare;
+			squareStack.back() = currentSquare;
+			squareStack.push_back(newSquare);	//put new cell on back of stack
 		}
 	}
 }

@@ -3,6 +3,11 @@
 
 //class to represent single cell of maze
 
+MazeSquare::MazeSquare()
+{
+
+}
+
 MazeSquare::MazeSquare(int row, int column) {	//each square starts with 4 walls and no neighbours, which changes later in construction
 	leftWall = true;
 	rightWall = true;
@@ -10,5 +15,5 @@ MazeSquare::MazeSquare(int row, int column) {	//each square starts with 4 walls 
 	downWall = true;
 	x = row;
 	y = column;
-	visited=false;
+	visited = false;
 }
