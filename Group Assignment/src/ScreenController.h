@@ -14,11 +14,29 @@ using namespace std;
 
 class ScreenController{
 public:
-	ScreenController(sf::RenderWindow& window);
-	void screenTransfer();
 	string highScoreFile;
+	vector<sf::Keyboard::Key> player1Controls;
+	vector<sf::Keyboard::Key> player2Controls;
 };
 
+class TitleScreen: public ScreenController{
+public:
+	TitleScreen();
+	void StartGame(sf::RenderWindow& window);
+	void ScreenTransfer(int transferNum, sf::RenderWindow& window);
+};
 
+class InstructionsScreen: public ScreenController{
+public:
+	InstructionsScreen(vector<sf::Keyboard::Key> player1Controls, vector<sf::Keyboard::Key> player2Controls);
+	void Open(sf::RenderWindow& window);
+	string fromKtoS(const sf::Keyboard::Key& k);
+};
+
+class SetupScreen: public ScreenController{
+public:
+	SetupScreen(vector<sf::Keyboard::Key> player1Controls, vector<sf::Keyboard::Key> player2Controls, string scoreFile);
+	void ScreenTransfer(int transferNum, sf::RenderWindow& window);
+};
 
 #endif /* SCREENCONTROLLER_H_ */
