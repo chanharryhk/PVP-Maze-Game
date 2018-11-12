@@ -37,6 +37,7 @@ class SetupScreen: public ScreenController{
 public:
 	SetupScreen(vector<sf::Keyboard::Key> player1Controls, vector<sf::Keyboard::Key> player2Controls, string scoreFile);
 	void ScreenTransfer(int transferNum, sf::RenderWindow& window);
+	void SetupGame(sf::RenderWindow& window);
 };
 
 #endif /* SCREENCONTROLLER_H_ */

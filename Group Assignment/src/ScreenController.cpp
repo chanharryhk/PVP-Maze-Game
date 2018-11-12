@@ -82,20 +82,13 @@ void TitleScreen::StartGame(sf::RenderWindow& window) {
 				window.close();
 			}
 
-			if (mou.x > 10 && mou.x < 630 && mou.y > 300 && mou.y < 350) {
-				buttonBlock[0].setOutlineThickness(5);
-				buttonBlock[1].setOutlineThickness(0);
-				buttonBlock[2].setOutlineThickness(0);
-			} else if (mou.x > 10 && mou.x < 630 && mou.y > 360
-					&& mou.y < 410) {
-				buttonBlock[0].setOutlineThickness(0);
-				buttonBlock[1].setOutlineThickness(5);
-				buttonBlock[2].setOutlineThickness(0);
-			} else if (mou.x > 10 && mou.x < 630 && mou.y > 420
-					&& mou.y < 470) {
-				buttonBlock[0].setOutlineThickness(0);
-				buttonBlock[1].setOutlineThickness(0);
-				buttonBlock[2].setOutlineThickness(5);
+			for (int i = 0; i < 3; i++) {
+				if (mou.x > 10 && mou.x < 630 && mou.y > 300 + (60.f * i)
+						&& mou.y < 350 + (60.f * i)) {
+					buttonBlock[i].setOutlineThickness(5);
+				} else {
+					buttonBlock[i].setOutlineThickness(0);
+				}
 			}
 
 			if (event.type == sf::Event::MouseButtonPressed) {
@@ -126,6 +119,8 @@ void InstructionsScreen::Open(sf::RenderWindow& window) {
 	vector<sf::Text> controlText;
 	vector<vector<sf::Text>> playerText;
 	vector<vector<sf::RectangleShape>> playerBlock;
+	vector<sf::Text> menuText;
+	vector<sf::RectangleShape> menuBlock;
 	sf::Font font;
 	font.loadFromFile("text/olympiccarriersuperital.ttf");
 
@@ -139,25 +134,22 @@ void InstructionsScreen::Open(sf::RenderWindow& window) {
 		playerText.push_back(textVector);
 		playerBlock.push_back(blockVector);
 	}
-
 	for (int i = 0; i < 5; i++) {
 		controlText.push_back(sf::Text());
 	}
-//	sf::Text text1;
-//
-//	text1.setString("Placeholder For Name Of Game 2");
-//	text1.setCharacterSize(37);
-//	text1.setFont(font);
-//	text1.setFillColor(sf::Color::Cyan);
-//	buttonText[0].setString("Start Game");
-//	buttonText[1].setString("Instructions/Controls");
-//	buttonText[2].setString("Exit");
+	for (int i = 0; i < 3; i++) {
+		menuText.push_back(sf::Text());
+		menuBlock.push_back(sf::RectangleShape(sf::Vector2f(180, 50)));
+	}
 
 	controlText[0].setString("Move Up");
 	controlText[1].setString("Move Left");
 	controlText[2].setString("Move Down");
 	controlText[3].setString("Move Right");
 	controlText[4].setString("Use Item");
+	menuText[0].setString("Edgar's Story");
+	menuText[1].setString("Nedgar's Story");
+	menuText[2].setString("Exit");
 
 	for (int i = 0; i < 5; i++) {
 		playerText[0][i].setString(fromKtoS(player1Controls[i]));
@@ -171,21 +163,41 @@ void InstructionsScreen::Open(sf::RenderWindow& window) {
 		controlText[i].setFillColor(sf::Color::Blue);
 	}
 
+	for (int i = 0; i < 3; i++) {
+		menuBlock[i].setFillColor(sf::Color::Green);
+		menuBlock[i].setOutlineColor(sf::Color::Red);
+		menuBlock[i].setPosition(100.f + (200.f * i), 425.f);
+		menuText[i].setCharacterSize(20);
+		menuText[i].setFont(font);
+		sf::FloatRect temp = menuText[i].getLocalBounds();
+		menuText[i].setOrigin(temp.left + temp.width / 2.0f,
+				temp.top + temp.height / 2.0f);
+		temp = menuBlock[i].getLocalBounds();
+		menuBlock[i].setOrigin(temp.left + temp.width / 2.0f,
+				temp.top + temp.height / 2.0f);
+		menuText[i].setPosition(100.f + (200.f * i), 425.f);
+		menuText[i].setFillColor(sf::Color::Blue);
+	}
+
 	for (int j = 0; j < 2; j++) {
 		for (int i = 0; i < 5; i++) {
 			playerText[j][i].setCharacterSize(24);
 			playerText[j][i].setFont(font);
-			playerText[j][i].setPosition(180.f + (280.f * j), 75.f + (60.f * i));
+			playerText[j][i].setPosition(180.f + (280.f * j),
+					75.f + (60.f * i));
 			playerText[j][i].setFillColor(sf::Color::Blue);
 			playerBlock[j][i].setFillColor(sf::Color::Green);
 			playerBlock[j][i].setOutlineColor(sf::Color::Red);
-			playerBlock[j][i].setPosition(155.f + (280.f * j), 50.f + (60.f * i));
+			playerBlock[j][i].setPosition(155.f + (280.f * j),
+					50.f + (60.f * i));
 			sf::FloatRect temp = playerText[j][i].getLocalBounds();
 			playerText[j][i].setOrigin(temp.left + temp.width / 2.0f,
 					temp.top + temp.height / 2.0f);
 		}
 	}
 	bool showInstruct = true;
+	int menuEffect = -1;
+	int controlEffect = -1;
 	while (showInstruct) {
 		mou = sf::Mouse::getPosition(window);
 		sf::Event event;
@@ -194,24 +206,75 @@ void InstructionsScreen::Open(sf::RenderWindow& window) {
 				window.close();
 				showInstruct = false;
 			}
-			if (event.type == sf::Event::KeyPressed
-					&& event.text.unicode == sf::Keyboard::Escape) {
+			if ((event.type == sf::Event::KeyPressed
+					&& event.text.unicode == sf::Keyboard::Escape)
+					|| (menuEffect == 2)) {
 				showInstruct = false;
+			} else if (event.type == sf::Event::KeyPressed
+					&& controlEffect >= 0) {
+				if (controlEffect < 5) {
+					player1Controls[controlEffect] = event.key.code;
+					playerText[0][controlEffect].setString(
+							fromKtoS(event.key.code));
+				} else {
+					player2Controls[controlEffect - 5] = event.key.code;
+					playerText[1][controlEffect - 5].setString(
+							fromKtoS(event.key.code));
+				}
+				controlEffect = -1;
 			}
-			for (int j = 0; j < 2; j++) {
+
+			if (event.type == sf::Event::MouseButtonPressed) {
+				for (int j = 0; j < 2; j++) {
 					for (int i = 0; i < 5; i++) {
 						if ((mou.x > 155.f + (280.f * j))
-							&& (mou.x < 205.f + (280.f * j))
-							&& mou.y > 50.f + (60.f * i)
-						&& mou.y < 100.f + (60.f * i)){
-							playerBlock[j][i].setOutlineThickness(3);
-						}
-						else{
-							playerBlock[j][i].setOutlineThickness(0);
+								&& (mou.x < 205.f + (280.f * j))
+								&& mou.y > 50.f + (60.f * i)
+								&& mou.y < 100.f + (60.f * i)) {
+							controlEffect = i + (5 * j);
 						}
 					}
 				}
+				for (int i = 0; i < 3; i++) {
+					if ((mou.x > 10.f + (200.f * i))
+							&& (mou.x < 190.f + (200.f * i)) && mou.y > 400
+							&& mou.y < 450) {
+						menuEffect = i;
+					}
+				}
+			}
+
+			for (int j = 0; j < 2; j++) {
+				for (int i = 0; i < 5; i++) {
+					if ((mou.x > 155.f + (280.f * j))
+							&& (mou.x < 205.f + (280.f * j))
+							&& mou.y > 50.f + (60.f * i)
+							&& mou.y < 100.f + (60.f * i)) {
+						playerBlock[j][i].setOutlineThickness(3);
+					} else {
+						playerBlock[j][i].setOutlineThickness(0);
+					}
+				}
+			}
+			for (int i = 0; i < 3; i++) {
+				if ((mou.x > 10.f + (200.f * i))
+						&& (mou.x < 190.f + (200.f * i)) && mou.y > 400
+						&& mou.y < 450) {
+					menuBlock[i].setOutlineThickness(3);
+				} else {
+					menuBlock[i].setOutlineThickness(0);
+				}
+			}
 		}
+
+		if (controlEffect >= 0 && controlEffect < 5) {
+			playerBlock[0][controlEffect].setOutlineThickness(3);
+			playerBlock[0][controlEffect].setOutlineColor(sf::Color::Blue);
+		} else if (controlEffect >= 5) {
+			playerBlock[1][controlEffect - 5].setOutlineThickness(3);
+			playerBlock[1][controlEffect - 5].setOutlineColor(sf::Color::Blue);
+		}
+
 		window.clear();
 		for (int j = 0; j < 2; j++) {
 			for (int i = 0; i < 5; i++) {
@@ -221,7 +284,86 @@ void InstructionsScreen::Open(sf::RenderWindow& window) {
 		}
 		for (int i = 0; i < 5; i++) {
 			window.draw(controlText[i]);
-			window.draw(controlText[i]);
+		}
+		for (int i = 0; i < 3; i++) {
+			window.draw(menuBlock[i]);
+			window.draw(menuText[i]);
+		}
+		window.display();
+	}
+}
+
+void SetupScreen::SetupGame(sf::RenderWindow& window) {
+	sf::Vector2<int> mou;
+	vector<sf::Text> buttonText;
+	vector<sf::RectangleShape> buttonBlock;
+	sf::Font font;
+	font.loadFromFile("text/olympiccarriersuperital.ttf");
+
+	for (int i = 0; i < 3; i++) {
+		buttonText.push_back(sf::Text());
+		buttonBlock.push_back(sf::RectangleShape(sf::Vector2f(620, 50)));
+	}
+
+	sf::Text text1;
+
+	text1.setString("Placeholder For Name Of Game 2");
+	text1.setCharacterSize(37);
+	text1.setFont(font);
+	text1.setFillColor(sf::Color::Cyan);
+	buttonText[0].setString("Player VS. AI");
+	buttonText[1].setString("Player VS. Player");
+	buttonText[2].setString("Exit");
+
+	for (int i = 0; i < 3; i++) {
+		buttonText[i].setCharacterSize(24);
+		buttonText[i].setFont(font);
+		buttonText[i].setPosition(320.f, 325.f + (60.f * i));
+		buttonText[i].setFillColor(sf::Color::Blue);
+		buttonBlock[i].setFillColor(sf::Color::Green);
+		buttonBlock[i].setOutlineColor(sf::Color::Red);
+		buttonBlock[i].setPosition(10.f, 300.f + (60.f * i));
+		sf::FloatRect temp = buttonText[i].getLocalBounds();
+		buttonText[i].setOrigin(temp.left + temp.width / 2.0f,
+				temp.top + temp.height / 2.0f);
+	}
+	bool stayOpen = true;
+	while (stayOpen) {
+		mou = sf::Mouse::getPosition(window);
+		sf::Event event;
+		while (window.pollEvent(event)) {
+			if (event.type == sf::Event::Closed) {
+				window.close();
+				stayOpen = false;
+			}
+
+			for (int i = 0; i < 3; i++) {
+				if (mou.x > 10 && mou.x < 630 && mou.y > 300 + (60.f * i)
+						&& mou.y < 350 + (60.f * i)) {
+					buttonBlock[i].setOutlineThickness(5);
+				} else {
+					buttonBlock[i].setOutlineThickness(0);
+				}
+			}
+
+			if (event.type == sf::Event::MouseButtonPressed) {
+				if (mou.x > 10 && mou.x < 630 && mou.y > 300 && mou.y < 350) {
+					ScreenTransfer(0, window);
+				} else if (mou.x > 10 && mou.x < 630 && mou.y > 360
+						&& mou.y < 410) {
+					ScreenTransfer(1, window);
+				} else if (mou.x > 10 && mou.x < 630 && mou.y > 420
+						&& mou.y < 470) {
+					stayOpen = false;
+				}
+			}
+		}
+
+		window.clear();
+		window.draw(text1);
+		for (int i = 0; i < 3; i++) {
+			window.draw(buttonBlock[i]);
+			window.draw(buttonText[i]);
 		}
 		window.display();
 	}
@@ -294,7 +436,6 @@ string InstructionsScreen::fromKtoS(const sf::Keyboard::Key& k) {
 		ret = "U";
 		break;
 	case sf::Keyboard::V:
-
 		ret = "V";
 		break;
 	case sf::Keyboard::W:
@@ -448,7 +589,6 @@ string InstructionsScreen::fromKtoS(const sf::Keyboard::Key& k) {
 		ret = "Left";
 		break;
 	case sf::Keyboard::Right:
-
 		ret = "Right";
 		break;
 	case sf::Keyboard::Up:
@@ -546,15 +686,25 @@ string InstructionsScreen::fromKtoS(const sf::Keyboard::Key& k) {
 }
 
 void TitleScreen::ScreenTransfer(int transferNum, sf::RenderWindow& window) {
-	//Start Game = 0
+//Start Game = 0
 	if (transferNum == 0) {
 		SetupScreen setup(player1Controls, player2Controls, highScoreFile);
+		setup.SetupGame(window);
 	}
-	//Instructions = 1
+//Instructions = 1
 	else if (transferNum == 1) {
 		InstructionsScreen instruction(player1Controls, player2Controls);
 		instruction.Open(window);
 		player1Controls = instruction.player1Controls;
 		player2Controls = instruction.player2Controls;
+	}
+}
+
+void SetupScreen::ScreenTransfer(int transferNum, sf::RenderWindow& window) {
+//VS AI = 0
+	if (transferNum == 0) {
+	}
+//VS Player = 1
+	else if (transferNum == 1) {
 	}
 }
