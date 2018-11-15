@@ -3,17 +3,18 @@
 #include <SFML\Graphics.hpp>
 #include "MazeSquare.h"
 
-class Player: public sf::Drawable {
+class HumanPlayer: public sf::Drawable {
 public:
     enum Direction {
         Down, Left, Right, Up
     };
 
-    Player(const sf::Texture& playerTexture, MazeConstructor Maze);
-    virtual ~Player();
+    HumanPlayer(const sf::Texture& playerTexture, MazeConstructor Maze);		// Constructor
+    virtual ~HumanPlayer();	// Destructor
 
-    virtual void draw(sf::RenderTarget& target, sf::RenderStates states) const;
+    virtual void draw(sf::RenderTarget& target, sf::RenderStates states) const;	// Draws the sprite
 
+    // Movement
     void moveUp();
     void moveDown();
     void moveLeft();
@@ -22,9 +23,10 @@ public:
     // Add useItem method
 private:
     sf::Sprite mSprite;
-    sf::Vector2i mSource;
     int x;	// Column
     int y;	// Row
+    bool isMoving;	// Adding this because I don't know if movement will be messed up when keys are
+    				// pressed and the sprite hasn't finished moving yet
     MazeConstructor currentMaze;
     MazeSquare currentSquare;
     // TODO
