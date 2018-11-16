@@ -22,6 +22,7 @@ public:
 class TitleScreen: public ScreenController{
 public:
 	TitleScreen();
+	void StartUp(sf::RenderWindow& window);
 	void StartGame(sf::RenderWindow& window);
 	void ScreenTransfer(int transferNum, sf::RenderWindow& window);
 };

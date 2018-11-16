@@ -40,6 +40,7 @@ TitleScreen::TitleScreen() {
 }
 
 void TitleScreen::StartGame(sf::RenderWindow& window) {
+	StartUp(window);
 	sf::Vector2<int> mou;
 	vector<sf::Text> buttonText;
 	vector<sf::RectangleShape> buttonBlock;
@@ -366,6 +367,34 @@ void SetupScreen::SetupGame(sf::RenderWindow& window) {
 			window.draw(buttonText[i]);
 		}
 		window.display();
+	}
+}
+
+void TitleScreen::StartUp(sf::RenderWindow& window) {
+	sf::Texture texture;
+	texture.loadFromFile("images/QueensLogo.png");
+	sf::Sprite sprite;
+	sprite.setTexture(texture);
+	sprite.setScale(sf::Vector2f(0.75f, 0.75f));
+	sf::FloatRect temp = sprite.getLocalBounds();
+	sprite.setOrigin(temp.left + temp.width / 2.0f,
+			temp.top + temp.height / 2.0f);
+	sf::Vector2u winSize = window.getSize();
+	sprite.setPosition(winSize.x / 2, winSize.y / 2);
+	int i = 0;
+	while (i < 2550) {
+		sprite.setColor(sf::Color(255, 255, 255, i / 10));
+		window.clear();
+		window.draw(sprite);
+		window.display();
+		i++;
+	}
+	while (i > 0) {
+		sprite.setColor(sf::Color(255, 255, 255, i / 10));
+		window.clear();
+		window.draw(sprite);
+		window.display();
+		i--;
 	}
 }
 
