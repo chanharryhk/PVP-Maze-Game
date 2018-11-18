@@ -1,9 +1,3 @@
-* items.h
-*
-* Created on: Oct 23, 2018
-* Author: harrychan
-*/
-
 #ifndef ITEMS_H_
 #define ITEMS_H_
 #include <time.h>
@@ -21,11 +15,12 @@ protected:
 		[orange] - legendary
 	*/
 	int itemScarcity;
+	bool activated;
 	// Player
 public:
 	// Default constructor
 	Item();
-	// Constructor
+	// Constructor-
 	Item(const string& ability)
 	// Draws the sprite
 	// virtual void draw(sf::RenderTarget& target, sf::RenderStates states) const;
@@ -42,7 +37,23 @@ public:
 };
 
 // Think about implementation of really rare boots kind of like fornite
+// Booster Items
+// Found at the end of paths
 class Boots: public Item {
+// Speeds up player
+public:
+	void ability() {
+	// call on the map object function and expand by a multiplier
+	}
+	// Replace with the ends of the maze
+	// Work with Joey or Mattieu on this
+	activated = true;
+	x = rand() % gameDimentionX;
+	y = rand() % gameDimentionY;
+};
+
+class Dynamite: public Item {
+// Blast through a wall
 public:
 	void ability() {
 	// call on the map object function and expand by a multiplier
@@ -53,15 +64,42 @@ public:
 	y = rand() % gameDimentionY;
 };
 
-class Torch: public Item {
+//class Torch: public Item {
+//public:
+//	void ability() {
+//	// call on the map object function and expand by a multiplier
+//	}
+//	// Replace with the ends of the maze
+//	// Work with Joey or Mattieu on this
+//	x = rand() % gameDimentionX;
+//	y = rand() % gameDimentionY;
+//};
+
+// Malicious Items
+// Found along the maze and not at the ends
+class Spikes: public Item {
+// Temporarily stuns the player for x amount of seconds
 public:
 	void ability() {
 	// call on the map object function and expand by a multiplier
 	}
 	// Replace with the ends of the maze
 	// Work with Joey or Mattieu on this
+	activated = true;
 	x = rand() % gameDimentionX;
 	y = rand() % gameDimentionY;
 };
 
+class SpiderWeb: public Item {
+// Temporarily slows down the player for x amount of seconds
+public:
+	void ability() {
+	// call on the map object function and expand by a multiplier
+	}
+	// Replace with the ends of the maze
+	// Work with Joey or Mattieu on this
+	activated = true;
+	x = rand() % gameDimentionX;
+	y = rand() % gameDimentionY;
+};
 #endif /* ITEMS_H_ */
