@@ -1,0 +1,10 @@
+#
+#Tue Nov 20 11:13:06 EST 2018
+Debug/Integration.exe=1
+src/MazeSquare.h=1
+src/MazeSquare.cpp=1
+Debug/src/MazeConstructor.o=1
+Debug/src/newMazeSquare.o=1
+Debug/src/HumanPlayer.o=1
+src/MazeConstructor.cpp=1
+Debug/src/MazeSquare.o=1

@@ -1,0 +1,40 @@
+#include "MazeSquare.h"
+MazeSquare::MazeSquare()
+{
+
+}
+
+MazeSquare::MazeSquare(int row, int column) {	//each square starts with 4 walls and no neighbours, which changes later in construction
+	leftWall = true;
+	rightWall = true;
+	upWall = true;
+	downWall = true;
+	x = column;
+	y = row;
+	visited = false;
+	item = NULL;
+}
+
+MazeSquare::MazeSquare(const MazeSquare& oldSquare){	//copy constructor
+	leftWall = oldSquare.leftWall;
+	rightWall = oldSquare.rightWall;
+	upWall = oldSquare.upWall;
+	downWall = oldSquare.downWall;
+	x = oldSquare.x;
+	y = oldSquare.y;
+	visited = oldSquare.visited;
+	item = oldSquare.item;
+}
+
+MazeSquare& MazeSquare::operator=(const MazeSquare& right){
+	if (this != right){
+		leftWall = right.leftWall;
+		rightWall = right.rightWall;
+		upWall = right.upWall;
+		downWall = right.downWall;
+		x = right.x;
+		y = right.y;
+		visited = right.visited;
+		item = right.item;
+	}
+}

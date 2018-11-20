@@ -1,0 +1,20 @@
+11:13:06 **** Incremental Build of configuration Debug for project Integration ****
+Info: Internal Builder is used for build
+g++ "-IC:\\SFML\\SFML-2.5.1\\include\\" -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\MazeSquare.o" "..\\src\\MazeSquare.cpp" 
+In file included from ..\src\MazeSquare.h:4:0,
+                 from ..\src\MazeSquare.cpp:1:
+..\src\items.h:56:8: warning: "/*" within comment [-Wcomment]
+ #endif /* ITEMS_H_ */
+         
+..\src\MazeSquare.cpp: In member function 'bool MazeSquare::operator!=(const MazeSquare&)':
+..\src\MazeSquare.cpp:36:16: error: no match for 'operator==' (operand types are 'MazeSquare*' and 'const MazeSquare')
+  return !(this == right);
+           ~~~~~^~~~~~~~
+..\src\MazeSquare.cpp: At global scope:
+..\src\MazeSquare.cpp:39:13: error: prototype for 'MazeSquare& MazeSquare::operator=(const MazeSquare&)' does not match any in class 'MazeSquare'
+ MazeSquare& MazeSquare::operator=(const MazeSquare& right){ //equals overload
+             ^~~~~~~~~~
+In file included from ..\src\MazeSquare.cpp:1:0:
+..\src\MazeSquare.h:14:14: error: candidate is: MazeSquare& MazeSquare::operator=(MazeSquare)
+  MazeSquare& operator=(const MazeSquare right);
+              ^~~~~~~~

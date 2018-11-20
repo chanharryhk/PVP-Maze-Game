@@ -1,0 +1,23 @@
+22:09:04 **** Rebuild of configuration Debug for project MazeGame2 ****
+Info: Internal Builder is used for build
+g++ "-IC:\\Users\\Jolleh\\Documents\\SFML-2.5.1-windows-gcc-7.3.0-mingw-32-bit\\SFML-2.5.1\\include\\" -O0 -g3 -Wall -c -fmessage-length=0 -o ScreenController.o "..\\ScreenController.cpp" 
+g++ "-LC:\\Users\\Jolleh\\Documents\\SFML-2.5.1-windows-gcc-7.3.0-mingw-32-bit\\SFML-2.5.1\\lib" -o MazeGame2.exe ScreenController.o -llibsfml-graphics -lsfml-graphics -lsfml-system -lsfml-window -llibsfml-window -llibsfml-system 
+C:/Program Files/Haskell Platform/8.2.2/mingw/bin/../lib/gcc/x86_64-w64-mingw32/6.2.0/../../../../x86_64-w64-mingw32/bin/ld.exe: cannot find -llibsfml-graphics
+C:/Program Files/Haskell Platform/8.2.2/mingw/bin/../lib/gcc/x86_64-w64-mingw32/6.2.0/../../../../x86_64-w64-mingw32/bin/ld.exe: skipping incompatible C:\Users\Jolleh\Documents\SFML-2.5.1-windows-gcc-7.3.0-mingw-32-bit\SFML-2.5.1\lib/libsfml-graphics.a when searching for -lsfml-graphics
+C:/Program Files/Haskell Platform/8.2.2/mingw/bin/../lib/gcc/x86_64-w64-mingw32/6.2.0/../../../../x86_64-w64-mingw32/bin/ld.exe: skipping incompatible C:\Users\Jolleh\Documents\SFML-2.5.1-windows-gcc-7.3.0-mingw-32-bit\SFML-2.5.1\lib\libsfml-graphics.a when searching for -lsfml-graphics
+C:/Program Files/Haskell Platform/8.2.2/mingw/bin/../lib/gcc/x86_64-w64-mingw32/6.2.0/../../../../x86_64-w64-mingw32/bin/ld.exe: skipping incompatible C:\Users\Jolleh\Documents\SFML-2.5.1-windows-gcc-7.3.0-mingw-32-bit\SFML-2.5.1\lib/libsfml-graphics.a when searching for -lsfml-graphics
+C:/Program Files/Haskell Platform/8.2.2/mingw/bin/../lib/gcc/x86_64-w64-mingw32/6.2.0/../../../../x86_64-w64-mingw32/bin/ld.exe: cannot find -lsfml-graphics
+C:/Program Files/Haskell Platform/8.2.2/mingw/bin/../lib/gcc/x86_64-w64-mingw32/6.2.0/../../../../x86_64-w64-mingw32/bin/ld.exe: skipping incompatible C:\Users\Jolleh\Documents\SFML-2.5.1-windows-gcc-7.3.0-mingw-32-bit\SFML-2.5.1\lib/libsfml-system.a when searching for -lsfml-system
+C:/Program Files/Haskell Platform/8.2.2/mingw/bin/../lib/gcc/x86_64-w64-mingw32/6.2.0/../../../../x86_64-w64-mingw32/bin/ld.exe: skipping incompatible C:\Users\Jolleh\Documents\SFML-2.5.1-windows-gcc-7.3.0-mingw-32-bit\SFML-2.5.1\lib\libsfml-system.a when searching for -lsfml-system
+C:/Program Files/Haskell Platform/8.2.2/mingw/bin/../lib/gcc/x86_64-w64-mingw32/6.2.0/../../../../x86_64-w64-mingw32/bin/ld.exe: skipping incompatible C:\Users\Jolleh\Documents\SFML-2.5.1-windows-gcc-7.3.0-mingw-32-bit\SFML-2.5.1\lib/libsfml-system.a when searching for -lsfml-system
+C:/Program Files/Haskell Platform/8.2.2/mingw/bin/../lib/gcc/x86_64-w64-mingw32/6.2.0/../../../../x86_64-w64-mingw32/bin/ld.exe: cannot find -lsfml-system
+C:/Program Files/Haskell Platform/8.2.2/mingw/bin/../lib/gcc/x86_64-w64-mingw32/6.2.0/../../../../x86_64-w64-mingw32/bin/ld.exe: skipping incompatible C:\Users\Jolleh\Documents\SFML-2.5.1-windows-gcc-7.3.0-mingw-32-bit\SFML-2.5.1\lib/libsfml-window.a when searching for -lsfml-window
+C:/Program Files/Haskell Platform/8.2.2/mingw/bin/../lib/gcc/x86_64-w64-mingw32/6.2.0/../../../../x86_64-w64-mingw32/bin/ld.exe: skipping incompatible C:\Users\Jolleh\Documents\SFML-2.5.1-windows-gcc-7.3.0-mingw-32-bit\SFML-2.5.1\lib\libsfml-window.a when searching for -lsfml-window
+C:/Program Files/Haskell Platform/8.2.2/mingw/bin/../lib/gcc/x86_64-w64-mingw32/6.2.0/../../../../x86_64-w64-mingw32/bin/ld.exe: skipping incompatible C:\Users\Jolleh\Documents\SFML-2.5.1-windows-gcc-7.3.0-mingw-32-bit\SFML-2.5.1\lib/libsfml-window.a when searching for -lsfml-window
+C:/Program Files/Haskell Platform/8.2.2/mingw/bin/../lib/gcc/x86_64-w64-mingw32/6.2.0/../../../../x86_64-w64-mingw32/bin/ld.exe: cannot find -lsfml-window
+C:/Program Files/Haskell Platform/8.2.2/mingw/bin/../lib/gcc/x86_64-w64-mingw32/6.2.0/../../../../x86_64-w64-mingw32/bin/ld.exe: cannot find -llibsfml-window
+C:/Program Files/Haskell Platform/8.2.2/mingw/bin/../lib/gcc/x86_64-w64-mingw32/6.2.0/../../../../x86_64-w64-mingw32/bin/ld.exe: cannot find -llibsfml-system
+collect2.exe: error: ld returned 1 exit status
+
+22:09:06 Build Failed. 15 errors, 0 warnings. (took 2s.136ms)
+

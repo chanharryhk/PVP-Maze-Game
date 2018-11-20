@@ -12,6 +12,7 @@
 using namespace std;
 #include "SFML/Graphics.hpp"
 
+
 InstructionsScreen::InstructionsScreen(
 		vector<sf::Keyboard::Key> player1Controls,
 		vector<sf::Keyboard::Key> player2Controls) {
@@ -736,4 +737,8 @@ void SetupScreen::ScreenTransfer(int transferNum, sf::RenderWindow& window) {
 //VS Player = 1
 	else if (transferNum == 1) {
 	}
+}
+
+int main() {
+	TitleScreen();
 }
