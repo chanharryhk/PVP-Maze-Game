@@ -3,7 +3,6 @@
 
 #include "HumanPlayer.h"
 
-#define MOVE_SPEED 1.0	// How fast the player will move between squares
 #define SQUARE_SIZE 40 	// Length of each square of the maze
 
 // Constructor - takes in file name of the sprite texture and the maze that the player will be placed in
@@ -11,6 +10,8 @@
 HumanPlayer::HumanPlayer(const sf::Texture& imagePath, MazeConstructor Maze) {
     mSprite(imagePath);
 	currentMaze = Maze;
+	// Default movement speed
+	moveSpeed = 1.0;
 	// Sets the current square the player is in
 	x = currentMaze.xStart;
 	y = currentMaze.yStart;
@@ -28,6 +29,16 @@ HumanPlayer::~HumanPlayer() {
 
 void Player::draw(sf::RenderTarget& target, sf::RenderStates states) const {
     target.draw(mSprite, states);
+}
+
+// Accessor
+float getMoveSpeed() const {
+	return moveSpeed;
+}
+
+// Mutator
+void changeMoveSpeed(const float newMoveSpeed) {
+	moveSpeed = newMoveSpeed;
 }
 
 /* MOVEMENT
