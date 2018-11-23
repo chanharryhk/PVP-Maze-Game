@@ -2,11 +2,9 @@
 
 #include <iostream>
 #include <SFML\Graphics.hpp>
-#define MOVE_SPEED 1.0	// How fast the player will move between squares
 #define SQUARE_SIZE 40 	// Length of each square of the maze
 
 // Constructor - takes in file name of the sprite texture and the maze that the player will be placed in
-// Right now it assumes the player will only be
 HumanPlayer::HumanPlayer(const sf::Texture& imagePath, vector<vector<MazeSquare>> Maze) {
     mSprite(imagePath);
 	currentMaze = Maze;
