@@ -247,6 +247,9 @@ void GameScreen :: Game(sf::RenderWindow& window){
 			}
 		}
 		}
+		sf::Texture playerTexture;
+		playerTexture.loadFromFile("texture.jpg");
+		HumanPlayer hPlayer(playerTexture, maze_1);
 		window.display();
 	}
 }
