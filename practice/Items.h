@@ -20,6 +20,7 @@ private:
 	*/
 	int itemScarcity;
 	bool activated;
+	int speedMultiplier;
 	// Maze
 //    vector<vector<MazeSquare>> currentMaze;
 //    MazeSquare currentSquare;
@@ -42,6 +43,7 @@ public:
 	int getItemScarcity() const;
 	string getItemColor() const;
 	bool isActivated() const;
+	int getSpeedMultiplier() const;
 };
 //
 //// Think about implementation of really rare boots kind of like fornite

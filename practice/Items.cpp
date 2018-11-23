@@ -24,6 +24,10 @@ string Item::getItemColor() const {
 bool Item::isActivated() const{
 	return activated;
 }
+
+int Item::getSpeedMultiplier() const{
+	return speedMultiplier;
+}
 //int Item::ability() {
 //	return
 //}
@@ -35,6 +39,7 @@ Item::Item(){
 	color = "blue";
 	itemScarcity = 5;
 	activated = false;
+	speedMultiplier = 1;
 }
 
 Item::Item(const string& ability){
@@ -48,6 +53,7 @@ Item::Item(const string& ability){
 		color = "blue";
 		itemScarcity = 10;
 		activated = false;
+		speedMultiplier = 1.25;
 	}
 //	}else if (ability == "dynamite"){
 //		// Same incorporation
