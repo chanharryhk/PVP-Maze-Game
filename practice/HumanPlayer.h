@@ -14,6 +14,10 @@ public:
 
     virtual void draw(sf::RenderTarget& target, sf::RenderStates states) const;	// Draws the sprite
 
+    float getMoveSpeed() const;	// Accessor
+
+    void changeMoveSpeed(const float newMoveSpeed);	// Mutator
+
     // Movement
     void moveUp();
     void moveDown();
@@ -25,6 +29,7 @@ private:
     sf::Sprite mSprite;
     int x;	// Column
     int y;	// Row
+    float moveSpeed; // How fast the player moves
     bool isMoving;	// Adding this because I don't know if movement will be messed up when keys are
     				// pressed and the sprite hasn't finished moving yet
     vector<vector<MazeSquare>> currentMaze;

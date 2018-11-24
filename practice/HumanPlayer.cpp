@@ -2,23 +2,23 @@
 
 #include <iostream>
 #include <SFML\Graphics.hpp>
-#define MOVE_SPEED 1.0	// How fast the player will move between squares
 #define SQUARE_SIZE 40 	// Length of each square of the maze
 
 // Constructor - takes in file name of the sprite texture and the maze that the player will be placed in
-// Right now it assumes the player will only be
 HumanPlayer::HumanPlayer(const sf::Texture& imagePath, vector<vector<MazeSquare>> Maze) {
-    //mSprite(imagePath);
+    mSprite(imagePath);
 	currentMaze = Maze;
 	// Sets the current square the player is in
 	x = 0;
 	y = 0;
+	// Set default movement speed
+	moveSpeed = 0.8;
 	currentSquare = currentMaze[x][y];
 	isMoving = false;
 	// Set the starting position of the player
-	//mSprite.setPosition(15.0f, 15.0f);
+	mSprite.setPosition(15.0f, 15.0f);
 	// Sets the size of the sprite
-	//mSprite.setTextureRect(sf::IntRect(15, 15, 20, 20));
+	mSprite.setTextureRect(sf::IntRect(15, 15, 20, 20));
 }
 
 HumanPlayer::~HumanPlayer() {
@@ -27,6 +27,16 @@ HumanPlayer::~HumanPlayer() {
 
 void HumanPlayer::draw(sf::RenderTarget& target, sf::RenderStates states) const {
     target.draw(mSprite, states);
+}
+
+// Accessor - returns current movement speed
+float getMoveSpeed() const {
+	return moveSpeed;
+}
+
+// Mutator - changes current movement speed
+void changeMoveSpeed(const float newMoveSpeed) {
+	moveSpeed = newMoveSpeed;
 }
 
 /* MOVEMENT
@@ -42,7 +52,7 @@ void HumanPlayer::moveUp() {
 		// Move to the square above
 		isMoving = true;
 		while (mSprite.getPosition().y >= newYPos) {
-			mSprite.move(0, -MOVE_SPEED);
+			mSprite.move(0, -moveSpeed);
 		}
 		isMoving = false;
 	}
@@ -56,7 +66,7 @@ void HumanPlayer::moveDown() {
 		// Move to the square below
 		isMoving = true;
 		while (mSprite.getPosition().y <= newYPos) {
-			mSprite.move(0, MOVE_SPEED);
+			mSprite.move(0, moveSpeed);
 		}
 		isMoving = false;
 	}
@@ -69,7 +79,7 @@ void HumanPlayer::moveLeft() {
 		float newXPos = mSprite.getPosition().x - SQUARE_SIZE;
 		// Move to the square to the left
 		while (mSprite.getPosition().x >= newXPos) {
-			mSprite.move(-MOVE_SPEED, 0);
+			mSprite.move(-moveSpeed, 0);
 		}
 		isMoving = true;
 	}
@@ -82,7 +92,7 @@ void HumanPlayer::moveRight() {
 		float newXPos = mSprite.getPosition().x + SQUARE_SIZE;
 		// Move to the square to the right
 		while (mSprite.getPosition().x <= newXPos) {
-			mSprite.move(MOVE_SPEED, 0);
+			mSprite.move(moveSpeed, 0);
 		}
 		isMoving = true;
 	}
