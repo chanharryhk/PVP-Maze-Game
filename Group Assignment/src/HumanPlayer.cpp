@@ -47,7 +47,7 @@ void changeMoveSpeed(const float newMoveSpeed) {
  */
 
 void HumanPlayer::moveUp() {
-	if (currentSquare.upWall && !isMoving) {
+	//if (currentSquare.upWall && !isMoving) {
 		currentSquare = currentMaze.maze[x][y-1];
 		y--;
 		float newYPos = mSprite.getPosition().y - SQUARE_SIZE;
@@ -57,11 +57,11 @@ void HumanPlayer::moveUp() {
 			mSprite.move(0, -MOVE_SPEED);
 		}
 		isMoving = false;
-	}
+//	}
 }
 
 void HumanPlayer::moveDown() {
-	if (currentSquare.downWall && !isMoving) {
+//	if (currentSquare.downWall && !isMoving) {
 		currentSquare = currentMaze.maze[x][y+1];
 		y++;
 		float newYPos = mSprite.getPosition().y + SQUARE_SIZE;
@@ -71,11 +71,11 @@ void HumanPlayer::moveDown() {
 			mSprite.move(0, MOVE_SPEED);
 		}
 		isMoving = false;
-	}
+//	}
 }
 
 void HumanPlayer::moveLeft() {
-	if (currentSquare.leftWall && !isMoving) {
+	//if (currentSquare.leftWall && !isMoving) {
 		currentSquare = currentMaze.maze[x-1][y];
 		x--;
 		float newXPos = mSprite.getPosition().x - SQUARE_SIZE;
@@ -84,11 +84,11 @@ void HumanPlayer::moveLeft() {
 			mSprite.move(-MOVE_SPEED, 0);
 		}
 		isMoving = true;
-	}
+//	}
 }
 
 void HumanPlayer::moveRight() {
-	if (currentSquare.rightWall && !isMoving) {
+//	if (currentSquare.rightWall && !isMoving) {
 		currentSquare = currentMaze.maze[x+1][y];
 		x++;
 		float newXPos = mSprite.getPosition().x + SQUARE_SIZE;
@@ -97,7 +97,7 @@ void HumanPlayer::moveRight() {
 			mSprite.move(MOVE_SPEED, 0);
 		}
 		isMoving = true;
-	}
+//	}
 }
 
 
