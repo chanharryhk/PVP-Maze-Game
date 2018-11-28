@@ -1,14 +1,20 @@
 #pragma once
 #include "HumanPlayer.h"
+#include "MazeConstructor.h"
+#include "MazeSquare.h"
 
 #include <iostream>
 #include <SFML\Graphics.hpp>
-#define moveSpeed 0.1
-#define SQUARE_SIZE 1 	// Length of each square of the maze
+#define moveSpeed .1
+#define SQUARE_SIZE 40 	// Length of each square of the maze
+
+#define SIZE 15
 
 // Constructor - takes in file name of the sprite texture and the maze that the player will be placed in
-HumanPlayer::HumanPlayer(const sf::Texture& imagePath, vector<vector<MazeSquare>> Maze) {
-
+HumanPlayer::HumanPlayer(const sf::Texture& imagePath, vector<vector<MazeSquare>> Maze, sf::Vector2f start) {
+/*	MazeConstructor go;
+	xfinal = go.xGoal;
+	yfinal = go.yGoal;*/
 
 	mSprite.setTexture(imagePath);
 	currentMaze = Maze;
@@ -19,9 +25,11 @@ HumanPlayer::HumanPlayer(const sf::Texture& imagePath, vector<vector<MazeSquare>
 	//moveSpeed = 0.8;
 	currentSquare = currentMaze[x][y];
 	isMoving = false;
+	canInput = true;
+	isEnd = false;
 	// Set the starting position of the player
 	//mSprite.setPosition(15.0f, 15.0f);
-	mSprite.setPosition(15.0f, 15.0f);
+	mSprite.setPosition(start.x, start.y);
 	// Sets the size of the sprite
 	mSprite.setTextureRect(sf::IntRect(15, 15, 20, 20));
 }
@@ -51,65 +59,85 @@ void changeMoveSpeed(const float newMoveSpeed) {
  * Animation speed is dictated by MOVE_SPEED
 */
 
-void HumanPlayer::moveUp() {
-//	if (currentSquare.upWall && !isMoving) {
-		currentSquare = currentMaze[x][y-1];
+void HumanPlayer::moveUp(sf::Time timeChange) {
+	if (!currentSquare.upWall) {
 		y--;
-		float newYPos = mSprite.getPosition().y;// - SQUARE_SIZE;
+		currentSquare = currentMaze[x][y];
+
+		float newYPos = mSprite.getPosition().y - SQUARE_SIZE;
 		// Move to the square above
 		isMoving = true;
 		while (mSprite.getPosition().y >= newYPos) {
 			mSprite.move(0, -moveSpeed);
 		}
-		isMoving = false;
+		//isMoving = false;
 		//delete &mSprite;
-//	}
+		if (currentMaze[x][y] == currentMaze[xfinal][yfinal])
+			isEnd = true;
+	}
+
+	canInput = true;
 }
 
-void HumanPlayer::moveDown() {
-	//if (currentSquare.downWall && !isMoving) {
-
-		currentSquare = currentMaze[x][y+1];
+void HumanPlayer::moveDown(sf::Time timeChange) {
+	if (!currentSquare.downWall) {
 		y++;
-		float newYPos = mSprite.getPosition().y;// + SQUARE_SIZE;
+		currentSquare = currentMaze[x][y];
+
+		float newYPos = mSprite.getPosition().y + SQUARE_SIZE;
 		// Move to the square below
-		isMoving = true;
+		//isMoving = true;
 		while (mSprite.getPosition().y <= newYPos) {
 			mSprite.move(0, moveSpeed);
 		}
 		isMoving = false;
 		//delete &mSprite;
-	//}
+		if (currentMaze[x][y] == currentMaze[xfinal][yfinal]){
+			isEnd = true;
+		}
+	}
+
+	canInput = true;
 }
 
-void HumanPlayer::moveLeft() {
-	//if (currentSquare.leftWall && !isMoving) {
-
-		currentSquare = currentMaze[x-1][y];
+void HumanPlayer::moveLeft(sf::Time timeChange) {
+	if (!currentSquare.leftWall ) {
+		//cout<<x<<endl;
 		x--;
-		float newXPos = mSprite.getPosition().x;// - SQUARE_SIZE;
+		currentSquare = currentMaze[x][y];
+		float newXPos = mSprite.getPosition().x - SQUARE_SIZE;
 		// Move to the square to the left
-		isMoving = false;
+		//isMoving = false;
 		while (mSprite.getPosition().x >= newXPos) {
 			mSprite.move(-moveSpeed, 0);
 		}
 		//isMoving = false;
 		//delete &mSprite;
-	//}
+		if (currentMaze[x][y] == currentMaze[xfinal][yfinal]){
+			isEnd = true;
+		}
+	}
+
+	canInput = true;
 }
 
-void HumanPlayer::moveRight() {
-//	if (currentSquare.rightWall && !isMoving) {
-
-		currentSquare = currentMaze[x+1][y];
+void HumanPlayer::moveRight(sf::Time timeChange) {
+	if (!currentSquare.rightWall) {
+		//isMoving = true;
 		x++;
-		float newXPos = mSprite.getPosition().x;// + SQUARE_SIZE;
+		currentSquare = currentMaze[x][y];
+
+		float newXPos = mSprite.getPosition().x + SQUARE_SIZE;
 		// Move to the square to the right
-		isMoving = false;
 		while (mSprite.getPosition().x <= newXPos) {
 			mSprite.move(moveSpeed, 0);
 		}
 		//isMoving = false;
 		//delete &mSprite;
-//	}
+		if (currentMaze[x][y] == currentMaze[xfinal][yfinal]){
+			isEnd = true;
+		}
+	}
+
+	canInput = true;
 }

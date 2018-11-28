@@ -1,5 +1,7 @@
+#pragma once
 #include <vector>
 #include "MazeSquare.h"
+#include "MazeConstructor.h"
 
 using namespace std;
 
@@ -12,6 +14,8 @@ public:
 	vector<MazeSquare> correctPath;	//contains path of maze cells leading to goal. Used for AI
 	int xStart;
 	int yStart;
+	int xGoal;
+	int yGoal;
 private:
 	vector<MazeSquare> squareStack;	//contains path of maze cells visited, which will later be backtracked
 } ;

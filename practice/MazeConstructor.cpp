@@ -112,6 +112,8 @@ MazeConstructor::MazeConstructor(int size) {
 		}
 	}
 	correctPath.back().goal = true;	//TODO: replace with goal object once implemented
+	xGoal = correctPath.back().x;
+	yGoal = correctPath.back().y;
 }
 
 MazeConstructor::~MazeConstructor(){
@@ -121,9 +123,13 @@ MazeConstructor::~MazeConstructor(){
 				delete[] &maze[y];
 				//maze[y] = nullptr;
 			}
+		for (int x = 0; x < mazeSize; x++){
+				//if (maze[y] != nullptr){
+					delete[] &maze[x];
+					//maze[y] = nullptr;
+				}
 		//}
 		delete[] &maze;
 		//maze = nullptr;
 	//}
 }
-

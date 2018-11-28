@@ -12,9 +12,11 @@
 using namespace std;
 #include "SFML/Graphics.hpp"
 #include "ScreenController.h"
+#include "HumanPlayer.h"
 class GameScreen{
 public:
 	void Game(sf::RenderWindow& window);
+	void endScreen(sf::RenderWindow& window, int whoWins);
 };
 
 class PauseMenu{
