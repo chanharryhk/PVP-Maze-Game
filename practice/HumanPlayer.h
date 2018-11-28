@@ -10,7 +10,7 @@ public:
         Down, Left, Right, Up
     };
 
-   HumanPlayer(const sf::Texture& imagePath, vector<vector<MazeSquare>> Maze, sf::Vector2f start);		// Constructor
+   HumanPlayer(const sf::Texture& imagePath, vector<vector<MazeSquare>> Maze, sf::Vector2f start, int xgoal, int ygoal);		// Constructor
     virtual ~HumanPlayer();	// Destructor
 
     virtual void draw(sf::RenderTarget& target, sf::RenderStates states) const;	// Draws the sprite

@@ -11,10 +11,10 @@
 #define SIZE 15
 
 // Constructor - takes in file name of the sprite texture and the maze that the player will be placed in
-HumanPlayer::HumanPlayer(const sf::Texture& imagePath, vector<vector<MazeSquare>> Maze, sf::Vector2f start) {
-/*	MazeConstructor go;
-	xfinal = go.xGoal;
-	yfinal = go.yGoal;*/
+HumanPlayer::HumanPlayer(const sf::Texture& imagePath, vector<vector<MazeSquare>> Maze, sf::Vector2f start, int xgoal, int ygoal) {
+
+	xfinal = xgoal;
+	yfinal = ygoal;
 
 	mSprite.setTexture(imagePath);
 	currentMaze = Maze;
