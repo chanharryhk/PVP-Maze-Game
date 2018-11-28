@@ -251,13 +251,24 @@ void GameScreen::Game(sf::RenderWindow& window) {
 	sf::Vector2f v1(16.5f, 16.5f);
 	sf::Vector2f v2(SIZE * 43.5f, 16.5f);
 	texture.loadFromFile("character.png");
-	HumanPlayer hPlayer(texture, maze_1, v1,maze_constructor.xGoal,maze_constructor.yGoal);
-	HumanPlayer hPlayer2(texture, maze_2, v2,maze_constructor.xGoal,maze_constructor.yGoal);
+	HumanPlayer hPlayer(texture, maze_1, v1, maze_constructor.xGoal,
+			maze_constructor.yGoal);
+	HumanPlayer hPlayer2(texture, maze_2, v2, maze_constructor.xGoal,
+			maze_constructor.yGoal);
 
 	//============Final location box ===========
-	sf::RectangleShape finalRect(sf::Vector2f(maze_constructor.xGoal, maze_constructor.yGoal));
+	sf::RectangleShape finalRect(sf::Vector2f(40.f, 40.f));
 	finalRect.setSize(sf::Vector2f(40.f, 40.f));
+	finalRect.setPosition(maze_constructor.xGoal * 40,
+			maze_constructor.yGoal * 40);
 	finalRect.setFillColor(sf::Color::Red);
+	//final location box 2
+	sf::RectangleShape finalRect2(sf::Vector2f(40.f, 40.f));
+	finalRect2.setSize(sf::Vector2f(40.f, 40.f));
+	finalRect2.setPosition(maze_constructor.xGoal * 40 + 43.5f * SIZE,
+			maze_constructor.yGoal * 40);
+	finalRect2.setFillColor(sf::Color::Red);
+
 	// ===========	END OF SETUP  ===========
 	bool stayOpen = true;
 	while (stayOpen) {
@@ -267,7 +278,8 @@ void GameScreen::Game(sf::RenderWindow& window) {
 			//Pause Screen
 
 			if (event.type == sf::Event::MouseButtonPressed) {
-				if (mou.x > SIZE*40.0f && mou.x < SIZE*40.0f+0.5f && mou.y > 20.0f && mou.y < 20.0f + 2.f) {
+				if (mou.x > SIZE * 40.0f && mou.x < SIZE * 40.0f + 0.5f
+						&& mou.y > 20.0f && mou.y < 20.0f + 2.f) {
 					PauseMenu p;
 					p.PauseGame(window);
 				}
@@ -640,6 +652,7 @@ void GameScreen::Game(sf::RenderWindow& window) {
 
 			}
 			window.draw(finalRect);
+			window.draw(finalRect2);
 			window.draw(spriteforpause);
 			window.draw(hPlayer);
 			window.draw(hPlayer2);
