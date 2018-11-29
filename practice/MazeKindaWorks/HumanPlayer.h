@@ -19,9 +19,7 @@ public:
 
     void changeMoveSpeed(const float newMoveSpeed);	// Mutator
 
-    int x;	// Column
-    int y;	// Row
-
+    void getImage(const sf::Texture& imagePath);
     // Movement
     void moveUp(sf::Time timeChange);
     void moveDown(sf::Time timeChange);
@@ -29,12 +27,19 @@ public:
     void moveRight(sf::Time timeChange);
     bool canInput;
     bool isEnd;
+    int getx;
+    int gety;
+    int xf;
+    int yf;
+    int x;	// Column
+    int y;	// Row
     // TODOs
     // Add useItem method
 private:
     sf::Sprite mSprite;
     int xfinal;
     int yfinal;
+
     //float moveSpeed; // How fast the player moves
     bool isMoving;	// Adding this because I don't know if movement will be messed up when keys are
     				// pressed and the sprite hasn't finished moving yet

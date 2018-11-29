@@ -4,7 +4,7 @@
  *  Created on: Nov 17, 2018
  *      Author: Daniel Kim
  */
-#pragma once	//THINGS TO CHANGE: This file, GameControll.h, ScreenController.cpp
+#pragma once
 #include <string>
 #include <vector>
 #include "ScreenController.h"
@@ -15,10 +15,10 @@ using namespace std;
 #include "MazeConstructor.h"
 #include "GameControll.h"
 #include "HumanPlayer.h"
-#include <time.h>
+#include "Item.h"
 #define SIZE 16
 
-void GameScreen::endScreen(sf::RenderWindow& window, int whoWins) {	//CHANGE: DELETED A COUPLE THINGS
+void GameScreen::endScreen(sf::RenderWindow& window, int whoWins) {
 
 	sf::RectangleShape rectangle(sf::Vector2f(120, 50));
 	rectangle.setSize(sf::Vector2f(500, 50));
@@ -73,6 +73,8 @@ void GameScreen::endScreen(sf::RenderWindow& window, int whoWins) {	//CHANGE: DE
 			if (event.type == sf::Event::MouseButtonPressed) {
 				if (mou.x > 10 && mou.x < 630 && mou.y > 300 && mou.y < 350) {
 					stayOpen = false;
+					TitleScreen s;
+					s.StartGame(window);
 
 				} else if (mou.x > 10 && mou.x < 630 && mou.y > 360
 						&& mou.y < 410) {
@@ -96,7 +98,7 @@ void GameScreen::endScreen(sf::RenderWindow& window, int whoWins) {	//CHANGE: DE
 
 }
 
-bool PauseMenu::PauseGame(sf::RenderWindow& window) {	//CHANGED: THIS IS A BOOL NOW, FEW OTHER SMALL CHANGES
+void PauseMenu::PauseGame(sf::RenderWindow& window) {
 
 	sf::RenderWindow window2(sf::VideoMode(640, 480), "");
 	sf::RectangleShape rectangle(sf::Vector2f(120, 50));
@@ -153,7 +155,8 @@ bool PauseMenu::PauseGame(sf::RenderWindow& window) {	//CHANGED: THIS IS A BOOL 
 				} else if (mou.x > 10 && mou.x < 630 && mou.y > 360
 						&& mou.y < 410) {
 					window2.close();
-					return false;
+					TitleScreen s;
+					s.StartGame(window);
 
 				}
 			}
@@ -184,7 +187,7 @@ bool PauseMenu::PauseGame(sf::RenderWindow& window) {	//CHANGED: THIS IS A BOOL 
 		window2.display();
 
 	}
-	return true;
+
 }
 
 sf::Texture setUpTexture(std::string fileName) {
@@ -201,11 +204,11 @@ void GameScreen::Game(sf::RenderWindow& window, bool AI) {
 
 	sf::RectangleShape grid[2 * SIZE + 1][SIZE];
 	sf::Time elapsed;
-	sf::Clock clock;
 	sf::Time elapsed2;
+	sf::Clock clock;
+
 	sf::Clock clock2;
 	sf::Vector2<int> mou;
-	vector<MazeSquare> errorPath;
 	// =========== Load Textures ===========
 
 	//	No wall Texture
@@ -239,6 +242,26 @@ void GameScreen::Game(sf::RenderWindow& window, bool AI) {
 	vector<vector<MazeSquare>> maze_1 = maze_constructor.maze;
 	vector<vector<MazeSquare>> maze_2 = maze_constructor.maze;
 
+	//=============PLAYER 1 SPRITES=======
+
+	sf::Texture p1UP;
+	p1UP.loadFromFile("sprite_1_up.png");
+	sf::Texture p1DOWN;
+	p1DOWN.loadFromFile("sprite_1_down.png");
+	sf::Texture p1RIGHT;
+	p1RIGHT.loadFromFile("sprite_1_right.png");
+	sf::Texture p1LEFT;
+	p1LEFT.loadFromFile("sprite_1_left.png");
+
+	//=============PLAYER 2 SPRITES ==========
+	sf::Texture p2UP;
+	p2UP.loadFromFile("sprite_2_up.png");
+	sf::Texture p2DOWN;
+	p2DOWN.loadFromFile("sprite_2_down.png");
+	sf::Texture p2RIGHT;
+	p2RIGHT.loadFromFile("sprite_2_right.png");
+	sf::Texture p2LEFT;
+	p2LEFT.loadFromFile("sprite_2_left.png");
 	//Generate pause image
 	sf::Texture pause;
 	pause.loadFromFile("pause.png");
@@ -252,24 +275,44 @@ void GameScreen::Game(sf::RenderWindow& window, bool AI) {
 	sf::Vector2f v1(16.5f, 16.5f);
 	sf::Vector2f v2(SIZE * 43.5f, 16.5f);
 	texture.loadFromFile("character.png");
-	HumanPlayer hPlayer(texture, maze_1, v1, maze_constructor.xGoal,
+	HumanPlayer hPlayer(p1DOWN, maze_1, v1, maze_constructor.xGoal,
 			maze_constructor.yGoal);
-	HumanPlayer hPlayer2(texture, maze_2, v2, maze_constructor.xGoal,
+	HumanPlayer hPlayer2(p2DOWN, maze_2, v2, maze_constructor.xGoal,
 			maze_constructor.yGoal);
 
 	//============Final location box ===========
-	sf::RectangleShape finalRect(sf::Vector2f(40.f, 40.f));
-	finalRect.setSize(sf::Vector2f(40.f, 40.f));
+
+	sf::Texture endBox;
+	endBox.loadFromFile("finish.png");
+	sf::Sprite finalRect;
+	finalRect.setTexture(endBox);
 	finalRect.setPosition(maze_constructor.xGoal * 40,
 			maze_constructor.yGoal * 40);
-	finalRect.setFillColor(sf::Color::Red);
+	//finalRect.setFillColor(sf::Color::Red);
 	//final location box 2
-	sf::RectangleShape finalRect2(sf::Vector2f(40.f, 40.f));
-	finalRect2.setSize(sf::Vector2f(40.f, 40.f));
-	finalRect2.setPosition(maze_constructor.xGoal * 40 + 43.5f * SIZE,
+	sf::Texture endBox2;
+	endBox2.loadFromFile("finish.png");
+	sf::Sprite finalRect2;
+	//sf::RectangleShape finalRect2(sf::Vector2f(40.f, 40.f));
+	//finalRect2.setSize(sf::Vector2f(40.f, 40.f));
+	finalRect2.setTexture(endBox2);
+	finalRect2.setPosition(maze_constructor.xGoal * 40 + 43.0f * SIZE,
 			maze_constructor.yGoal * 40);
-	finalRect2.setFillColor(sf::Color::Red);
+	//finalRect2.setFillColor(sf::Color::Red);
 
+	//===========ITEMS============
+	sf::Texture item = setUpTexture("speed_boost.png");
+	sf::Texture item2;
+	item2.loadFromFile("freeze.png");
+	sf::Sprite item_overlay2;
+	item_overlay2.setTexture(item2);
+	sf::Sprite item_overlay;
+	item_overlay.setTexture(item);
+	sf::Texture grey = setUpTexture("grey.png");
+	sf::Sprite deleteitem;
+	deleteitem.setTexture(grey);
+
+	//AI STUFFS
 	srand(time(NULL));	//CHANGED: ADD THIS STUFF
 	maze_constructor.correctPath.erase(maze_constructor.correctPath.begin());
 	int randDirection = 5;
@@ -278,6 +321,24 @@ void GameScreen::Game(sf::RenderWindow& window, bool AI) {
 
 	// ===========	END OF SETUP  ===========
 	bool stayOpen = true;
+	int rand();
+	int movespeed = 100;
+	int movespeed2 = 100;
+	int getItem[SIZE][2];
+	int slowItem[SIZE][2];
+	int whichItem = 0;
+	int count;
+	int count2;
+	int random[SIZE][SIZE];
+	bool haveItem = false;
+	bool haveItem2 = false;
+	for (int i = 0; i < SIZE; i++) {
+		for (int j = 0; j < SIZE; j++) {
+			random[i][j] = rand();
+		}
+	}
+	bool item_test = false;
+	bool item_test2 = false;
 	while (stayOpen) {
 		sf::Event event;
 		mou = sf::Mouse::getPosition(window);
@@ -288,7 +349,7 @@ void GameScreen::Game(sf::RenderWindow& window, bool AI) {
 				if (mou.x > SIZE * 40.0f && mou.x < SIZE * 40.0f + 0.5f
 						&& mou.y > 20.0f && mou.y < 20.0f + 2.f) {
 					PauseMenu p;
-					stayOpen = p.PauseGame(window);
+					p.PauseGame(window);
 				}
 			}
 			switch (event.type) {
@@ -300,481 +361,493 @@ void GameScreen::Game(sf::RenderWindow& window, bool AI) {
 				if (event.key.code == sf::Keyboard::P
 						|| event.key.code == sf::Keyboard::Escape) {
 					PauseMenu p;
-					stayOpen = p.PauseGame(window);
-				} else if (event.key.code == sf::Keyboard::R) {
-					window.close();
+					p.PauseGame(window);
 				}
 				break;
 			default:
 				break;
 			}
 
+			window.clear();
 
-			//window.display();
-
-			elapsed = clock.getElapsedTime();
-			if (elapsed.asMilliseconds() > 100) {
-
-				if (sf::Keyboard::isKeyPressed(sf::Keyboard::W)
-						&& sf::Keyboard::isKeyPressed(sf::Keyboard::Up)
-						&& hPlayer.canInput && hPlayer2.canInput && !AI
-						&& elapsed.asMilliseconds() != 0) {
-					hPlayer2.canInput = false;
-					hPlayer2.moveUp(elapsed);
-					hPlayer.canInput = false;
-					hPlayer.moveUp(elapsed);
-					clock.restart();
-				} else if (sf::Keyboard::isKeyPressed(sf::Keyboard::W)
-						&& sf::Keyboard::isKeyPressed(sf::Keyboard::Down)
-						&& hPlayer.canInput && hPlayer2.canInput && !AI
-						&& elapsed.asMilliseconds() != 0) {
-					hPlayer2.canInput = false;
-					hPlayer2.moveDown(elapsed);
-					hPlayer.canInput = false;
-					hPlayer.moveUp(elapsed);
-					clock.restart();
-				} else if (sf::Keyboard::isKeyPressed(sf::Keyboard::W)
-						&& sf::Keyboard::isKeyPressed(sf::Keyboard::Right)
-						&& hPlayer.canInput && hPlayer2.canInput && !AI
-						&& elapsed.asMilliseconds() != 0) {
-					hPlayer2.canInput = false;
-					hPlayer2.moveRight(elapsed);
-					hPlayer.canInput = false;
-					hPlayer.moveUp(elapsed);
-					clock.restart();
-				} else if (sf::Keyboard::isKeyPressed(sf::Keyboard::W)
-						&& sf::Keyboard::isKeyPressed(sf::Keyboard::Left)
-						&& hPlayer.canInput && hPlayer2.canInput && !AI
-						&& elapsed.asMilliseconds() != 0) {
-					hPlayer2.canInput = false;
-					hPlayer2.moveLeft(elapsed);
-					hPlayer.canInput = false;
-					hPlayer.moveUp(elapsed);
-					clock.restart();
-				}
-
-				else if (sf::Keyboard::isKeyPressed(sf::Keyboard::S)
-						&& sf::Keyboard::isKeyPressed(sf::Keyboard::Up)
-						&& hPlayer.canInput && hPlayer2.canInput && !AI
-						&& elapsed.asMilliseconds() != 0) {
-					hPlayer2.canInput = false;
-					hPlayer2.moveUp(elapsed);
-					hPlayer.canInput = false;
-					hPlayer.moveDown(elapsed);
-					clock.restart();
-				} else if (sf::Keyboard::isKeyPressed(sf::Keyboard::S)
-						&& sf::Keyboard::isKeyPressed(sf::Keyboard::Down)
-						&& hPlayer.canInput && hPlayer2.canInput && !AI
-						&& elapsed.asMilliseconds() != 0) {
-					hPlayer2.canInput = false;
-					hPlayer2.moveDown(elapsed);
-					hPlayer.canInput = false;
-					hPlayer.moveDown(elapsed);
-					clock.restart();
-				} else if (sf::Keyboard::isKeyPressed(sf::Keyboard::S)
-						&& sf::Keyboard::isKeyPressed(sf::Keyboard::Right)
-						&& hPlayer.canInput && hPlayer2.canInput && !AI
-						&& elapsed.asMilliseconds() != 0) {
-					hPlayer2.canInput = false;
-					hPlayer2.moveRight(elapsed);
-					hPlayer.canInput = false;
-					hPlayer.moveDown(elapsed);
-					clock.restart();
-				} else if (sf::Keyboard::isKeyPressed(sf::Keyboard::S)
-						&& sf::Keyboard::isKeyPressed(sf::Keyboard::Left)
-						&& hPlayer.canInput && hPlayer2.canInput && !AI
-						&& elapsed.asMilliseconds() != 0) {
-					hPlayer2.canInput = false;
-					hPlayer2.moveLeft(elapsed);
-					hPlayer.canInput = false;
-					hPlayer.moveDown(elapsed);
-					clock.restart();
-				}
-
-				else if (sf::Keyboard::isKeyPressed(sf::Keyboard::D)
-						&& sf::Keyboard::isKeyPressed(sf::Keyboard::Up)
-						&& hPlayer.canInput && hPlayer2.canInput && !AI
-						&& elapsed.asMilliseconds() != 0) {
-					hPlayer2.canInput = false;
-					hPlayer2.moveUp(elapsed);
-					hPlayer.canInput = false;
-					hPlayer.moveRight(elapsed);
-					clock.restart();
-				} else if (sf::Keyboard::isKeyPressed(sf::Keyboard::D)
-						&& sf::Keyboard::isKeyPressed(sf::Keyboard::Down)
-						&& hPlayer.canInput && hPlayer2.canInput && !AI
-						&& elapsed.asMilliseconds() != 0) {
-					hPlayer2.canInput = false;
-					hPlayer2.moveDown(elapsed);
-					hPlayer.canInput = false;
-					hPlayer.moveRight(elapsed);
-					clock.restart();
-				} else if (sf::Keyboard::isKeyPressed(sf::Keyboard::D)
-						&& sf::Keyboard::isKeyPressed(sf::Keyboard::Right)
-						&& hPlayer.canInput && hPlayer2.canInput && !AI
-						&& elapsed.asMilliseconds() != 0) {
-					hPlayer2.canInput = false;
-					hPlayer2.moveRight(elapsed);
-					hPlayer.canInput = false;
-					hPlayer.moveRight(elapsed);
-					clock.restart();
-				} else if (sf::Keyboard::isKeyPressed(sf::Keyboard::D)
-						&& sf::Keyboard::isKeyPressed(sf::Keyboard::Left)
-						&& hPlayer.canInput && hPlayer2.canInput && !AI
-						&& elapsed.asMilliseconds() != 0) {
-					hPlayer2.canInput = false;
-					hPlayer2.moveLeft(elapsed);
-					hPlayer.canInput = false;
-					hPlayer.moveRight(elapsed);
-					clock.restart();
-				}
-
-				else if (sf::Keyboard::isKeyPressed(sf::Keyboard::A)
-						&& sf::Keyboard::isKeyPressed(sf::Keyboard::Up)
-						&& hPlayer.canInput && hPlayer2.canInput && !AI
-						&& elapsed.asMilliseconds() != 0) {
-					hPlayer2.canInput = false;
-					hPlayer2.moveUp(elapsed);
-					hPlayer.canInput = false;
-					hPlayer.moveLeft(elapsed);
-					clock.restart();
-				} else if (sf::Keyboard::isKeyPressed(sf::Keyboard::A)
-						&& sf::Keyboard::isKeyPressed(sf::Keyboard::Down)
-						&& hPlayer.canInput && hPlayer2.canInput && !AI
-						&& elapsed.asMilliseconds() != 0) {
-					hPlayer2.canInput = false;
-					hPlayer2.moveDown(elapsed);
-					hPlayer.canInput = false;
-					hPlayer.moveLeft(elapsed);
-					clock.restart();
-				} else if (sf::Keyboard::isKeyPressed(sf::Keyboard::A)
-						&& sf::Keyboard::isKeyPressed(sf::Keyboard::Right)
-						&& hPlayer.canInput && hPlayer2.canInput && !AI
-						&& elapsed.asMilliseconds() != 0) {
-					hPlayer2.canInput = false;
-					hPlayer2.moveRight(elapsed);
-					hPlayer.canInput = false;
-					hPlayer.moveLeft(elapsed);
-					clock.restart();
-				} else if (sf::Keyboard::isKeyPressed(sf::Keyboard::A)
-						&& sf::Keyboard::isKeyPressed(sf::Keyboard::Left)
-						&& hPlayer.canInput && hPlayer2.canInput && !AI
-						&& elapsed.asMilliseconds() != 0) {
-					hPlayer2.canInput = false;
-					hPlayer2.moveLeft(elapsed);
-					hPlayer.canInput = false;
-					hPlayer.moveLeft(elapsed);
-					clock.restart();
-				}
-
-				else if (sf::Keyboard::isKeyPressed(sf::Keyboard::W)
-						&& hPlayer.canInput && elapsed.asMilliseconds() != 0) {
-					hPlayer.canInput = false;
-					hPlayer.moveUp(elapsed);
-					clock.restart();
-
-					//hPlayer.canInput = true;
-
-				} else if (sf::Keyboard::isKeyPressed(sf::Keyboard::S)
-						&& hPlayer.canInput && elapsed.asMilliseconds() != 0) {
-					hPlayer.canInput = false;
-					hPlayer.moveDown(elapsed);
-					clock.restart();
-					//hPlayer.canInput = true;
-
-				} else if (sf::Keyboard::isKeyPressed(sf::Keyboard::D)
-						&& hPlayer.canInput && elapsed.asMilliseconds() != 0) {
-					hPlayer.canInput = false;
-					hPlayer.moveRight(elapsed);
-					clock.restart();
-					//hPlayer.canInput = true;
-
-				} else if (sf::Keyboard::isKeyPressed(sf::Keyboard::A)
-						&& hPlayer.canInput && elapsed.asMilliseconds() != 0) {
-					hPlayer.canInput = false;
-					hPlayer.moveLeft(elapsed);
-					clock.restart();
-					//hPlayer.canInput = true;
-				}
-				else if (!AI){
-				//HumanPlayer 2
-					if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up)
-							&& hPlayer2.canInput && elapsed.asMilliseconds() != 0) {
-						hPlayer2.canInput = false;
-						hPlayer2.moveUp(elapsed);
-						clock.restart();
-						//hPlayer.canInput = true;
-
-					} else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Down)
-							&& hPlayer2.canInput && elapsed.asMilliseconds() != 0) {
-						hPlayer2.canInput = false;
-						hPlayer2.moveDown(elapsed);
-						clock.restart();
-						//hPlayer.canInput = true;
-
-					} else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right)
-							&& hPlayer2.canInput && elapsed.asMilliseconds() != 0) {
-						hPlayer2.canInput = false;
-						hPlayer2.moveRight(elapsed);
-						clock.restart();
-						//hPlayer.canInput = true;
-
-					} else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left)
-							&& hPlayer2.canInput && elapsed.asMilliseconds() != 0) {
-						hPlayer2.canInput = false;
-						hPlayer2.moveLeft(elapsed);
-						clock.restart();
-						//hPlayer.canInput = true;
-					}
-				}
-			}
-			if (hPlayer.isEnd == true) {
-				endScreen(window, 1);
-				stayOpen = false;
-
-			} else if (hPlayer2.isEnd == true) {
-				endScreen(window, 2);
-				stayOpen = false;
-			}
-				}
-
-		if(AI){	//CHANGED: ALL THE STUFF IN HERE. MAKES SURE IT'S OUT OF THE EVENTPOLLING BLOCK
+		}
+		if (AI) {//CHANGED: ALL THE STUFF IN HERE. MAKES SURE IT'S OUT OF THE EVENTPOLLING BLOCK
 			elapsed2 = clock2.getElapsedTime();
-			if (elapsed2.asMilliseconds() > 250 && hPlayer2.canInput){
+			if (elapsed2.asMilliseconds() > movespeed2 + 100 && hPlayer2.canInput) {
 
-			int destinationX = maze_constructor.correctPath.front().x;
-								int destinationY = maze_constructor.correctPath.front().y;
-								makeError = rand() % 50;
-								if (makeError == 0){
-									randDirection = rand() % 4;
-									randDirection2 = rand() % 4;
-								}
+				int destinationX = maze_constructor.correctPath.front().x;
+				int destinationY = maze_constructor.correctPath.front().y;
+				makeError = rand() % 50;
+				if (makeError == 0) {
+					randDirection = rand() % 4;
+					randDirection2 = rand() % 4;
+				}
 
-								if (randDirection == 0){
-									hPlayer2.canInput = false;
-									hPlayer2.moveLeft(elapsed2);
-									clock2.restart();
-									randDirection = 5;
-									maze_constructor.correctPath.insert(maze_constructor.correctPath.begin(), maze_1[hPlayer2.x][hPlayer2.y]);
-								}
-								else if (randDirection == 1){
-									hPlayer2.canInput = false;
-									hPlayer2.moveRight(elapsed2);
-									clock2.restart();
-									randDirection = 5;
-									maze_constructor.correctPath.insert(maze_constructor.correctPath.begin(), maze_1[hPlayer2.x][hPlayer2.y]);
-								}
-								else if (randDirection == 2){
-									hPlayer2.canInput = false;
-									hPlayer2.moveUp(elapsed2);
-									clock2.restart();
-									randDirection = 5;
-									maze_constructor.correctPath.insert(maze_constructor.correctPath.begin(), maze_1[hPlayer2.x][hPlayer2.y]);
-								}
-								else if (randDirection == 3){
-									hPlayer2.canInput = false;
-									hPlayer2.moveDown(elapsed2);
-									clock2.restart();
-									randDirection = 5;
-									maze_constructor.correctPath.insert(maze_constructor.correctPath.begin(), maze_1[hPlayer2.x][hPlayer2.y]);
-								}
-								else if (randDirection2 == 0){
-									hPlayer2.canInput = false;
-									hPlayer2.moveLeft(elapsed2);
-									clock2.restart();
-									randDirection2 = 5;
-									maze_constructor.correctPath.insert(maze_constructor.correctPath.begin(), maze_1[hPlayer2.x][hPlayer2.y]);
-								}
-								else if (randDirection2 == 1){
-									hPlayer2.canInput = false;
-									hPlayer2.moveRight(elapsed2);
-									clock2.restart();
-									randDirection2 = 5;
-									maze_constructor.correctPath.insert(maze_constructor.correctPath.begin(), maze_1[hPlayer2.x][hPlayer2.y]);
-								}
-								else if (randDirection2 == 2){
-									hPlayer2.canInput = false;
-									hPlayer2.moveUp(elapsed2);
-									clock2.restart();
-									randDirection2 = 5;
-									maze_constructor.correctPath.insert(maze_constructor.correctPath.begin(), maze_1[hPlayer2.x][hPlayer2.y]);
-								}
-								else if (randDirection2 == 3){
-									hPlayer2.canInput = false;
-									hPlayer2.moveDown(elapsed2);
-									clock2.restart();
-									randDirection2 = 5;
-									maze_constructor.correctPath.insert(maze_constructor.correctPath.begin(), maze_1[hPlayer2.x][hPlayer2.y]);
-								}
-								else if (hPlayer2.x > destinationX){
-									hPlayer2.canInput = false;
-									hPlayer2.moveLeft(elapsed2);
-									clock2.restart();
-									maze_constructor.correctPath.erase(maze_constructor.correctPath.begin());
-								}
-								else if (hPlayer2.x < destinationX){
-									hPlayer2.canInput = false;
-									hPlayer2.moveRight(elapsed2);
-									clock2.restart();
-									maze_constructor.correctPath.erase(maze_constructor.correctPath.begin());
-								}
-								else if (hPlayer2.y > destinationY){
-									hPlayer2.canInput = false;
-									hPlayer2.moveUp(elapsed2);
-									clock2.restart();
-									maze_constructor.correctPath.erase(maze_constructor.correctPath.begin());
-								}
-								else if (hPlayer2.y < destinationY){
-									hPlayer2.canInput = false;
-									hPlayer2.moveDown(elapsed2);
-									clock2.restart();
-									maze_constructor.correctPath.erase(maze_constructor.correctPath.begin());
-								}
-								else if (hPlayer2.y == destinationY && hPlayer2.x == destinationX){
-									clock2.restart();
-									maze_constructor.correctPath.erase(maze_constructor.correctPath.begin());
-								}
+				if (randDirection == 0) {
+					hPlayer2.canInput = false;
+					hPlayer2.moveLeft(elapsed2);
+					clock2.restart();
+					randDirection = 5;
+					maze_constructor.correctPath.insert(
+							maze_constructor.correctPath.begin(),
+							maze_1[hPlayer2.x][hPlayer2.y]);
+				} else if (randDirection == 1) {
+					hPlayer2.canInput = false;
+					hPlayer2.moveRight(elapsed2);
+					clock2.restart();
+					randDirection = 5;
+					maze_constructor.correctPath.insert(
+							maze_constructor.correctPath.begin(),
+							maze_1[hPlayer2.x][hPlayer2.y]);
+				} else if (randDirection == 2) {
+					hPlayer2.canInput = false;
+					hPlayer2.moveUp(elapsed2);
+					clock2.restart();
+					randDirection = 5;
+					maze_constructor.correctPath.insert(
+							maze_constructor.correctPath.begin(),
+							maze_1[hPlayer2.x][hPlayer2.y]);
+				} else if (randDirection == 3) {
+					hPlayer2.canInput = false;
+					hPlayer2.moveDown(elapsed2);
+					clock2.restart();
+					randDirection = 5;
+					maze_constructor.correctPath.insert(
+							maze_constructor.correctPath.begin(),
+							maze_1[hPlayer2.x][hPlayer2.y]);
+				} else if (randDirection2 == 0) {
+					hPlayer2.canInput = false;
+					hPlayer2.moveLeft(elapsed2);
+					clock2.restart();
+					randDirection2 = 5;
+					maze_constructor.correctPath.insert(
+							maze_constructor.correctPath.begin(),
+							maze_1[hPlayer2.x][hPlayer2.y]);
+				} else if (randDirection2 == 1) {
+					hPlayer2.canInput = false;
+					hPlayer2.moveRight(elapsed2);
+					clock2.restart();
+					randDirection2 = 5;
+					maze_constructor.correctPath.insert(
+							maze_constructor.correctPath.begin(),
+							maze_1[hPlayer2.x][hPlayer2.y]);
+				} else if (randDirection2 == 2) {
+					hPlayer2.canInput = false;
+					hPlayer2.moveUp(elapsed2);
+					clock2.restart();
+					randDirection2 = 5;
+					maze_constructor.correctPath.insert(
+							maze_constructor.correctPath.begin(),
+							maze_1[hPlayer2.x][hPlayer2.y]);
+				} else if (randDirection2 == 3) {
+					hPlayer2.canInput = false;
+					hPlayer2.moveDown(elapsed2);
+					clock2.restart();
+					randDirection2 = 5;
+					maze_constructor.correctPath.insert(
+							maze_constructor.correctPath.begin(),
+							maze_1[hPlayer2.x][hPlayer2.y]);
+				} else if (hPlayer2.x > destinationX) {
+					hPlayer2.canInput = false;
+					hPlayer2.moveLeft(elapsed2);
+					clock2.restart();
+					maze_constructor.correctPath.erase(
+							maze_constructor.correctPath.begin());
+				} else if (hPlayer2.x < destinationX) {
+					hPlayer2.canInput = false;
+					hPlayer2.moveRight(elapsed2);
+					clock2.restart();
+					maze_constructor.correctPath.erase(
+							maze_constructor.correctPath.begin());
+				} else if (hPlayer2.y > destinationY) {
+					hPlayer2.canInput = false;
+					hPlayer2.moveUp(elapsed2);
+					clock2.restart();
+					maze_constructor.correctPath.erase(
+							maze_constructor.correctPath.begin());
+				} else if (hPlayer2.y < destinationY) {
+					hPlayer2.canInput = false;
+					hPlayer2.moveDown(elapsed2);
+					clock2.restart();
+					maze_constructor.correctPath.erase(
+							maze_constructor.correctPath.begin());
+				} else if (hPlayer2.y == destinationY
+						&& hPlayer2.x == destinationX) {
+					clock2.restart();
+					maze_constructor.correctPath.erase(
+							maze_constructor.correctPath.begin());
+				}
 			}
 		}
 
 		window.clear();	//CHANGED: MOVED FROM IN THE EVENTPOLLING BLOCK TO OUTSIDE OF IT
-					sf::Vector2f cellSize(40.0f, 40.0f);
+		sf::Vector2f cellSize(40.0f, 40.0f);
+		count = 0;
+		count2 = 0;
+		// Display Maze 1
+		for (int x = 0; x < SIZE; x++) {
+			for (int y = 0; y < SIZE; y++) {
+				grid[x][y].setSize(cellSize);
+				// grid[x][y].setOutlineColor(sf::Color::Blue);
+				//item drop rates
+				if (random[x][y] % 33 == 1
+						&& random[x][y] != random[hPlayer.xf][hPlayer.yf]) {
+					item_test = true;
+					getItem[count][0] = x;
+					getItem[count][1] = y;
+					count++;
+				} else if (random[x][y] % 36 == 2 && random[x][y] % 30 != 1
+						&& random[x][y] != random[hPlayer.xf][hPlayer.yf]) {
+					item_test2 = true;
+					slowItem[count2][0] = x;
+					slowItem[count2][1] = y;
+					count2++;
+				} else {
+					item_test = false;
+					item_test2 = false;
+				}
+				// -- Decide which texture to apply --
+				MazeSquare sq = maze_1[x][y];
 
-					// Display Maze 1
-					for (int x = 0; x < SIZE; x++) {
-						for (int y = 0; y < SIZE; y++) {
-							grid[x][y].setSize(cellSize);
-							// grid[x][y].setOutlineColor(sf::Color::Blue);
+				// Check dead end first
+				if (sq.upWall && sq.downWall && sq.rightWall) {
+					grid[x][y].setTexture(&right_dead_end);
+				} else if (sq.upWall && sq.downWall && sq.leftWall) {
+					grid[x][y].setTexture(&left_dead_end);
+				} else if (sq.upWall && sq.rightWall && sq.leftWall) {
+					grid[x][y].setTexture(&top_dead_end);
+				} else if (sq.downWall && sq.rightWall && sq.leftWall) {
+					grid[x][y].setTexture(&bottom_dead_end);
+				}
+				//	Then check Corners and corridors
+				else if (sq.upWall && sq.downWall) {
+					grid[x][y].setTexture(&top_bottom);
+				} else if (sq.leftWall && sq.rightWall) {
+					grid[x][y].setTexture(&left_right);
+				}
 
-							// -- Decide which texture to apply --
-							MazeSquare sq = maze_1[x][y];
+				else if (sq.downWall && sq.leftWall) {
+					grid[x][y].setTexture(&bottom_left_corner);
+				} else if (sq.downWall && sq.rightWall) {
+					grid[x][y].setTexture(&bottom_right_corner);
+				} else if (sq.upWall && sq.leftWall) {
+					grid[x][y].setTexture(&top_left_corner);
+				} else if (sq.upWall && sq.rightWall) {
+					grid[x][y].setTexture(&top_right_corner);
+				}
+				// Check single wall last
+				else if (sq.downWall) {
+					grid[x][y].setTexture(&bottom);
+				} else if (sq.upWall) {
+					grid[x][y].setTexture(&top);
+				} else if (sq.leftWall) {
+					grid[x][y].setTexture(&left);
+				} else if (sq.rightWall) {
+					grid[x][y].setTexture(&right);
+					//sq.item_test = true;
+				} else {
+					grid[x][y].setTexture(&no_wall);
+				}
+				// ---------------------------------
 
-							// Check dead end first
-							if (sq.upWall && sq.downWall && sq.rightWall) {
-								grid[x][y].setTexture(&right_dead_end);
-							} else if (sq.upWall && sq.downWall && sq.leftWall) {
-								grid[x][y].setTexture(&left_dead_end);
-							} else if (sq.upWall && sq.rightWall && sq.leftWall) {
-								grid[x][y].setTexture(&top_dead_end);
-							} else if (sq.downWall && sq.rightWall && sq.leftWall) {
-								grid[x][y].setTexture(&bottom_dead_end);
-							}
-							//	Then check Corners and corridors
-							else if (sq.upWall && sq.downWall) {
-								grid[x][y].setTexture(&top_bottom);
-							} else if (sq.leftWall && sq.rightWall) {
-								grid[x][y].setTexture(&left_right);
-							}
+				//	Set position of grid and draw
+				grid[x][y].setPosition(x * cellSize.x + 5.0f,
+						y * cellSize.y + 5.0f);
+				window.draw(grid[x][y]);
 
-							else if (sq.downWall && sq.leftWall) {
-								grid[x][y].setTexture(&bottom_left_corner);
-							} else if (sq.downWall && sq.rightWall) {
-								grid[x][y].setTexture(&bottom_right_corner);
-							} else if (sq.upWall && sq.leftWall) {
-								grid[x][y].setTexture(&top_left_corner);
-							} else if (sq.upWall && sq.rightWall) {
-								grid[x][y].setTexture(&top_right_corner);
-							}
-							// Check single wall last
-							else if (sq.downWall) {
-								grid[x][y].setTexture(&bottom);
-							} else if (sq.upWall) {
-								grid[x][y].setTexture(&top);
-							} else if (sq.leftWall) {
-								grid[x][y].setTexture(&left);
-							} else if (sq.rightWall) {
-								grid[x][y].setTexture(&right);
-								//sq.item_test = true;
-							} else {
-								grid[x][y].setTexture(&no_wall);
-							}
-							// ---------------------------------
+				if (item_test) {
+					sf::Sprite item_overlay(item);
+					item_overlay.setPosition(x * cellSize.x + 5.0f,
+							y * cellSize.y + 5.0f);
+					// draw the item
+					window.draw(item_overlay);
+				}
+				if (item_test2) {
+					sf::Sprite item_overlay2;
+					item_overlay2.setTexture(item2);
+					item_overlay2.setPosition(x * cellSize.x + 5.0f,
+							y * cellSize.y + 5.0f);
+					// draw the item
+					window.draw(item_overlay2);
+				}
+			}
 
-							//	Set position of grid and draw
-							grid[x][y].setPosition(x * cellSize.x + 5.0f,
-									y * cellSize.y + 5.0f);
-							window.draw(grid[x][y]);
-
-							/*	if (sq.item_test) {
-							 sf::Sprite item_overlay(item);
-							 item_overlay.setPosition(x*cellSize.x + 5.0f, y*cellSize.y + 5.0f);
-							 // draw the item
-							 window.draw(item_overlay);
-							 }*/
-						}
-
-						// Display Maze 2
-						for (int x = SIZE + 1; x < 2 * SIZE + 1; x++) {
-							for (int y = 0; y < SIZE; y++) {
-								grid[x][y].setSize(cellSize);
-								// grid[x][y].setOutlineColor(sf::Color::Blue);
-								int X = x - SIZE - 1;// allows for accessing the maze object
-								// -- Decide which texture to apply --
-								MazeSquare sq = maze_2[X][y];
-
-								// Check dead end first
-								if (sq.upWall && sq.downWall && sq.rightWall) {
-									grid[x][y].setTexture(&right_dead_end);
-								} else if (sq.upWall && sq.downWall && sq.leftWall) {
-									grid[x][y].setTexture(&left_dead_end);
-								} else if (sq.upWall && sq.rightWall && sq.leftWall) {
-									grid[x][y].setTexture(&top_dead_end);
-								} else if (sq.downWall && sq.rightWall && sq.leftWall) {
-									grid[x][y].setTexture(&bottom_dead_end);
-								}
-								//	Then check Corners and corridors
-								else if (sq.upWall && sq.downWall) {
-									grid[x][y].setTexture(&top_bottom);
-								} else if (sq.leftWall && sq.rightWall) {
-									grid[x][y].setTexture(&left_right);
-								}
-
-								else if (sq.downWall && sq.leftWall) {
-									grid[x][y].setTexture(&bottom_left_corner);
-								} else if (sq.downWall && sq.rightWall) {
-									grid[x][y].setTexture(&bottom_right_corner);
-								} else if (sq.upWall && sq.leftWall) {
-									grid[x][y].setTexture(&top_left_corner);
-								} else if (sq.upWall && sq.rightWall) {
-									grid[x][y].setTexture(&top_right_corner);
-								}
-								// Check single wall last
-								else if (sq.downWall) {
-									grid[x][y].setTexture(&bottom);
-								} else if (sq.upWall) {
-									grid[x][y].setTexture(&top);
-								} else if (sq.leftWall) {
-									grid[x][y].setTexture(&left);
-								} else if (sq.rightWall) {
-									grid[x][y].setTexture(&right);
-									//sq.item_test = true;
-								} else {
-									grid[x][y].setTexture(&no_wall);
-								}
-								// ---------------------------------
-
-								grid[x][y].setPosition(x * cellSize.x + 5.0f,
-										y * cellSize.y + 5.0f);
-								window.draw(grid[x][y]);
-
-							}
-						}
+			// Display Maze 2
+			for (int x = SIZE + 1; x < 2 * SIZE + 1; x++) {
+				for (int y = 0; y < SIZE; y++) {
+					grid[x][y].setSize(cellSize);
+					// grid[x][y].setOutlineColor(sf::Color::Blue);
+					int X = x - SIZE - 1;// allows for accessing the maze object
+					// -- Decide which texture to apply --
+					MazeSquare sq = maze_2[X][y];
+					//get random items
+					if (random[x - SIZE - 1][y] % 33 == 1
+							&& random[x][y] != random[hPlayer.xf][hPlayer.yf]) {
+						item_test = true;
+					} else if (random[x - SIZE - 1][y] % 36 == 2
+							&& random[x][y] % 30 != 1
+							&& random[x][y] != random[hPlayer.xf][hPlayer.yf]) {
+						item_test2 = true;
+					} else {
+						item_test = false;
+						item_test2 = false;
+					}
+					// Check dead end first
+					if (sq.upWall && sq.downWall && sq.rightWall) {
+						grid[x][y].setTexture(&right_dead_end);
+					} else if (sq.upWall && sq.downWall && sq.leftWall) {
+						grid[x][y].setTexture(&left_dead_end);
+					} else if (sq.upWall && sq.rightWall && sq.leftWall) {
+						grid[x][y].setTexture(&top_dead_end);
+					} else if (sq.downWall && sq.rightWall && sq.leftWall) {
+						grid[x][y].setTexture(&bottom_dead_end);
+					}
+					//	Then check Corners and corridors
+					else if (sq.upWall && sq.downWall) {
+						grid[x][y].setTexture(&top_bottom);
+					} else if (sq.leftWall && sq.rightWall) {
+						grid[x][y].setTexture(&left_right);
 					}
 
-								window.draw(finalRect);
-											window.draw(finalRect2);
-											window.draw(spriteforpause);
-											window.draw(hPlayer);
-											window.draw(hPlayer2);
-											window.display();
+					else if (sq.downWall && sq.leftWall) {
+						grid[x][y].setTexture(&bottom_left_corner);
+					} else if (sq.downWall && sq.rightWall) {
+						grid[x][y].setTexture(&bottom_right_corner);
+					} else if (sq.upWall && sq.leftWall) {
+						grid[x][y].setTexture(&top_left_corner);
+					} else if (sq.upWall && sq.rightWall) {
+						grid[x][y].setTexture(&top_right_corner);
+					}
+					// Check single wall last
+					else if (sq.downWall) {
+						grid[x][y].setTexture(&bottom);
+					} else if (sq.upWall) {
+						grid[x][y].setTexture(&top);
+					} else if (sq.leftWall) {
+						grid[x][y].setTexture(&left);
+					} else if (sq.rightWall) {
+						grid[x][y].setTexture(&right);
+						//sq.item_test = true;
+					} else {
+						grid[x][y].setTexture(&no_wall);
+					}
+					// ---------------------------------
+
+					//	Set position of grid and draw
+					grid[x][y].setPosition(x * cellSize.x + 5.0f,
+							y * cellSize.y + 5.0f);
+					window.draw(grid[x][y]);
+
+					if (item_test) {
+						sf::Sprite item_overlay(item);
+						item_overlay.setPosition(x * cellSize.x + 5.0f,
+								y * cellSize.y + 5.0f);
+						// draw the item
+						window.draw(item_overlay);
+					}
+					if (item_test2) {
+						sf::Sprite item_overlay2;
+						item_overlay2.setTexture(item2);
+						item_overlay2.setPosition(x * cellSize.x + 5.0f,
+								y * cellSize.y + 5.0f);
+						// draw the item
+						window.draw(item_overlay2);
+					}
+				}
+			}
 		}
+		//window.display();
+		elapsed = clock.getElapsedTime();
+		elapsed2 = clock2.getElapsedTime();
 
+		if (elapsed.asMilliseconds() > movespeed) {
+			//Humanplayer 1
+			if (sf::Keyboard::isKeyPressed(sf::Keyboard::W) && hPlayer.canInput
+					&& elapsed.asMilliseconds() != 0
+					&& elapsed2.asMilliseconds() != 0) {
+				hPlayer.getImage(p1UP);
+				hPlayer.canInput = false;
+				hPlayer.moveUp(elapsed);
+				clock.restart();
 
+				//hPlayer.canInput = true;
+
+			} else if (sf::Keyboard::isKeyPressed(sf::Keyboard::S)
+					&& hPlayer.canInput && elapsed.asMilliseconds() != 0
+					&& elapsed2.asMilliseconds() != 0) {
+				hPlayer.getImage(p1DOWN);
+				hPlayer.canInput = false;
+				hPlayer.moveDown(elapsed);
+				clock.restart();
+				//hPlayer.canInput = true;
+
+			} else if (sf::Keyboard::isKeyPressed(sf::Keyboard::D)
+					&& hPlayer.canInput && elapsed.asMilliseconds() != 0
+					&& elapsed2.asMilliseconds() != 0) {
+				hPlayer.getImage(p1RIGHT);
+				hPlayer.canInput = false;
+				hPlayer.moveRight(elapsed);
+				clock.restart();
+				//hPlayer.canInput = true;
+
+			} else if (sf::Keyboard::isKeyPressed(sf::Keyboard::A)
+					&& hPlayer.canInput && elapsed.asMilliseconds() != 0
+					&& elapsed2.asMilliseconds() != 0) {
+				hPlayer.getImage(p1LEFT);
+				hPlayer.canInput = false;
+				hPlayer.moveLeft(elapsed);
+				clock.restart();
+				//hPlayer.canInput = true;
+			}
+		}
+		if (!AI) {
+			if (elapsed2.asMilliseconds() > movespeed2) {
+				//HumanPlayer 2
+				if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up)
+						&& hPlayer2.canInput && elapsed.asMilliseconds() != 0
+						&& elapsed2.asMilliseconds() != 0) {
+					hPlayer2.getImage(p2UP);
+					hPlayer2.canInput = false;
+					hPlayer2.moveUp(elapsed2);
+					clock2.restart();
+					//hPlayer.canInput = true;
+
+				} else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Down)
+						&& hPlayer2.canInput && elapsed.asMilliseconds() != 0
+						&& elapsed2.asMilliseconds() != 0) {
+					hPlayer2.getImage(p2DOWN);
+					hPlayer2.canInput = false;
+					hPlayer2.moveDown(elapsed2);
+					clock2.restart();
+					//hPlayer.canInput = true;
+
+				} else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right)
+						&& hPlayer2.canInput && elapsed.asMilliseconds() != 0
+						&& elapsed2.asMilliseconds() != 0) {
+					hPlayer2.getImage(p2RIGHT);
+					hPlayer2.canInput = false;
+					hPlayer2.moveRight(elapsed2);
+					clock2.restart();
+					//hPlayer.canInput = true;
+
+				} else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left)
+						&& hPlayer2.canInput && elapsed.asMilliseconds() != 0
+						&& elapsed2.asMilliseconds() != 0) {
+					hPlayer2.getImage(p2LEFT);
+					hPlayer2.canInput = false;
+					hPlayer2.moveLeft(elapsed2);
+					clock2.restart();
+					//hPlayer.canInput = true;
+				}
+			}
+		}
+		window.draw(finalRect);
+		window.draw(finalRect2);
+		window.draw(spriteforpause);
+		window.draw(hPlayer);
+		window.draw(hPlayer2);
+
+		//getITEM
+		for (int i = 0; i < count; i++) {
+			if (hPlayer.getx == getItem[i][0]
+					&& hPlayer.gety == getItem[i][1]) {
+				haveItem = true;
+				whichItem = 1;
+				//movespeed -= 10;
+				deleteitem.setPosition(hPlayer.getx * cellSize.x + 5.0f,
+						hPlayer.gety * cellSize.y + 5.0f);
+				window.draw(deleteitem);
+				getItem[i][0] = -1000;
+				getItem[i][1] = -1000;
+
+			} else if (hPlayer2.getx == getItem[i][0]
+					&& hPlayer2.gety == getItem[i][1]) {
+				haveItem2 = true;
+				whichItem = 1;
+				//movespeed -= 10;
+				deleteitem.setPosition(
+						(hPlayer.getx - SIZE - 1) * cellSize.x + 5.0f,
+						hPlayer.gety * cellSize.y + 5.0f);
+				window.draw(deleteitem);
+				getItem[i][0] = -1000;
+				getItem[i][1] = -1000;
+			}
+		}
+		for (int i = 0; i < count2; i++) {
+			if (hPlayer.getx == slowItem[i][0]
+					&& hPlayer.gety == slowItem[i][1]) {
+				haveItem = true;
+				whichItem = 2;
+				//movespeed -= 10;
+				deleteitem.setPosition(slowItem[i][0] * cellSize.x + 5.0f,
+						slowItem[i][1] * cellSize.y + 5.0f);
+				window.draw(deleteitem);
+				slowItem[i][0] = -1000;
+				slowItem[i][1] = -1000;
+
+			} else if (hPlayer2.getx == slowItem[i][0]
+					&& hPlayer2.gety == slowItem[i][1]) {
+				whichItem = 2;
+				haveItem2 = true;
+				deleteitem.setPosition(
+						(slowItem[i][0] - SIZE - 1) * cellSize.x + 5.0f,
+						slowItem[i][1] * cellSize.y + 5.0f);
+				window.draw(deleteitem);
+				//movespeed -= 10;
+				slowItem[i][0] = -1000;
+				slowItem[i][1] = -1000;
+			}
+
+		}
+		//HAVE ITEM
+
+		if (sf::Keyboard::isKeyPressed(sf::Keyboard::F) && movespeed >= 0
+				&& haveItem && whichItem == 1) {
+			movespeed = 50;
+			haveItem = false;
+			whichItem = 0;
+		} else if (sf::Keyboard::isKeyPressed(sf::Keyboard::F) && movespeed >= 0
+				&& haveItem && whichItem == 2) {
+			movespeed2 = 200;
+			haveItem = false;
+			whichItem = 0;
+		}
+		if (sf::Keyboard::isKeyPressed(sf::Keyboard::L) && movespeed2 >= 0
+				&& haveItem2 && whichItem == 1) {
+			movespeed2 = 50;
+			haveItem2 = false;
+			whichItem = 0;
+		} else if (sf::Keyboard::isKeyPressed(sf::Keyboard::L)
+				&& movespeed2 >= 0 && haveItem2 && whichItem == 2) {
+			movespeed = 200;
+			haveItem2 = false;
+			whichItem = 0;
+		}
+		if (AI && movespeed2 >= 0
+					&& haveItem2 && whichItem == 1) {
+				movespeed2 = 50;
+				haveItem2 = false;
+				whichItem = 0;
+			} else if (AI
+					&& movespeed2 >= 0 && haveItem2 && whichItem == 2) {
+				movespeed = 200;
+				haveItem2 = false;
+				whichItem = 0;
+			}
+
+		window.display();
+		if (hPlayer.isEnd == true) {
+			endScreen(window, 1);
+			//stayOpen = false;
+
+		} else if (hPlayer2.isEnd == true) {
+			endScreen(window, 2);
+			//stayOpen = false;
+		}
 	}
+}
 
-
-
-int main() {	//CHANGED (MAYBE): THINK I DELETED A LINE
+int main() {
 	sf::RenderWindow window(sf::VideoMode(1400, 800), "SFML works!");
 	TitleScreen w;
 	w.StartGame(window);

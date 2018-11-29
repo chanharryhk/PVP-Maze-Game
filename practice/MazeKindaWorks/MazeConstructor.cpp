@@ -111,13 +111,12 @@ MazeConstructor::MazeConstructor(int size) {
 			depth += 1;
 		}
 	}
-
+	correctPath.back().goal = true;	//TODO: replace with goal object once implemented
 	xGoal = correctPath.back().x;
 	yGoal = correctPath.back().y;
-
 }
-
-/*MazeConstructor::~MazeConstructor(){
+/*
+MazeConstructor::~MazeConstructor(){
 	//if (maze != nullptr){
 		for (int y = 0; y < mazeSize; y++){
 			//if (maze[y] != nullptr){

@@ -13,15 +13,14 @@ using namespace std;
 #include "SFML/Graphics.hpp"
 #include "ScreenController.h"
 #include "HumanPlayer.h"
-#include <time.h>
 class GameScreen{
 public:
-	void Game(sf::RenderWindow& window, bool AI);	//CHANGED: NEW PARAMATER
+	void Game(sf::RenderWindow& window, bool AI);
 	void endScreen(sf::RenderWindow& window, int whoWins);
 };
 
 class PauseMenu{
 public:
-	bool PauseGame(sf::RenderWindow& window);	//CHANGED: THIS IS A BOOL
+	void PauseGame(sf::RenderWindow& window);
 };
 #endif /* SCREENCONTROLLER_H_ */

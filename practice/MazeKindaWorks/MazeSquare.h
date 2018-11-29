@@ -1,7 +1,7 @@
 #ifndef THIS_SHIT
 #define THIS_SHIT
 
-#include "items.h"
+#include "Item.h"
 
 class MazeSquare {
 public:
