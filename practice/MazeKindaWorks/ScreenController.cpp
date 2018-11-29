@@ -383,10 +383,7 @@ void TitleScreen::StartUp(sf::RenderWindow& window) {
 	sf::Vector2u winSize = window.getSize();
 	sprite.setPosition(winSize.x / 2, winSize.y / 2);
 	int i = 0;
-
-	window.draw(sprite);
-	window.display();
-	while (i < 1200) {
+	while (i < 2550) {
 		sprite.setColor(sf::Color(255, 255, 255, i / 10));
 		window.clear();
 		window.draw(sprite);

@@ -301,17 +301,47 @@ void GameScreen::Game(sf::RenderWindow& window, bool AI) {
 	//finalRect2.setFillColor(sf::Color::Red);
 
 	//===========ITEMS============
-	sf::Texture item = setUpTexture("speed_boost.png");
+	//sf::Texture item = setUpTexture("speed_boost.png");
 	sf::Texture item2;
 	item2.loadFromFile("freeze.png");
-	sf::Sprite item_overlay2;
-	item_overlay2.setTexture(item2);
+	sf::Texture item;
+//	item2.loadFromFile("speed_boost.png");
+	/*sf::Sprite item_overlay2;
+	 item_overlay2.setTexture(item2);*/
 	sf::Sprite item_overlay;
 	item_overlay.setTexture(item);
 	sf::Texture grey = setUpTexture("grey.png");
 	sf::Sprite deleteitem;
 	deleteitem.setTexture(grey);
 
+	sf::Texture item3 = setUpTexture("speed_boost.png");
+	//sf::Texture item5 = setUpTexture("freeze.png");
+	sf::Texture item4 = setUpTexture("speed_boost.png");
+	sf::Texture item6 = setUpTexture("speed_boost.png");
+	//sf::Texture item4 = setUpTexture("freeze.png");
+	//loading the file
+	//creating a vector with an array of 7 sprites
+	vector<sf::Sprite> itemspeed(225, sf::Sprite(item3));
+	vector<sf::Sprite> itemslow(225, sf::Sprite(item2));
+	vector<sf::Sprite> item3speed(225, sf::Sprite(item4));
+	vector<sf::Sprite> item4slow(225, sf::Sprite(item2));
+	//=============show if player has item==========
+	sf::Font font;
+	font.loadFromFile("text/olympiccarriersuperital.ttf");
+	sf::Text text1;
+	text1.setString("P1 ITEM:");
+	text1.setPosition(100.f, 650.f);
+	text1.setCharacterSize(37);
+	text1.setFont(font);
+	text1.setFillColor(sf::Color::Cyan);
+	sf::Font font2;
+	font2.loadFromFile("text/olympiccarriersuperital.ttf");
+	sf::Text text2;
+	text2.setString("P2 ITEM:");
+	text2.setPosition(850.f, 650.f);
+	text2.setCharacterSize(37);
+	text2.setFont(font);
+	text2.setFillColor(sf::Color::Cyan);
 	//AI STUFFS
 	srand(time(NULL));	//CHANGED: ADD THIS STUFF
 	maze_constructor.correctPath.erase(maze_constructor.correctPath.begin());
@@ -329,9 +359,16 @@ void GameScreen::Game(sf::RenderWindow& window, bool AI) {
 	int whichItem = 0;
 	int count;
 	int count2;
+	int count3;
+	int count4;
+	int count5;
+	int count6;
+	int showItem = 0;
+	int showItem2 = 0;
 	int random[SIZE][SIZE];
 	bool haveItem = false;
 	bool haveItem2 = false;
+
 	for (int i = 0; i < SIZE; i++) {
 		for (int j = 0; j < SIZE; j++) {
 			random[i][j] = rand();
@@ -339,7 +376,9 @@ void GameScreen::Game(sf::RenderWindow& window, bool AI) {
 	}
 	bool item_test = false;
 	bool item_test2 = false;
+
 	while (stayOpen) {
+
 		sf::Event event;
 		mou = sf::Mouse::getPosition(window);
 		while (window.pollEvent(event)) {
@@ -373,7 +412,8 @@ void GameScreen::Game(sf::RenderWindow& window, bool AI) {
 		}
 		if (AI) {//CHANGED: ALL THE STUFF IN HERE. MAKES SURE IT'S OUT OF THE EVENTPOLLING BLOCK
 			elapsed2 = clock2.getElapsedTime();
-			if (elapsed2.asMilliseconds() > movespeed2 + 100 && hPlayer2.canInput) {
+			if (elapsed2.asMilliseconds() > movespeed2 + 100
+					&& hPlayer2.canInput) {
 
 				int destinationX = maze_constructor.correctPath.front().x;
 				int destinationY = maze_constructor.correctPath.front().y;
@@ -487,6 +527,10 @@ void GameScreen::Game(sf::RenderWindow& window, bool AI) {
 		sf::Vector2f cellSize(40.0f, 40.0f);
 		count = 0;
 		count2 = 0;
+		count3 = 0;
+		count4 = 0;
+		count5 = 0;
+		count6 = 0;
 		// Display Maze 1
 		for (int x = 0; x < SIZE; x++) {
 			for (int y = 0; y < SIZE; y++) {
@@ -559,19 +603,23 @@ void GameScreen::Game(sf::RenderWindow& window, bool AI) {
 				window.draw(grid[x][y]);
 
 				if (item_test) {
-					sf::Sprite item_overlay(item);
-					item_overlay.setPosition(x * cellSize.x + 5.0f,
+					itemspeed[count5].setPosition(x * cellSize.x + 5.0f,
 							y * cellSize.y + 5.0f);
-					// draw the item
-					window.draw(item_overlay);
+					window.draw(itemspeed[count5++]);
+					item3speed[count3].setPosition(
+							(x + SIZE + 1) * cellSize.x + 5.0f,
+							y * cellSize.y + 5.0f);
+					count3++;
+
 				}
 				if (item_test2) {
-					sf::Sprite item_overlay2;
-					item_overlay2.setTexture(item2);
-					item_overlay2.setPosition(x * cellSize.x + 5.0f,
+					itemslow[count6].setPosition(x * cellSize.x + 5.0f,
 							y * cellSize.y + 5.0f);
-					// draw the item
-					window.draw(item_overlay2);
+					window.draw(itemslow[count6++]);
+					item4slow[count4].setPosition(
+							(x + SIZE + 1) * cellSize.x + 5.0f,
+							y * cellSize.y + 5.0f);
+					count4++;
 				}
 			}
 
@@ -585,11 +633,13 @@ void GameScreen::Game(sf::RenderWindow& window, bool AI) {
 					MazeSquare sq = maze_2[X][y];
 					//get random items
 					if (random[x - SIZE - 1][y] % 33 == 1
-							&& random[x][y] != random[hPlayer.xf][hPlayer.yf]) {
+							&& random[x - SIZE - 1][y]
+									!= random[hPlayer.xf][hPlayer.yf]) {
 						item_test = true;
 					} else if (random[x - SIZE - 1][y] % 36 == 2
-							&& random[x][y] % 30 != 1
-							&& random[x][y] != random[hPlayer.xf][hPlayer.yf]) {
+							&& random[x - SIZE - 1][y] % 30 != 1
+							&& random[x - SIZE - 1][y]
+									!= random[hPlayer.xf][hPlayer.yf]) {
 						item_test2 = true;
 					} else {
 						item_test = false;
@@ -642,24 +692,39 @@ void GameScreen::Game(sf::RenderWindow& window, bool AI) {
 					window.draw(grid[x][y]);
 
 					if (item_test) {
-						sf::Sprite item_overlay(item);
-						item_overlay.setPosition(x * cellSize.x + 5.0f,
-								y * cellSize.y + 5.0f);
-						// draw the item
-						window.draw(item_overlay);
+						/*sf::Sprite item_overlay(item);
+						 item_overlay.setPosition(x * cellSize.x + 5.0f,
+						 y * cellSize.y + 5.0f);
+						 // draw the item
+						 window.draw(item_overlay);
+						 */
+						/*item3speed[count3].setPosition(x * cellSize.x + 5.0f,
+						 y * cellSize.y + 5.0f);
+						 window.draw(item3speed[count3++]);*/
 					}
 					if (item_test2) {
-						sf::Sprite item_overlay2;
-						item_overlay2.setTexture(item2);
-						item_overlay2.setPosition(x * cellSize.x + 5.0f,
-								y * cellSize.y + 5.0f);
-						// draw the item
-						window.draw(item_overlay2);
+						/*sf::Sprite item_overlay2;
+						 item_overlay2.setTexture(item2);
+						 item_overlay2.setPosition(x * cellSize.x + 5.0f,
+						 y * cellSize.y + 5.0f);
+						 // draw the item
+						 window.draw(item_overlay2);*/
+						/*item4slow[count4].setPosition(x * cellSize.x + 5.0f,
+						 y * cellSize.y + 5.0f);
+						 window.draw(item4slow[count4++]);*/
 					}
 				}
 			}
 		}
 		//window.display();
+		//draw items for maze 2
+		for (int i = 0; i < count3; i++) {
+			window.draw(item3speed[i]);
+		}
+		for (int i = 0; i < count4; i++) {
+			window.draw(item4slow[i]);
+		}
+
 		elapsed = clock.getElapsedTime();
 		elapsed2 = clock2.getElapsedTime();
 
@@ -744,6 +809,7 @@ void GameScreen::Game(sf::RenderWindow& window, bool AI) {
 				}
 			}
 		}
+
 		window.draw(finalRect);
 		window.draw(finalRect2);
 		window.draw(spriteforpause);
@@ -757,23 +823,19 @@ void GameScreen::Game(sf::RenderWindow& window, bool AI) {
 				haveItem = true;
 				whichItem = 1;
 				//movespeed -= 10;
-				deleteitem.setPosition(hPlayer.getx * cellSize.x + 5.0f,
-						hPlayer.gety * cellSize.y + 5.0f);
-				window.draw(deleteitem);
+				itemspeed[i].setColor(sf::Color::Transparent);
 				getItem[i][0] = -1000;
 				getItem[i][1] = -1000;
-
+				showItem = 1;
 			} else if (hPlayer2.getx == getItem[i][0]
 					&& hPlayer2.gety == getItem[i][1]) {
 				haveItem2 = true;
 				whichItem = 1;
 				//movespeed -= 10;
-				deleteitem.setPosition(
-						(hPlayer.getx - SIZE - 1) * cellSize.x + 5.0f,
-						hPlayer.gety * cellSize.y + 5.0f);
-				window.draw(deleteitem);
+				item3speed[i].setColor(sf::Color::Transparent);
 				getItem[i][0] = -1000;
 				getItem[i][1] = -1000;
+				showItem2 = 1;
 			}
 		}
 		for (int i = 0; i < count2; i++) {
@@ -782,23 +844,20 @@ void GameScreen::Game(sf::RenderWindow& window, bool AI) {
 				haveItem = true;
 				whichItem = 2;
 				//movespeed -= 10;
-				deleteitem.setPosition(slowItem[i][0] * cellSize.x + 5.0f,
-						slowItem[i][1] * cellSize.y + 5.0f);
-				window.draw(deleteitem);
+				itemslow[i].setColor(sf::Color::Transparent);
 				slowItem[i][0] = -1000;
 				slowItem[i][1] = -1000;
+				showItem = 2;
 
 			} else if (hPlayer2.getx == slowItem[i][0]
 					&& hPlayer2.gety == slowItem[i][1]) {
 				whichItem = 2;
 				haveItem2 = true;
-				deleteitem.setPosition(
-						(slowItem[i][0] - SIZE - 1) * cellSize.x + 5.0f,
-						slowItem[i][1] * cellSize.y + 5.0f);
-				window.draw(deleteitem);
+				item4slow[i].setColor(sf::Color::Transparent);
 				//movespeed -= 10;
 				slowItem[i][0] = -1000;
 				slowItem[i][1] = -1000;
+				showItem2 = 2;
 			}
 
 		}
@@ -809,35 +868,79 @@ void GameScreen::Game(sf::RenderWindow& window, bool AI) {
 			movespeed = 50;
 			haveItem = false;
 			whichItem = 0;
+			showItem = 0;
 		} else if (sf::Keyboard::isKeyPressed(sf::Keyboard::F) && movespeed >= 0
 				&& haveItem && whichItem == 2) {
 			movespeed2 = 200;
 			haveItem = false;
 			whichItem = 0;
+			showItem = 0;
 		}
 		if (sf::Keyboard::isKeyPressed(sf::Keyboard::L) && movespeed2 >= 0
 				&& haveItem2 && whichItem == 1) {
 			movespeed2 = 50;
 			haveItem2 = false;
 			whichItem = 0;
+			showItem2 = 0;
 		} else if (sf::Keyboard::isKeyPressed(sf::Keyboard::L)
 				&& movespeed2 >= 0 && haveItem2 && whichItem == 2) {
 			movespeed = 200;
 			haveItem2 = false;
 			whichItem = 0;
+			showItem2 = 0;
 		}
-		if (AI && movespeed2 >= 0
-					&& haveItem2 && whichItem == 1) {
-				movespeed2 = 50;
-				haveItem2 = false;
-				whichItem = 0;
-			} else if (AI
-					&& movespeed2 >= 0 && haveItem2 && whichItem == 2) {
-				movespeed = 200;
-				haveItem2 = false;
-				whichItem = 0;
-			}
+		if (AI && movespeed2 >= 0 && haveItem2 && whichItem == 1) {
+			movespeed2 = 50;
+			haveItem2 = false;
+			whichItem = 0;
+			showItem2 = 0;
+		} else if (AI && movespeed2 >= 0 && haveItem2 && whichItem == 2) {
+			movespeed = 200;
+			haveItem2 = false;
+			whichItem = 0;
+			showItem2 = 0;
+		}
 
+		if (showItem == 1) {
+			sf::Sprite item_overlay2;
+			item_overlay2.setTexture(item6);
+			item_overlay2.setPosition(265.f, 660.f);
+			// draw the item
+			window.draw(item_overlay2);
+		} else if (showItem == 2) {
+			sf::Sprite item_overlay2;
+			item_overlay2.setTexture(item2);
+			item_overlay2.setPosition(265.f, 660.f);
+			// draw the item
+			window.draw(item_overlay2);
+		} else {
+			sf::Sprite item_overlay2;
+			item_overlay2.setTexture(grey);
+			item_overlay2.setPosition(265.f, 660.f);
+			// draw the item
+			window.draw(item_overlay2);
+		}
+		if (showItem2 == 1) {
+			sf::Sprite item_overlay3;
+			item_overlay3.setTexture(item6);
+			item_overlay3.setPosition(1015.f, 660.f);
+			// draw the item
+			window.draw(item_overlay3);
+		} else if (showItem2 == 2) {
+			sf::Sprite item_overlay3;
+			item_overlay3.setTexture(item2);
+			item_overlay3.setPosition(1015.f, 660.f);
+			// draw the item
+			window.draw(item_overlay3);
+		} else {
+			sf::Sprite item_overlay3;
+			item_overlay3.setTexture(grey);
+			item_overlay3.setPosition(1015.f, 660.f);
+			// draw the item
+			window.draw(item_overlay3);
+		}
+		window.draw(text1);
+		window.draw(text2);
 		window.display();
 		if (hPlayer.isEnd == true) {
 			endScreen(window, 1);
