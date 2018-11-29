@@ -3433,3 +3433,495 @@ g++ "-IC:\\Users\\Jolleh\\Documents\\SFML-2.5.1-windows-gcc-7.3.0-mingw-32-bit\\
          ^~~~
 g++ "-LC:\\Users\\Jolleh\\Documents\\SFML-2.5.1-windows-gcc-7.3.0-mingw-32-bit\\SFML-2.5.1\\lib" -o MazeKindaWorks.exe GameControll.o HumanPlayer.o Items.o MazeConstructor.o MazeSquare.o ScreenController.o newMazeSquare.o "..\\..\\..\\..\\..\\..\\Documents\\SFML-2.5.1-windows-gcc-7.3.0-mingw-32-bit\\SFML-2.5.1\\lib\\libsfml-audio.a" "..\\..\\..\\..\\..\\..\\Documents\\SFML-2.5.1-windows-gcc-7.3.0-mingw-32-bit\\SFML-2.5.1\\lib\\libsfml-graphics.a" "..\\..\\..\\..\\..\\..\\Documents\\SFML-2.5.1-windows-gcc-7.3.0-mingw-32-bit\\SFML-2.5.1\\lib\\libsfml-network.a" "..\\..\\..\\..\\..\\..\\Documents\\SFML-2.5.1-windows-gcc-7.3.0-mingw-32-bit\\SFML-2.5.1\\lib\\libsfml-network.a" "..\\..\\..\\..\\..\\..\\Documents\\SFML-2.5.1-windows-gcc-7.3.0-mingw-32-bit\\SFML-2.5.1\\lib\\libsfml-window.a" -lsfml-graphics -lsfml-audio -lsfml-network -lsfml-window -lsfml-system 
 Info: Nothing to build for MazeKindaWorks
+Info: Nothing to build for MazeKindaWorks
+19:40:00 **** Incremental Build of configuration Debug for project MazeKindaWorks ****
+Info: Internal Builder is used for build
+g++ "-IC:\\Users\\Jolleh\\Documents\\SFML-2.5.1-windows-gcc-7.3.0-mingw-32-bit\\SFML-2.5.1\\include" -O0 -g3 -Wall -c -fmessage-length=0 -o ScreenController.o "..\\ScreenController.cpp" 
+..\ScreenController.cpp: In member function 'void TitleScreen::StartGame(sf::RenderWindow&, sf::Music&)':
+..\ScreenController.cpp:100:15: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+     if (mou.x > winSize.x / 2 - 310 && mou.x < winSize.x / 2 + 310
+         ~~~~~~^~~~~~~~~~~~~~~~~~~~~
+..\ScreenController.cpp:100:46: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+     if (mou.x > winSize.x / 2 - 310 && mou.x < winSize.x / 2 + 310
+                                        ~~~~~~^~~~~~~~~~~~~~~~~~~~~
+..\ScreenController.cpp:110:15: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+     if (mou.x > winSize.x / 2 - 310 && mou.x < winSize.x / 2 + 310
+         ~~~~~~^~~~~~~~~~~~~~~~~~~~~
+..\ScreenController.cpp:110:46: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+     if (mou.x > winSize.x / 2 - 310 && mou.x < winSize.x / 2 + 310
+                                        ~~~~~~^~~~~~~~~~~~~~~~~~~~~
+..\ScreenController.cpp:111:16: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+       && mou.y > winSize.y / 2 - 25
+          ~~~~~~^~~~~~~~~~~~~~~~~~~~
+..\ScreenController.cpp:112:16: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+       && mou.y < winSize.y / 2 + 25) {
+          ~~~~~~^~~~~~~~~~~~~~~~~~~~
+..\ScreenController.cpp:118:22: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+     } else if (mou.x > winSize.x / 2 - 310
+                ~~~~~~^~~~~~~~~~~~~~~~~~~~~
+..\ScreenController.cpp:119:16: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+       && mou.x < winSize.x / 2 + 310
+          ~~~~~~^~~~~~~~~~~~~~~~~~~~~
+..\ScreenController.cpp:120:16: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+       && mou.y > winSize.y / 2 + 35
+          ~~~~~~^~~~~~~~~~~~~~~~~~~~
+..\ScreenController.cpp:121:16: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+       && mou.y < winSize.y / 2 + 85) {
+          ~~~~~~^~~~~~~~~~~~~~~~~~~~
+..\ScreenController.cpp:129:22: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+     } else if (mou.x > winSize.x / 2 - 310
+                ~~~~~~^~~~~~~~~~~~~~~~~~~~~
+..\ScreenController.cpp:130:16: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+       && mou.x < winSize.x / 2 + 310
+          ~~~~~~^~~~~~~~~~~~~~~~~~~~~
+..\ScreenController.cpp:131:16: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+       && mou.y > winSize.y / 2 + 95
+          ~~~~~~^~~~~~~~~~~~~~~~~~~~
+..\ScreenController.cpp:132:16: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+       && mou.y < winSize.y / 2 + 145) {
+          ~~~~~~^~~~~~~~~~~~~~~~~~~~~
+..\ScreenController.cpp: In member function 'void InstructionsScreen::Open(sf::RenderWindow&, sf::Music&)':
+..\ScreenController.cpp:283:31: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+        && (event.text.unicode == player1Controls[i])) {
+                                
+..\ScreenController.cpp:290:31: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+        && (event.text.unicode == player2Controls[i])) {
+                                
+..\ScreenController.cpp:377:18: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+        && (mou.y > winSize.y / 2 + 220)
+            ~~~~~~^~~~~~~~~~~~~~~~~~~~~
+..\ScreenController.cpp:378:18: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+        && (mou.y < winSize.y / 2 + 270)) {
+            ~~~~~~^~~~~~~~~~~~~~~~~~~~~
+..\ScreenController.cpp:414:17: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+       && (mou.y > winSize.y / 2 + 220)
+           ~~~~~~^~~~~~~~~~~~~~~~~~~~~
+..\ScreenController.cpp:415:17: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+       && (mou.y < winSize.y / 2 + 270)) {
+           ~~~~~~^~~~~~~~~~~~~~~~~~~~~
+..\ScreenController.cpp: In member function 'void SetupScreen::SetupGame(sf::RenderWindow&)':
+..\ScreenController.cpp:558:15: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+     if (mou.x > winSize.x / 2 - 310 && mou.x < winSize.x / 2 + 310
+         ~~~~~~^~~~~~~~~~~~~~~~~~~~~
+..\ScreenController.cpp:558:46: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+     if (mou.x > winSize.x / 2 - 310 && mou.x < winSize.x / 2 + 310
+                                        ~~~~~~^~~~~~~~~~~~~~~~~~~~~
+..\ScreenController.cpp:568:15: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+     if (mou.x > winSize.x / 2 - 310 && mou.x < winSize.x / 2 + 310
+         ~~~~~~^~~~~~~~~~~~~~~~~~~~~
+..\ScreenController.cpp:568:46: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+     if (mou.x > winSize.x / 2 - 310 && mou.x < winSize.x / 2 + 310
+                                        ~~~~~~^~~~~~~~~~~~~~~~~~~~~
+..\ScreenController.cpp:569:16: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+       && mou.y > winSize.y / 2 - 25
+          ~~~~~~^~~~~~~~~~~~~~~~~~~~
+..\ScreenController.cpp:570:16: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+       && mou.y < winSize.y / 2 + 25) {
+          ~~~~~~^~~~~~~~~~~~~~~~~~~~
+..\ScreenController.cpp:574:22: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+     } else if (mou.x > winSize.x / 2 - 310
+                ~~~~~~^~~~~~~~~~~~~~~~~~~~~
+..\ScreenController.cpp:575:16: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+       && mou.x < winSize.x / 2 + 310
+          ~~~~~~^~~~~~~~~~~~~~~~~~~~~
+..\ScreenController.cpp:576:16: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+       && mou.y > winSize.y / 2 + 35
+          ~~~~~~^~~~~~~~~~~~~~~~~~~~
+..\ScreenController.cpp:577:16: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+       && mou.y < winSize.y / 2 + 85) {
+          ~~~~~~^~~~~~~~~~~~~~~~~~~~
+..\ScreenController.cpp:581:22: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+     } else if (mou.x > winSize.x / 2 - 310
+                ~~~~~~^~~~~~~~~~~~~~~~~~~~~
+..\ScreenController.cpp:582:16: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+       && mou.x < winSize.x / 2 + 310
+          ~~~~~~^~~~~~~~~~~~~~~~~~~~~
+..\ScreenController.cpp:583:16: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+       && mou.y > winSize.y / 2 + 95
+          ~~~~~~^~~~~~~~~~~~~~~~~~~~
+..\ScreenController.cpp:584:16: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+       && mou.y < winSize.y / 2 + 145) {
+          ~~~~~~^~~~~~~~~~~~~~~~~~~~~
+g++ "-LC:\\Users\\Jolleh\\Documents\\SFML-2.5.1-windows-gcc-7.3.0-mingw-32-bit\\SFML-2.5.1\\lib" -o MazeKindaWorks.exe GameControll.o HumanPlayer.o Items.o MazeConstructor.o MazeSquare.o ScreenController.o newMazeSquare.o "..\\..\\..\\..\\..\\..\\Documents\\SFML-2.5.1-windows-gcc-7.3.0-mingw-32-bit\\SFML-2.5.1\\lib\\libsfml-audio.a" "..\\..\\..\\..\\..\\..\\Documents\\SFML-2.5.1-windows-gcc-7.3.0-mingw-32-bit\\SFML-2.5.1\\lib\\libsfml-graphics.a" "..\\..\\..\\..\\..\\..\\Documents\\SFML-2.5.1-windows-gcc-7.3.0-mingw-32-bit\\SFML-2.5.1\\lib\\libsfml-network.a" "..\\..\\..\\..\\..\\..\\Documents\\SFML-2.5.1-windows-gcc-7.3.0-mingw-32-bit\\SFML-2.5.1\\lib\\libsfml-network.a" "..\\..\\..\\..\\..\\..\\Documents\\SFML-2.5.1-windows-gcc-7.3.0-mingw-32-bit\\SFML-2.5.1\\lib\\libsfml-window.a" -lsfml-graphics -lsfml-audio -lsfml-network -lsfml-window -lsfml-system 
+Info: Nothing to build for MazeKindaWorks
+19:47:19 **** Incremental Build of configuration Debug for project MazeKindaWorks ****
+Info: Internal Builder is used for build
+g++ "-IC:\\Users\\Jolleh\\Documents\\SFML-2.5.1-windows-gcc-7.3.0-mingw-32-bit\\SFML-2.5.1\\include" -O0 -g3 -Wall -c -fmessage-length=0 -o ScreenController.o "..\\ScreenController.cpp" 
+In file included from ..\ScreenController.h:14:0,
+                 from ..\ScreenController.cpp:7:
+..\GameControll.h:18:116: error: redefinition of 'std::vector<sf::Keyboard::Key> player1Controls'
+  void Game(sf::RenderWindow& window, bool AI, vector<sf::Keyboard::Key> player1Controls, vector<sf::Keyboard::Key> player1Controls);
+                                                                                                                    ^~~~~~~~~~~~~~~
+..\GameControll.h:18:73: note: 'std::vector<sf::Keyboard::Key> player1Controls' previously declared here
+  void Game(sf::RenderWindow& window, bool AI, vector<sf::Keyboard::Key> player1Controls, vector<sf::Keyboard::Key> player1Controls);
+                                                                         ^~~~~~~~~~~~~~~
+..\ScreenController.cpp: In member function 'void TitleScreen::StartGame(sf::RenderWindow&, sf::Music&)':
+..\ScreenController.cpp:100:15: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+     if (mou.x > winSize.x / 2 - 310 && mou.x < winSize.x / 2 + 310
+         ~~~~~~^~~~~~~~~~~~~~~~~~~~~
+..\ScreenController.cpp:100:46: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+     if (mou.x > winSize.x / 2 - 310 && mou.x < winSize.x / 2 + 310
+                                        ~~~~~~^~~~~~~~~~~~~~~~~~~~~
+..\ScreenController.cpp:110:15: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+     if (mou.x > winSize.x / 2 - 310 && mou.x < winSize.x / 2 + 310
+         ~~~~~~^~~~~~~~~~~~~~~~~~~~~
+..\ScreenController.cpp:110:46: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+     if (mou.x > winSize.x / 2 - 310 && mou.x < winSize.x / 2 + 310
+                                        ~~~~~~^~~~~~~~~~~~~~~~~~~~~
+..\ScreenController.cpp:111:16: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+       && mou.y > winSize.y / 2 - 25
+          ~~~~~~^~~~~~~~~~~~~~~~~~~~
+..\ScreenController.cpp:112:16: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+       && mou.y < winSize.y / 2 + 25) {
+          ~~~~~~^~~~~~~~~~~~~~~~~~~~
+..\ScreenController.cpp:118:22: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+     } else if (mou.x > winSize.x / 2 - 310
+                ~~~~~~^~~~~~~~~~~~~~~~~~~~~
+..\ScreenController.cpp:119:16: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+       && mou.x < winSize.x / 2 + 310
+          ~~~~~~^~~~~~~~~~~~~~~~~~~~~
+..\ScreenController.cpp:120:16: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+       && mou.y > winSize.y / 2 + 35
+          ~~~~~~^~~~~~~~~~~~~~~~~~~~
+..\ScreenController.cpp:121:16: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+       && mou.y < winSize.y / 2 + 85) {
+          ~~~~~~^~~~~~~~~~~~~~~~~~~~
+..\ScreenController.cpp:129:22: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+     } else if (mou.x > winSize.x / 2 - 310
+                ~~~~~~^~~~~~~~~~~~~~~~~~~~~
+..\ScreenController.cpp:130:16: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+       && mou.x < winSize.x / 2 + 310
+          ~~~~~~^~~~~~~~~~~~~~~~~~~~~
+..\ScreenController.cpp:131:16: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+       && mou.y > winSize.y / 2 + 95
+          ~~~~~~^~~~~~~~~~~~~~~~~~~~
+..\ScreenController.cpp:132:16: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+       && mou.y < winSize.y / 2 + 145) {
+          ~~~~~~^~~~~~~~~~~~~~~~~~~~~
+..\ScreenController.cpp: In member function 'void InstructionsScreen::Open(sf::RenderWindow&, sf::Music&)':
+..\ScreenController.cpp:283:31: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+        && (event.text.unicode == player1Controls[i])) {
+                                
+..\ScreenController.cpp:290:31: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+        && (event.text.unicode == player2Controls[i])) {
+                                
+..\ScreenController.cpp:377:18: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+        && (mou.y > winSize.y / 2 + 220)
+            ~~~~~~^~~~~~~~~~~~~~~~~~~~~
+..\ScreenController.cpp:378:18: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+        && (mou.y < winSize.y / 2 + 270)) {
+            ~~~~~~^~~~~~~~~~~~~~~~~~~~~
+..\ScreenController.cpp:414:17: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+       && (mou.y > winSize.y / 2 + 220)
+           ~~~~~~^~~~~~~~~~~~~~~~~~~~~
+..\ScreenController.cpp:415:17: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+       && (mou.y < winSize.y / 2 + 270)) {
+           ~~~~~~^~~~~~~~~~~~~~~~~~~~~
+..\ScreenController.cpp: In member function 'void SetupScreen::SetupGame(sf::RenderWindow&)':
+..\ScreenController.cpp:558:15: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+     if (mou.x > winSize.x / 2 - 310 && mou.x < winSize.x / 2 + 310
+         ~~~~~~^~~~~~~~~~~~~~~~~~~~~
+..\ScreenController.cpp:558:46: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+     if (mou.x > winSize.x / 2 - 310 && mou.x < winSize.x / 2 + 310
+                                        ~~~~~~^~~~~~~~~~~~~~~~~~~~~
+..\ScreenController.cpp:568:15: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+     if (mou.x > winSize.x / 2 - 310 && mou.x < winSize.x / 2 + 310
+         ~~~~~~^~~~~~~~~~~~~~~~~~~~~
+..\ScreenController.cpp:568:46: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+     if (mou.x > winSize.x / 2 - 310 && mou.x < winSize.x / 2 + 310
+                                        ~~~~~~^~~~~~~~~~~~~~~~~~~~~
+..\ScreenController.cpp:569:16: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+       && mou.y > winSize.y / 2 - 25
+          ~~~~~~^~~~~~~~~~~~~~~~~~~~
+..\ScreenController.cpp:570:16: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+       && mou.y < winSize.y / 2 + 25) {
+          ~~~~~~^~~~~~~~~~~~~~~~~~~~
+..\ScreenController.cpp:573:62: error: no matching function for call to 'GameScreen::Game(sf::RenderWindow&, bool, std::vector<sf::Keyboard::Key>&, std::vector<sf::Keyboard::Key>&)'
+      game.Game(window, true, player1Controls, player2Controls);
+                                                              ^
+In file included from ..\ScreenController.h:14:0,
+                 from ..\ScreenController.cpp:7:
+..\GameControll.h:18:7: note: candidate: void GameScreen::Game(sf::RenderWindow&, bool, std::vector<sf::Keyboard::Key>)
+  void Game(sf::RenderWindow& window, bool AI, vector<sf::Keyboard::Key> player1Controls, vector<sf::Keyboard::Key> player1Controls);
+       ^~~~
+..\GameControll.h:18:7: note:   candidate expects 3 arguments, 4 provided
+..\ScreenController.cpp:574:22: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+     } else if (mou.x > winSize.x / 2 - 310
+                ~~~~~~^~~~~~~~~~~~~~~~~~~~~
+..\ScreenController.cpp:575:16: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+       && mou.x < winSize.x / 2 + 310
+          ~~~~~~^~~~~~~~~~~~~~~~~~~~~
+..\ScreenController.cpp:576:16: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+       && mou.y > winSize.y / 2 + 35
+          ~~~~~~^~~~~~~~~~~~~~~~~~~~
+..\ScreenController.cpp:577:16: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+       && mou.y < winSize.y / 2 + 85) {
+          ~~~~~~^~~~~~~~~~~~~~~~~~~~
+..\ScreenController.cpp:580:63: error: no matching function for call to 'GameScreen::Game(sf::RenderWindow&, bool, std::vector<sf::Keyboard::Key>&, std::vector<sf::Keyboard::Key>&)'
+      game.Game(window, false, player1Controls, player2Controls);
+                                                               ^
+In file included from ..\ScreenController.h:14:0,
+                 from ..\ScreenController.cpp:7:
+..\GameControll.h:18:7: note: candidate: void GameScreen::Game(sf::RenderWindow&, bool, std::vector<sf::Keyboard::Key>)
+  void Game(sf::RenderWindow& window, bool AI, vector<sf::Keyboard::Key> player1Controls, vector<sf::Keyboard::Key> player1Controls);
+       ^~~~
+..\GameControll.h:18:7: note:   candidate expects 3 arguments, 4 provided
+..\ScreenController.cpp:581:22: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+     } else if (mou.x > winSize.x / 2 - 310
+                ~~~~~~^~~~~~~~~~~~~~~~~~~~~
+..\ScreenController.cpp:582:16: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+       && mou.x < winSize.x / 2 + 310
+          ~~~~~~^~~~~~~~~~~~~~~~~~~~~
+..\ScreenController.cpp:583:16: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+       && mou.y > winSize.y / 2 + 95
+          ~~~~~~^~~~~~~~~~~~~~~~~~~~
+..\ScreenController.cpp:584:16: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+       && mou.y < winSize.y / 2 + 145) {
+          ~~~~~~^~~~~~~~~~~~~~~~~~~~~
+19:51:57 **** Incremental Build of configuration Debug for project MazeKindaWorks ****
+Info: Internal Builder is used for build
+g++ "-IC:\\Users\\Jolleh\\Documents\\SFML-2.5.1-windows-gcc-7.3.0-mingw-32-bit\\SFML-2.5.1\\include" -O0 -g3 -Wall -c -fmessage-length=0 -o ScreenController.o "..\\ScreenController.cpp" 
+In file included from ..\ScreenController.h:14:0,
+                 from ..\ScreenController.cpp:7:
+..\GameControll.h:18:116: error: redefinition of 'std::vector<sf::Keyboard::Key> player1Controls'
+  void Game(sf::RenderWindow& window, bool AI, vector<sf::Keyboard::Key> player1Controls, vector<sf::Keyboard::Key> player1Controls);
+                                                                                                                    ^~~~~~~~~~~~~~~
+..\GameControll.h:18:73: note: 'std::vector<sf::Keyboard::Key> player1Controls' previously declared here
+  void Game(sf::RenderWindow& window, bool AI, vector<sf::Keyboard::Key> player1Controls, vector<sf::Keyboard::Key> player1Controls);
+                                                                         ^~~~~~~~~~~~~~~
+..\ScreenController.cpp: In member function 'void TitleScreen::StartGame(sf::RenderWindow&, sf::Music&)':
+..\ScreenController.cpp:100:15: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+     if (mou.x > winSize.x / 2 - 310 && mou.x < winSize.x / 2 + 310
+         ~~~~~~^~~~~~~~~~~~~~~~~~~~~
+..\ScreenController.cpp:100:46: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+     if (mou.x > winSize.x / 2 - 310 && mou.x < winSize.x / 2 + 310
+                                        ~~~~~~^~~~~~~~~~~~~~~~~~~~~
+..\ScreenController.cpp:110:15: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+     if (mou.x > winSize.x / 2 - 310 && mou.x < winSize.x / 2 + 310
+         ~~~~~~^~~~~~~~~~~~~~~~~~~~~
+..\ScreenController.cpp:110:46: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+     if (mou.x > winSize.x / 2 - 310 && mou.x < winSize.x / 2 + 310
+                                        ~~~~~~^~~~~~~~~~~~~~~~~~~~~
+..\ScreenController.cpp:111:16: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+       && mou.y > winSize.y / 2 - 25
+          ~~~~~~^~~~~~~~~~~~~~~~~~~~
+..\ScreenController.cpp:112:16: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+       && mou.y < winSize.y / 2 + 25) {
+          ~~~~~~^~~~~~~~~~~~~~~~~~~~
+..\ScreenController.cpp:118:22: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+     } else if (mou.x > winSize.x / 2 - 310
+                ~~~~~~^~~~~~~~~~~~~~~~~~~~~
+..\ScreenController.cpp:119:16: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+       && mou.x < winSize.x / 2 + 310
+          ~~~~~~^~~~~~~~~~~~~~~~~~~~~
+..\ScreenController.cpp:120:16: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+       && mou.y > winSize.y / 2 + 35
+          ~~~~~~^~~~~~~~~~~~~~~~~~~~
+..\ScreenController.cpp:121:16: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+       && mou.y < winSize.y / 2 + 85) {
+          ~~~~~~^~~~~~~~~~~~~~~~~~~~
+..\ScreenController.cpp:129:22: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+     } else if (mou.x > winSize.x / 2 - 310
+                ~~~~~~^~~~~~~~~~~~~~~~~~~~~
+..\ScreenController.cpp:130:16: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+       && mou.x < winSize.x / 2 + 310
+          ~~~~~~^~~~~~~~~~~~~~~~~~~~~
+..\ScreenController.cpp:131:16: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+       && mou.y > winSize.y / 2 + 95
+          ~~~~~~^~~~~~~~~~~~~~~~~~~~
+..\ScreenController.cpp:132:16: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+       && mou.y < winSize.y / 2 + 145) {
+          ~~~~~~^~~~~~~~~~~~~~~~~~~~~
+..\ScreenController.cpp: In member function 'void InstructionsScreen::Open(sf::RenderWindow&, sf::Music&)':
+..\ScreenController.cpp:283:31: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+        && (event.text.unicode == player1Controls[i])) {
+                                
+..\ScreenController.cpp:290:31: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+        && (event.text.unicode == player2Controls[i])) {
+                                
+..\ScreenController.cpp:377:18: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+        && (mou.y > winSize.y / 2 + 220)
+            ~~~~~~^~~~~~~~~~~~~~~~~~~~~
+..\ScreenController.cpp:378:18: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+        && (mou.y < winSize.y / 2 + 270)) {
+            ~~~~~~^~~~~~~~~~~~~~~~~~~~~
+..\ScreenController.cpp:414:17: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+       && (mou.y > winSize.y / 2 + 220)
+           ~~~~~~^~~~~~~~~~~~~~~~~~~~~
+..\ScreenController.cpp:415:17: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+       && (mou.y < winSize.y / 2 + 270)) {
+           ~~~~~~^~~~~~~~~~~~~~~~~~~~~
+..\ScreenController.cpp: In member function 'void SetupScreen::SetupGame(sf::RenderWindow&)':
+..\ScreenController.cpp:558:15: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+     if (mou.x > winSize.x / 2 - 310 && mou.x < winSize.x / 2 + 310
+         ~~~~~~^~~~~~~~~~~~~~~~~~~~~
+..\ScreenController.cpp:558:46: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+     if (mou.x > winSize.x / 2 - 310 && mou.x < winSize.x / 2 + 310
+                                        ~~~~~~^~~~~~~~~~~~~~~~~~~~~
+..\ScreenController.cpp:568:15: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+     if (mou.x > winSize.x / 2 - 310 && mou.x < winSize.x / 2 + 310
+         ~~~~~~^~~~~~~~~~~~~~~~~~~~~
+..\ScreenController.cpp:568:46: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+     if (mou.x > winSize.x / 2 - 310 && mou.x < winSize.x / 2 + 310
+                                        ~~~~~~^~~~~~~~~~~~~~~~~~~~~
+..\ScreenController.cpp:569:16: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+       && mou.y > winSize.y / 2 - 25
+          ~~~~~~^~~~~~~~~~~~~~~~~~~~
+..\ScreenController.cpp:570:16: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+       && mou.y < winSize.y / 2 + 25) {
+          ~~~~~~^~~~~~~~~~~~~~~~~~~~
+..\ScreenController.cpp:573:62: error: no matching function for call to 'GameScreen::Game(sf::RenderWindow&, bool, std::vector<sf::Keyboard::Key>&, std::vector<sf::Keyboard::Key>&)'
+      game.Game(window, true, player1Controls, player2Controls);
+                                                              ^
+In file included from ..\ScreenController.h:14:0,
+                 from ..\ScreenController.cpp:7:
+..\GameControll.h:18:7: note: candidate: void GameScreen::Game(sf::RenderWindow&, bool, std::vector<sf::Keyboard::Key>)
+  void Game(sf::RenderWindow& window, bool AI, vector<sf::Keyboard::Key> player1Controls, vector<sf::Keyboard::Key> player1Controls);
+       ^~~~
+..\GameControll.h:18:7: note:   candidate expects 3 arguments, 4 provided
+..\ScreenController.cpp:574:22: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+     } else if (mou.x > winSize.x / 2 - 310
+                ~~~~~~^~~~~~~~~~~~~~~~~~~~~
+..\ScreenController.cpp:575:16: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+       && mou.x < winSize.x / 2 + 310
+          ~~~~~~^~~~~~~~~~~~~~~~~~~~~
+..\ScreenController.cpp:576:16: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+       && mou.y > winSize.y / 2 + 35
+          ~~~~~~^~~~~~~~~~~~~~~~~~~~
+..\ScreenController.cpp:577:16: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+       && mou.y < winSize.y / 2 + 85) {
+          ~~~~~~^~~~~~~~~~~~~~~~~~~~
+..\ScreenController.cpp:580:63: error: no matching function for call to 'GameScreen::Game(sf::RenderWindow&, bool, std::vector<sf::Keyboard::Key>&, std::vector<sf::Keyboard::Key>&)'
+      game.Game(window, false, player1Controls, player2Controls);
+                                                               ^
+In file included from ..\ScreenController.h:14:0,
+                 from ..\ScreenController.cpp:7:
+..\GameControll.h:18:7: note: candidate: void GameScreen::Game(sf::RenderWindow&, bool, std::vector<sf::Keyboard::Key>)
+  void Game(sf::RenderWindow& window, bool AI, vector<sf::Keyboard::Key> player1Controls, vector<sf::Keyboard::Key> player1Controls);
+       ^~~~
+..\GameControll.h:18:7: note:   candidate expects 3 arguments, 4 provided
+..\ScreenController.cpp:581:22: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+     } else if (mou.x > winSize.x / 2 - 310
+                ~~~~~~^~~~~~~~~~~~~~~~~~~~~
+..\ScreenController.cpp:582:16: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+       && mou.x < winSize.x / 2 + 310
+          ~~~~~~^~~~~~~~~~~~~~~~~~~~~
+..\ScreenController.cpp:583:16: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+       && mou.y > winSize.y / 2 + 95
+          ~~~~~~^~~~~~~~~~~~~~~~~~~~
+..\ScreenController.cpp:584:16: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+       && mou.y < winSize.y / 2 + 145) {
+          ~~~~~~^~~~~~~~~~~~~~~~~~~~~
+19:52:47 **** Incremental Build of configuration Debug for project MazeKindaWorks ****
+Info: Internal Builder is used for build
+g++ "-IC:\\Users\\Jolleh\\Documents\\SFML-2.5.1-windows-gcc-7.3.0-mingw-32-bit\\SFML-2.5.1\\include" -O0 -g3 -Wall -c -fmessage-length=0 -o GameControll.o "..\\GameControll.cpp" 
+..\GameControll.cpp:7:9: warning: #pragma once in main file
+ #pragma once
+         ^~~~
+g++ "-IC:\\Users\\Jolleh\\Documents\\SFML-2.5.1-windows-gcc-7.3.0-mingw-32-bit\\SFML-2.5.1\\include" -O0 -g3 -Wall -c -fmessage-length=0 -o ScreenController.o "..\\ScreenController.cpp" 
+..\ScreenController.cpp: In member function 'void TitleScreen::StartGame(sf::RenderWindow&, sf::Music&)':
+..\ScreenController.cpp:100:15: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+     if (mou.x > winSize.x / 2 - 310 && mou.x < winSize.x / 2 + 310
+         ~~~~~~^~~~~~~~~~~~~~~~~~~~~
+..\ScreenController.cpp:100:46: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+     if (mou.x > winSize.x / 2 - 310 && mou.x < winSize.x / 2 + 310
+                                        ~~~~~~^~~~~~~~~~~~~~~~~~~~~
+..\ScreenController.cpp:110:15: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+     if (mou.x > winSize.x / 2 - 310 && mou.x < winSize.x / 2 + 310
+         ~~~~~~^~~~~~~~~~~~~~~~~~~~~
+..\ScreenController.cpp:110:46: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+     if (mou.x > winSize.x / 2 - 310 && mou.x < winSize.x / 2 + 310
+                                        ~~~~~~^~~~~~~~~~~~~~~~~~~~~
+..\ScreenController.cpp:111:16: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+       && mou.y > winSize.y / 2 - 25
+          ~~~~~~^~~~~~~~~~~~~~~~~~~~
+..\ScreenController.cpp:112:16: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+       && mou.y < winSize.y / 2 + 25) {
+          ~~~~~~^~~~~~~~~~~~~~~~~~~~
+..\ScreenController.cpp:118:22: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+     } else if (mou.x > winSize.x / 2 - 310
+                ~~~~~~^~~~~~~~~~~~~~~~~~~~~
+..\ScreenController.cpp:119:16: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+       && mou.x < winSize.x / 2 + 310
+          ~~~~~~^~~~~~~~~~~~~~~~~~~~~
+..\ScreenController.cpp:120:16: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+       && mou.y > winSize.y / 2 + 35
+          ~~~~~~^~~~~~~~~~~~~~~~~~~~
+..\ScreenController.cpp:121:16: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+       && mou.y < winSize.y / 2 + 85) {
+          ~~~~~~^~~~~~~~~~~~~~~~~~~~
+..\ScreenController.cpp:129:22: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+     } else if (mou.x > winSize.x / 2 - 310
+                ~~~~~~^~~~~~~~~~~~~~~~~~~~~
+..\ScreenController.cpp:130:16: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+       && mou.x < winSize.x / 2 + 310
+          ~~~~~~^~~~~~~~~~~~~~~~~~~~~
+..\ScreenController.cpp:131:16: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+       && mou.y > winSize.y / 2 + 95
+          ~~~~~~^~~~~~~~~~~~~~~~~~~~
+..\ScreenController.cpp:132:16: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+       && mou.y < winSize.y / 2 + 145) {
+          ~~~~~~^~~~~~~~~~~~~~~~~~~~~
+..\ScreenController.cpp: In member function 'void InstructionsScreen::Open(sf::RenderWindow&, sf::Music&)':
+..\ScreenController.cpp:283:31: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+        && (event.text.unicode == player1Controls[i])) {
+                                
+..\ScreenController.cpp:290:31: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+        && (event.text.unicode == player2Controls[i])) {
+                                
+..\ScreenController.cpp:377:18: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+        && (mou.y > winSize.y / 2 + 220)
+            ~~~~~~^~~~~~~~~~~~~~~~~~~~~
+..\ScreenController.cpp:378:18: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+        && (mou.y < winSize.y / 2 + 270)) {
+            ~~~~~~^~~~~~~~~~~~~~~~~~~~~
+..\ScreenController.cpp:414:17: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+       && (mou.y > winSize.y / 2 + 220)
+           ~~~~~~^~~~~~~~~~~~~~~~~~~~~
+..\ScreenController.cpp:415:17: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+       && (mou.y < winSize.y / 2 + 270)) {
+           ~~~~~~^~~~~~~~~~~~~~~~~~~~~
+..\ScreenController.cpp: In member function 'void SetupScreen::SetupGame(sf::RenderWindow&)':
+..\ScreenController.cpp:558:15: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+     if (mou.x > winSize.x / 2 - 310 && mou.x < winSize.x / 2 + 310
+         ~~~~~~^~~~~~~~~~~~~~~~~~~~~
+..\ScreenController.cpp:558:46: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+     if (mou.x > winSize.x / 2 - 310 && mou.x < winSize.x / 2 + 310
+                                        ~~~~~~^~~~~~~~~~~~~~~~~~~~~
+..\ScreenController.cpp:568:15: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+     if (mou.x > winSize.x / 2 - 310 && mou.x < winSize.x / 2 + 310
+         ~~~~~~^~~~~~~~~~~~~~~~~~~~~
+..\ScreenController.cpp:568:46: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+     if (mou.x > winSize.x / 2 - 310 && mou.x < winSize.x / 2 + 310
+                                        ~~~~~~^~~~~~~~~~~~~~~~~~~~~
+..\ScreenController.cpp:569:16: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+       && mou.y > winSize.y / 2 - 25
+          ~~~~~~^~~~~~~~~~~~~~~~~~~~
+..\ScreenController.cpp:570:16: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+       && mou.y < winSize.y / 2 + 25) {
+          ~~~~~~^~~~~~~~~~~~~~~~~~~~
+..\ScreenController.cpp:574:22: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+     } else if (mou.x > winSize.x / 2 - 310
+                ~~~~~~^~~~~~~~~~~~~~~~~~~~~
+..\ScreenController.cpp:575:16: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+       && mou.x < winSize.x / 2 + 310
+          ~~~~~~^~~~~~~~~~~~~~~~~~~~~
+..\ScreenController.cpp:576:16: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+       && mou.y > winSize.y / 2 + 35
+          ~~~~~~^~~~~~~~~~~~~~~~~~~~
+..\ScreenController.cpp:577:16: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+       && mou.y < winSize.y / 2 + 85) {
+          ~~~~~~^~~~~~~~~~~~~~~~~~~~
+..\ScreenController.cpp:581:22: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+     } else if (mou.x > winSize.x / 2 - 310
+                ~~~~~~^~~~~~~~~~~~~~~~~~~~~
+..\ScreenController.cpp:582:16: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+       && mou.x < winSize.x / 2 + 310
+          ~~~~~~^~~~~~~~~~~~~~~~~~~~~
+..\ScreenController.cpp:583:16: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+       && mou.y > winSize.y / 2 + 95
+          ~~~~~~^~~~~~~~~~~~~~~~~~~~
+..\ScreenController.cpp:584:16: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+       && mou.y < winSize.y / 2 + 145) {
+          ~~~~~~^~~~~~~~~~~~~~~~~~~~~
+g++ "-LC:\\Users\\Jolleh\\Documents\\SFML-2.5.1-windows-gcc-7.3.0-mingw-32-bit\\SFML-2.5.1\\lib" -o MazeKindaWorks.exe GameControll.o HumanPlayer.o Items.o MazeConstructor.o MazeSquare.o ScreenController.o newMazeSquare.o "..\\..\\..\\..\\..\\..\\Documents\\SFML-2.5.1-windows-gcc-7.3.0-mingw-32-bit\\SFML-2.5.1\\lib\\libsfml-audio.a" "..\\..\\..\\..\\..\\..\\Documents\\SFML-2.5.1-windows-gcc-7.3.0-mingw-32-bit\\SFML-2.5.1\\lib\\libsfml-graphics.a" "..\\..\\..\\..\\..\\..\\Documents\\SFML-2.5.1-windows-gcc-7.3.0-mingw-32-bit\\SFML-2.5.1\\lib\\libsfml-network.a" "..\\..\\..\\..\\..\\..\\Documents\\SFML-2.5.1-windows-gcc-7.3.0-mingw-32-bit\\SFML-2.5.1\\lib\\libsfml-network.a" "..\\..\\..\\..\\..\\..\\Documents\\SFML-2.5.1-windows-gcc-7.3.0-mingw-32-bit\\SFML-2.5.1\\lib\\libsfml-window.a" -lsfml-graphics -lsfml-audio -lsfml-network -lsfml-window -lsfml-system 
