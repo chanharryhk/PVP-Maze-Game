@@ -385,68 +385,71 @@ void GameScreen::Game(sf::RenderWindow& window, bool AI) {
 
 				if (randDirection == 0) {
 					hPlayer2.canInput = false;
-					hPlayer2.moveLeft(elapsed2);
-					clock2.restart();
-					randDirection = 5;
 					maze_constructor.correctPath.insert(
 							maze_constructor.correctPath.begin(),
 							maze_1[hPlayer2.x][hPlayer2.y]);
+					hPlayer2.moveLeft(elapsed2);
+					clock2.restart();
+					randDirection = 5;
+
 				} else if (randDirection == 1) {
 					hPlayer2.canInput = false;
+					maze_constructor.correctPath.insert(
+							maze_constructor.correctPath.begin(),
+							maze_1[hPlayer2.x][hPlayer2.y]);
 					hPlayer2.moveRight(elapsed2);
 					clock2.restart();
 					randDirection = 5;
+
+				} else if (randDirection == 2) {
+					hPlayer2.canInput = false;
 					maze_constructor.correctPath.insert(
 							maze_constructor.correctPath.begin(),
 							maze_1[hPlayer2.x][hPlayer2.y]);
-				} else if (randDirection == 2) {
-					hPlayer2.canInput = false;
 					hPlayer2.moveUp(elapsed2);
 					clock2.restart();
 					randDirection = 5;
+
+				} else if (randDirection == 3) {
+					hPlayer2.canInput = false;
 					maze_constructor.correctPath.insert(
 							maze_constructor.correctPath.begin(),
 							maze_1[hPlayer2.x][hPlayer2.y]);
-				} else if (randDirection == 3) {
-					hPlayer2.canInput = false;
 					hPlayer2.moveDown(elapsed2);
 					clock2.restart();
 					randDirection = 5;
+				} else if (randDirection2 == 0) {
+					hPlayer2.canInput = false;
 					maze_constructor.correctPath.insert(
 							maze_constructor.correctPath.begin(),
 							maze_1[hPlayer2.x][hPlayer2.y]);
-				} else if (randDirection2 == 0) {
-					hPlayer2.canInput = false;
 					hPlayer2.moveLeft(elapsed2);
 					clock2.restart();
 					randDirection2 = 5;
+				} else if (randDirection2 == 1) {
+					hPlayer2.canInput = false;
 					maze_constructor.correctPath.insert(
 							maze_constructor.correctPath.begin(),
 							maze_1[hPlayer2.x][hPlayer2.y]);
-				} else if (randDirection2 == 1) {
-					hPlayer2.canInput = false;
 					hPlayer2.moveRight(elapsed2);
 					clock2.restart();
 					randDirection2 = 5;
+				} else if (randDirection2 == 2) {
+					hPlayer2.canInput = false;
 					maze_constructor.correctPath.insert(
 							maze_constructor.correctPath.begin(),
 							maze_1[hPlayer2.x][hPlayer2.y]);
-				} else if (randDirection2 == 2) {
-					hPlayer2.canInput = false;
 					hPlayer2.moveUp(elapsed2);
 					clock2.restart();
 					randDirection2 = 5;
+				} else if (randDirection2 == 3) {
+					hPlayer2.canInput = false;
 					maze_constructor.correctPath.insert(
 							maze_constructor.correctPath.begin(),
 							maze_1[hPlayer2.x][hPlayer2.y]);
-				} else if (randDirection2 == 3) {
-					hPlayer2.canInput = false;
 					hPlayer2.moveDown(elapsed2);
 					clock2.restart();
 					randDirection2 = 5;
-					maze_constructor.correctPath.insert(
-							maze_constructor.correctPath.begin(),
-							maze_1[hPlayer2.x][hPlayer2.y]);
 				} else if (hPlayer2.x > destinationX) {
 					hPlayer2.canInput = false;
 					hPlayer2.moveLeft(elapsed2);

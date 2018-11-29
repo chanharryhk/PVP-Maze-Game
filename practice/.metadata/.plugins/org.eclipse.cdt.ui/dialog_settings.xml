@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section name="Workbench">
-	<item value="C:\Users\Jolleh\Documents\SFML-2.5.1-windows-gcc-7.3.0-mingw-32-bit\SFML-2.5.1\lib\libsfml-system.a" key="org.eclipse.cdt.utils.ui.controls.FileListControl"/>
+	<item value="C:\Users\Jolleh\Documents\SFML-2.5.1-windows-gcc-7.3.0-mingw-32-bit\SFML-2.5.1\lib\libsfml-window.a" key="org.eclipse.cdt.utils.ui.controls.FileListControl"/>
 	<section name="org.eclipse.cdt.ui.text.hover.CMacroExpansionExploration">
 	</section>
 	<section name="OptionalMessageDialog.hide.">
