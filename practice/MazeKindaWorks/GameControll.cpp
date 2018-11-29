@@ -4,7 +4,7 @@
  *  Created on: Nov 17, 2018
  *      Author: Daniel Kim
  */
-#pragma once
+#pragma once	//THINGS TO CHANGE: This file, GameControll.h, ScreenController.cpp
 #include <string>
 #include <vector>
 #include "ScreenController.h"
@@ -18,7 +18,7 @@ using namespace std;
 #include <time.h>
 #define SIZE 16
 
-void GameScreen::endScreen(sf::RenderWindow& window, int whoWins) {
+void GameScreen::endScreen(sf::RenderWindow& window, int whoWins) {	//CHANGE: DELETED A COUPLE THINGS
 
 	sf::RectangleShape rectangle(sf::Vector2f(120, 50));
 	rectangle.setSize(sf::Vector2f(500, 50));
@@ -96,7 +96,7 @@ void GameScreen::endScreen(sf::RenderWindow& window, int whoWins) {
 
 }
 
-bool PauseMenu::PauseGame(sf::RenderWindow& window) {
+bool PauseMenu::PauseGame(sf::RenderWindow& window) {	//CHANGED: THIS IS A BOOL NOW, FEW OTHER SMALL CHANGES
 
 	sf::RenderWindow window2(sf::VideoMode(640, 480), "");
 	sf::RectangleShape rectangle(sf::Vector2f(120, 50));
@@ -270,7 +270,7 @@ void GameScreen::Game(sf::RenderWindow& window, bool AI) {
 			maze_constructor.yGoal * 40);
 	finalRect2.setFillColor(sf::Color::Red);
 
-	srand(time(NULL));
+	srand(time(NULL));	//CHANGED: ADD THIS STUFF
 	maze_constructor.correctPath.erase(maze_constructor.correctPath.begin());
 	int randDirection = 5;
 	int randDirection2 = 5;
@@ -313,7 +313,7 @@ void GameScreen::Game(sf::RenderWindow& window, bool AI) {
 			//window.display();
 
 			elapsed = clock.getElapsedTime();
-			if (elapsed.asMilliseconds() > 50) {
+			if (elapsed.asMilliseconds() > 100) {
 
 				if (sf::Keyboard::isKeyPressed(sf::Keyboard::W)
 						&& sf::Keyboard::isKeyPressed(sf::Keyboard::Up)
@@ -538,9 +538,9 @@ void GameScreen::Game(sf::RenderWindow& window, bool AI) {
 			}
 				}
 
-		if(AI){
+		if(AI){	//CHANGED: ALL THE STUFF IN HERE. MAKES SURE IT'S OUT OF THE EVENTPOLLING BLOCK
 			elapsed2 = clock2.getElapsedTime();
-			if (elapsed2.asMilliseconds() > 100 && hPlayer2.canInput){
+			if (elapsed2.asMilliseconds() > 250 && hPlayer2.canInput){
 
 			int destinationX = maze_constructor.correctPath.front().x;
 								int destinationY = maze_constructor.correctPath.front().y;
@@ -637,7 +637,7 @@ void GameScreen::Game(sf::RenderWindow& window, bool AI) {
 			}
 		}
 
-		window.clear();
+		window.clear();	//CHANGED: MOVED FROM IN THE EVENTPOLLING BLOCK TO OUTSIDE OF IT
 					sf::Vector2f cellSize(40.0f, 40.0f);
 
 					// Display Maze 1
@@ -774,7 +774,7 @@ void GameScreen::Game(sf::RenderWindow& window, bool AI) {
 
 
 
-int main() {
+int main() {	//CHANGED (MAYBE): THINK I DELETED A LINE
 	sf::RenderWindow window(sf::VideoMode(1400, 800), "SFML works!");
 	TitleScreen w;
 	w.StartGame(window);

@@ -16,12 +16,12 @@ using namespace std;
 #include <time.h>
 class GameScreen{
 public:
-	void Game(sf::RenderWindow& window, bool AI);
+	void Game(sf::RenderWindow& window, bool AI);	//CHANGED: NEW PARAMATER
 	void endScreen(sf::RenderWindow& window, int whoWins);
 };
 
 class PauseMenu{
 public:
-	bool PauseGame(sf::RenderWindow& window);
+	bool PauseGame(sf::RenderWindow& window);	//CHANGED: THIS IS A BOOL
 };
 #endif /* SCREENCONTROLLER_H_ */

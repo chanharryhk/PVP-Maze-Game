@@ -732,14 +732,14 @@ void TitleScreen::ScreenTransfer(int transferNum, sf::RenderWindow& window) {
 
 void SetupScreen::ScreenTransfer(int transferNum, sf::RenderWindow& window) {
 //VS AI = 0
-	if (transferNum == 0) {
+	if (transferNum == 0) {	//CHANGE: ADD THIS
 		GameScreen game;
 		game.Game(window, true);
 	}
 //VS Player = 1
 	else if (transferNum == 1) {
 		GameScreen game;
-		game.Game(window, false);
+		game.Game(window, false);	//CHANGE: NEW PARAMETER
 	}
 }
 
