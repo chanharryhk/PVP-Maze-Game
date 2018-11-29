@@ -309,7 +309,137 @@ void GameScreen::Game(sf::RenderWindow& window, bool AI) {
 				break;
 			}
 
+			window.clear();
+			sf::Vector2f cellSize(40.0f, 40.0f);
 
+			// Display Maze 1
+			for (int x = 0; x < SIZE; x++) {
+				for (int y = 0; y < SIZE; y++) {
+					grid[x][y].setSize(cellSize);
+					// grid[x][y].setOutlineColor(sf::Color::Blue);
+
+					// -- Decide which texture to apply --
+					MazeSquare sq = maze_1[x][y];
+
+					// Check dead end first
+					if (sq.upWall && sq.downWall && sq.rightWall) {
+						grid[x][y].setTexture(&right_dead_end);
+					} else if (sq.upWall && sq.downWall && sq.leftWall) {
+						grid[x][y].setTexture(&left_dead_end);
+					} else if (sq.upWall && sq.rightWall && sq.leftWall) {
+						grid[x][y].setTexture(&top_dead_end);
+					} else if (sq.downWall && sq.rightWall && sq.leftWall) {
+						grid[x][y].setTexture(&bottom_dead_end);
+					}
+					//	Then check Corners and corridors
+					else if (sq.upWall && sq.downWall) {
+						grid[x][y].setTexture(&top_bottom);
+					} else if (sq.leftWall && sq.rightWall) {
+						grid[x][y].setTexture(&left_right);
+					}
+
+					else if (sq.downWall && sq.leftWall) {
+						grid[x][y].setTexture(&bottom_left_corner);
+					} else if (sq.downWall && sq.rightWall) {
+						grid[x][y].setTexture(&bottom_right_corner);
+					} else if (sq.upWall && sq.leftWall) {
+						grid[x][y].setTexture(&top_left_corner);
+					} else if (sq.upWall && sq.rightWall) {
+						grid[x][y].setTexture(&top_right_corner);
+					}
+					// Check single wall last
+					else if (sq.downWall) {
+						grid[x][y].setTexture(&bottom);
+					} else if (sq.upWall) {
+						grid[x][y].setTexture(&top);
+					} else if (sq.leftWall) {
+						grid[x][y].setTexture(&left);
+					} else if (sq.rightWall) {
+						grid[x][y].setTexture(&right);
+						//sq.item_test = true;
+					} else {
+						grid[x][y].setTexture(&no_wall);
+					}
+					// ---------------------------------
+
+					//	Set position of grid and draw
+					grid[x][y].setPosition(x * cellSize.x + 5.0f,
+							y * cellSize.y + 5.0f);
+					window.draw(grid[x][y]);
+
+					/*	if (sq.item_test) {
+					 sf::Sprite item_overlay(item);
+					 item_overlay.setPosition(x*cellSize.x + 5.0f, y*cellSize.y + 5.0f);
+					 // draw the item
+					 window.draw(item_overlay);
+					 }*/
+				}
+
+				// Display Maze 2
+				for (int x = SIZE + 1; x < 2 * SIZE + 1; x++) {
+					for (int y = 0; y < SIZE; y++) {
+						grid[x][y].setSize(cellSize);
+						// grid[x][y].setOutlineColor(sf::Color::Blue);
+						int X = x - SIZE - 1;// allows for accessing the maze object
+						// -- Decide which texture to apply --
+						MazeSquare sq = maze_2[X][y];
+
+						// Check dead end first
+						if (sq.upWall && sq.downWall && sq.rightWall) {
+							grid[x][y].setTexture(&right_dead_end);
+						} else if (sq.upWall && sq.downWall && sq.leftWall) {
+							grid[x][y].setTexture(&left_dead_end);
+						} else if (sq.upWall && sq.rightWall && sq.leftWall) {
+							grid[x][y].setTexture(&top_dead_end);
+						} else if (sq.downWall && sq.rightWall && sq.leftWall) {
+							grid[x][y].setTexture(&bottom_dead_end);
+						}
+						//	Then check Corners and corridors
+						else if (sq.upWall && sq.downWall) {
+							grid[x][y].setTexture(&top_bottom);
+						} else if (sq.leftWall && sq.rightWall) {
+							grid[x][y].setTexture(&left_right);
+						}
+
+						else if (sq.downWall && sq.leftWall) {
+							grid[x][y].setTexture(&bottom_left_corner);
+						} else if (sq.downWall && sq.rightWall) {
+							grid[x][y].setTexture(&bottom_right_corner);
+						} else if (sq.upWall && sq.leftWall) {
+							grid[x][y].setTexture(&top_left_corner);
+						} else if (sq.upWall && sq.rightWall) {
+							grid[x][y].setTexture(&top_right_corner);
+						}
+						// Check single wall last
+						else if (sq.downWall) {
+							grid[x][y].setTexture(&bottom);
+						} else if (sq.upWall) {
+							grid[x][y].setTexture(&top);
+						} else if (sq.leftWall) {
+							grid[x][y].setTexture(&left);
+						} else if (sq.rightWall) {
+							grid[x][y].setTexture(&right);
+							//sq.item_test = true;
+						} else {
+							grid[x][y].setTexture(&no_wall);
+						}
+						// ---------------------------------
+
+						/*	if (sq.item_test) {
+						 sf::RectangleShape item_overlay;
+						 item_overlay.setTexture(&item);
+						 item_overlay.setPosition(x*cellSize.x + 5.0f, y*cellSize.y + 5.0f);
+						 // draw the item
+						 window.draw(item_overlay);
+						 }*/
+						//	Set position of grid and draw
+						grid[x][y].setPosition(x * cellSize.x + 5.0f,
+								y * cellSize.y + 5.0f);
+						window.draw(grid[x][y]);
+
+					}
+				}
+			}
 			//window.display();
 
 			elapsed = clock.getElapsedTime();
@@ -528,19 +658,12 @@ void GameScreen::Game(sf::RenderWindow& window, bool AI) {
 					}
 				}
 			}
-			if (hPlayer.isEnd == true) {
-				endScreen(window, 1);
-				stayOpen = false;
 
-			} else if (hPlayer2.isEnd == true) {
-				endScreen(window, 2);
-				stayOpen = false;
-			}
 				}
 
 		if(AI){
 			elapsed2 = clock2.getElapsedTime();
-			if (elapsed2.asMilliseconds() > 100 && hPlayer2.canInput){
+			if (elapsed2.asMilliseconds() > 130 && hPlayer2.canInput){
 
 			int destinationX = maze_constructor.correctPath.front().x;
 								int destinationY = maze_constructor.correctPath.front().y;
@@ -634,132 +757,6 @@ void GameScreen::Game(sf::RenderWindow& window, bool AI) {
 									clock2.restart();
 									maze_constructor.correctPath.erase(maze_constructor.correctPath.begin());
 								}
-			}
-		}
-
-		window.clear();
-					sf::Vector2f cellSize(40.0f, 40.0f);
-
-					// Display Maze 1
-					for (int x = 0; x < SIZE; x++) {
-						for (int y = 0; y < SIZE; y++) {
-							grid[x][y].setSize(cellSize);
-							// grid[x][y].setOutlineColor(sf::Color::Blue);
-
-							// -- Decide which texture to apply --
-							MazeSquare sq = maze_1[x][y];
-
-							// Check dead end first
-							if (sq.upWall && sq.downWall && sq.rightWall) {
-								grid[x][y].setTexture(&right_dead_end);
-							} else if (sq.upWall && sq.downWall && sq.leftWall) {
-								grid[x][y].setTexture(&left_dead_end);
-							} else if (sq.upWall && sq.rightWall && sq.leftWall) {
-								grid[x][y].setTexture(&top_dead_end);
-							} else if (sq.downWall && sq.rightWall && sq.leftWall) {
-								grid[x][y].setTexture(&bottom_dead_end);
-							}
-							//	Then check Corners and corridors
-							else if (sq.upWall && sq.downWall) {
-								grid[x][y].setTexture(&top_bottom);
-							} else if (sq.leftWall && sq.rightWall) {
-								grid[x][y].setTexture(&left_right);
-							}
-
-							else if (sq.downWall && sq.leftWall) {
-								grid[x][y].setTexture(&bottom_left_corner);
-							} else if (sq.downWall && sq.rightWall) {
-								grid[x][y].setTexture(&bottom_right_corner);
-							} else if (sq.upWall && sq.leftWall) {
-								grid[x][y].setTexture(&top_left_corner);
-							} else if (sq.upWall && sq.rightWall) {
-								grid[x][y].setTexture(&top_right_corner);
-							}
-							// Check single wall last
-							else if (sq.downWall) {
-								grid[x][y].setTexture(&bottom);
-							} else if (sq.upWall) {
-								grid[x][y].setTexture(&top);
-							} else if (sq.leftWall) {
-								grid[x][y].setTexture(&left);
-							} else if (sq.rightWall) {
-								grid[x][y].setTexture(&right);
-								//sq.item_test = true;
-							} else {
-								grid[x][y].setTexture(&no_wall);
-							}
-							// ---------------------------------
-
-							//	Set position of grid and draw
-							grid[x][y].setPosition(x * cellSize.x + 5.0f,
-									y * cellSize.y + 5.0f);
-							window.draw(grid[x][y]);
-
-							/*	if (sq.item_test) {
-							 sf::Sprite item_overlay(item);
-							 item_overlay.setPosition(x*cellSize.x + 5.0f, y*cellSize.y + 5.0f);
-							 // draw the item
-							 window.draw(item_overlay);
-							 }*/
-						}
-
-						// Display Maze 2
-						for (int x = SIZE + 1; x < 2 * SIZE + 1; x++) {
-							for (int y = 0; y < SIZE; y++) {
-								grid[x][y].setSize(cellSize);
-								// grid[x][y].setOutlineColor(sf::Color::Blue);
-								int X = x - SIZE - 1;// allows for accessing the maze object
-								// -- Decide which texture to apply --
-								MazeSquare sq = maze_2[X][y];
-
-								// Check dead end first
-								if (sq.upWall && sq.downWall && sq.rightWall) {
-									grid[x][y].setTexture(&right_dead_end);
-								} else if (sq.upWall && sq.downWall && sq.leftWall) {
-									grid[x][y].setTexture(&left_dead_end);
-								} else if (sq.upWall && sq.rightWall && sq.leftWall) {
-									grid[x][y].setTexture(&top_dead_end);
-								} else if (sq.downWall && sq.rightWall && sq.leftWall) {
-									grid[x][y].setTexture(&bottom_dead_end);
-								}
-								//	Then check Corners and corridors
-								else if (sq.upWall && sq.downWall) {
-									grid[x][y].setTexture(&top_bottom);
-								} else if (sq.leftWall && sq.rightWall) {
-									grid[x][y].setTexture(&left_right);
-								}
-
-								else if (sq.downWall && sq.leftWall) {
-									grid[x][y].setTexture(&bottom_left_corner);
-								} else if (sq.downWall && sq.rightWall) {
-									grid[x][y].setTexture(&bottom_right_corner);
-								} else if (sq.upWall && sq.leftWall) {
-									grid[x][y].setTexture(&top_left_corner);
-								} else if (sq.upWall && sq.rightWall) {
-									grid[x][y].setTexture(&top_right_corner);
-								}
-								// Check single wall last
-								else if (sq.downWall) {
-									grid[x][y].setTexture(&bottom);
-								} else if (sq.upWall) {
-									grid[x][y].setTexture(&top);
-								} else if (sq.leftWall) {
-									grid[x][y].setTexture(&left);
-								} else if (sq.rightWall) {
-									grid[x][y].setTexture(&right);
-									//sq.item_test = true;
-								} else {
-									grid[x][y].setTexture(&no_wall);
-								}
-								// ---------------------------------
-
-								grid[x][y].setPosition(x * cellSize.x + 5.0f,
-										y * cellSize.y + 5.0f);
-								window.draw(grid[x][y]);
-
-							}
-						}
-					}
 
 								window.draw(finalRect);
 											window.draw(finalRect2);
@@ -769,7 +766,14 @@ void GameScreen::Game(sf::RenderWindow& window, bool AI) {
 											window.display();
 		}
 
+		if (hPlayer.isEnd == true) {
+			endScreen(window, 1);
+			stayOpen = false;
 
+		} else if (hPlayer2.isEnd == true) {
+			endScreen(window, 2);
+			stayOpen = false;
+		}
 	}
 
 

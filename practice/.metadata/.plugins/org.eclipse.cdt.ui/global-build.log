@@ -2779,3 +2779,159 @@ In file included from ..\MazeSquare.h:4:0,
  #endif /* ITEMS_H_ */
          
 g++ "-LC:\\Users\\Jolleh\\Documents\\SFML-2.5.1-windows-gcc-7.3.0-mingw-32-bit\\SFML-2.5.1\\lib" -o MazeKindaWorks.exe GameControll.o HumanPlayer.o Items.o MazeConstructor.o MazeSquare.o ScreenController.o newMazeSquare.o "..\\..\\..\\..\\..\\..\\Documents\\SFML-2.5.1-windows-gcc-7.3.0-mingw-32-bit\\SFML-2.5.1\\lib\\libsfml-audio.a" "..\\..\\..\\..\\..\\..\\Documents\\SFML-2.5.1-windows-gcc-7.3.0-mingw-32-bit\\SFML-2.5.1\\lib\\libsfml-graphics.a" "..\\..\\..\\..\\..\\..\\Documents\\SFML-2.5.1-windows-gcc-7.3.0-mingw-32-bit\\SFML-2.5.1\\lib\\libsfml-network.a" "..\\..\\..\\..\\..\\..\\Documents\\SFML-2.5.1-windows-gcc-7.3.0-mingw-32-bit\\SFML-2.5.1\\lib\\libsfml-window.a" "..\\..\\..\\..\\..\\..\\Documents\\SFML-2.5.1-windows-gcc-7.3.0-mingw-32-bit\\SFML-2.5.1\\lib\\libsfml-system.a" -lsfml-graphics -lsfml-audio -lsfml-network -lsfml-window -lsfml-system 
+21:59:19 **** Incremental Build of configuration Debug for project MazeKindaWorks ****
+Info: Internal Builder is used for build
+g++ "-IC:\\Users\\Jolleh\\Documents\\SFML-2.5.1-windows-gcc-7.3.0-mingw-32-bit\\SFML-2.5.1\\include" -O0 -g3 -Wall -c -fmessage-length=0 -o GameControll.o "..\\GameControll.cpp" 
+..\GameControll.cpp:7:9: warning: #pragma once in main file
+ #pragma once
+         ^~~~
+In file included from ..\MazeSquare.h:4:0,
+                 from ..\MazeConstructor.h:3,
+                 from ..\HumanPlayer.h:4,
+                 from ..\GameControll.h:15,
+                 from ..\ScreenController.h:14,
+                 from ..\GameControll.cpp:10:
+..\items.h:56:8: warning: "/*" within comment [-Wcomment]
+ #endif /* ITEMS_H_ */
+         
+g++ "-LC:\\Users\\Jolleh\\Documents\\SFML-2.5.1-windows-gcc-7.3.0-mingw-32-bit\\SFML-2.5.1\\lib" -o MazeKindaWorks.exe GameControll.o HumanPlayer.o Items.o MazeConstructor.o MazeSquare.o ScreenController.o newMazeSquare.o "..\\..\\..\\..\\..\\..\\Documents\\SFML-2.5.1-windows-gcc-7.3.0-mingw-32-bit\\SFML-2.5.1\\lib\\libsfml-audio.a" "..\\..\\..\\..\\..\\..\\Documents\\SFML-2.5.1-windows-gcc-7.3.0-mingw-32-bit\\SFML-2.5.1\\lib\\libsfml-graphics.a" "..\\..\\..\\..\\..\\..\\Documents\\SFML-2.5.1-windows-gcc-7.3.0-mingw-32-bit\\SFML-2.5.1\\lib\\libsfml-network.a" "..\\..\\..\\..\\..\\..\\Documents\\SFML-2.5.1-windows-gcc-7.3.0-mingw-32-bit\\SFML-2.5.1\\lib\\libsfml-window.a" "..\\..\\..\\..\\..\\..\\Documents\\SFML-2.5.1-windows-gcc-7.3.0-mingw-32-bit\\SFML-2.5.1\\lib\\libsfml-system.a" -lsfml-graphics -lsfml-audio -lsfml-network -lsfml-window -lsfml-system 
+22:02:49 **** Incremental Build of configuration Debug for project MazeKindaWorks ****
+Info: Internal Builder is used for build
+g++ "-IC:\\Users\\Jolleh\\Documents\\SFML-2.5.1-windows-gcc-7.3.0-mingw-32-bit\\SFML-2.5.1\\include" -O0 -g3 -Wall -c -fmessage-length=0 -o GameControll.o "..\\GameControll.cpp" 
+..\GameControll.cpp:7:9: warning: #pragma once in main file
+ #pragma once
+         ^~~~
+In file included from ..\MazeSquare.h:4:0,
+                 from ..\MazeConstructor.h:3,
+                 from ..\HumanPlayer.h:4,
+                 from ..\GameControll.h:15,
+                 from ..\ScreenController.h:14,
+                 from ..\GameControll.cpp:10:
+..\items.h:56:8: warning: "/*" within comment [-Wcomment]
+ #endif /* ITEMS_H_ */
+         
+g++ "-LC:\\Users\\Jolleh\\Documents\\SFML-2.5.1-windows-gcc-7.3.0-mingw-32-bit\\SFML-2.5.1\\lib" -o MazeKindaWorks.exe GameControll.o HumanPlayer.o Items.o MazeConstructor.o MazeSquare.o ScreenController.o newMazeSquare.o "..\\..\\..\\..\\..\\..\\Documents\\SFML-2.5.1-windows-gcc-7.3.0-mingw-32-bit\\SFML-2.5.1\\lib\\libsfml-audio.a" "..\\..\\..\\..\\..\\..\\Documents\\SFML-2.5.1-windows-gcc-7.3.0-mingw-32-bit\\SFML-2.5.1\\lib\\libsfml-graphics.a" "..\\..\\..\\..\\..\\..\\Documents\\SFML-2.5.1-windows-gcc-7.3.0-mingw-32-bit\\SFML-2.5.1\\lib\\libsfml-network.a" "..\\..\\..\\..\\..\\..\\Documents\\SFML-2.5.1-windows-gcc-7.3.0-mingw-32-bit\\SFML-2.5.1\\lib\\libsfml-window.a" "..\\..\\..\\..\\..\\..\\Documents\\SFML-2.5.1-windows-gcc-7.3.0-mingw-32-bit\\SFML-2.5.1\\lib\\libsfml-system.a" -lsfml-graphics -lsfml-audio -lsfml-network -lsfml-window -lsfml-system 
+22:08:18 **** Incremental Build of configuration Debug for project MazeKindaWorks ****
+Info: Internal Builder is used for build
+g++ "-IC:\\Users\\Jolleh\\Documents\\SFML-2.5.1-windows-gcc-7.3.0-mingw-32-bit\\SFML-2.5.1\\include" -O0 -g3 -Wall -c -fmessage-length=0 -o GameControll.o "..\\GameControll.cpp" 
+..\GameControll.cpp:7:9: warning: #pragma once in main file
+ #pragma once
+         ^~~~
+In file included from ..\MazeSquare.h:4:0,
+                 from ..\MazeConstructor.h:3,
+                 from ..\HumanPlayer.h:4,
+                 from ..\GameControll.h:15,
+                 from ..\ScreenController.h:14,
+                 from ..\GameControll.cpp:10:
+..\items.h:56:8: warning: "/*" within comment [-Wcomment]
+ #endif /* ITEMS_H_ */
+         
+..\GameControll.cpp: In member function 'void GameScreen::Game(sf::RenderWindow&, bool)':
+..\GameControll.cpp:703:24: error: 'cellSize' was not declared in this scope
+     grid[x][y].setSize(cellSize);
+                        ^~~~~~~~
+22:09:34 **** Incremental Build of configuration Debug for project MazeKindaWorks ****
+Info: Internal Builder is used for build
+g++ "-IC:\\Users\\Jolleh\\Documents\\SFML-2.5.1-windows-gcc-7.3.0-mingw-32-bit\\SFML-2.5.1\\include" -O0 -g3 -Wall -c -fmessage-length=0 -o GameControll.o "..\\GameControll.cpp" 
+..\GameControll.cpp:7:9: warning: #pragma once in main file
+ #pragma once
+         ^~~~
+In file included from ..\MazeSquare.h:4:0,
+                 from ..\MazeConstructor.h:3,
+                 from ..\HumanPlayer.h:4,
+                 from ..\GameControll.h:15,
+                 from ..\ScreenController.h:14,
+                 from ..\GameControll.cpp:10:
+..\items.h:56:8: warning: "/*" within comment [-Wcomment]
+ #endif /* ITEMS_H_ */
+         
+g++ "-LC:\\Users\\Jolleh\\Documents\\SFML-2.5.1-windows-gcc-7.3.0-mingw-32-bit\\SFML-2.5.1\\lib" -o MazeKindaWorks.exe GameControll.o HumanPlayer.o Items.o MazeConstructor.o MazeSquare.o ScreenController.o newMazeSquare.o "..\\..\\..\\..\\..\\..\\Documents\\SFML-2.5.1-windows-gcc-7.3.0-mingw-32-bit\\SFML-2.5.1\\lib\\libsfml-audio.a" "..\\..\\..\\..\\..\\..\\Documents\\SFML-2.5.1-windows-gcc-7.3.0-mingw-32-bit\\SFML-2.5.1\\lib\\libsfml-graphics.a" "..\\..\\..\\..\\..\\..\\Documents\\SFML-2.5.1-windows-gcc-7.3.0-mingw-32-bit\\SFML-2.5.1\\lib\\libsfml-network.a" "..\\..\\..\\..\\..\\..\\Documents\\SFML-2.5.1-windows-gcc-7.3.0-mingw-32-bit\\SFML-2.5.1\\lib\\libsfml-window.a" "..\\..\\..\\..\\..\\..\\Documents\\SFML-2.5.1-windows-gcc-7.3.0-mingw-32-bit\\SFML-2.5.1\\lib\\libsfml-system.a" -lsfml-graphics -lsfml-audio -lsfml-network -lsfml-window -lsfml-system 
+22:14:28 **** Incremental Build of configuration Debug for project MazeKindaWorks ****
+Info: Internal Builder is used for build
+g++ "-IC:\\Users\\Jolleh\\Documents\\SFML-2.5.1-windows-gcc-7.3.0-mingw-32-bit\\SFML-2.5.1\\include" -O0 -g3 -Wall -c -fmessage-length=0 -o GameControll.o "..\\GameControll.cpp" 
+..\GameControll.cpp:7:9: warning: #pragma once in main file
+ #pragma once
+         ^~~~
+In file included from ..\MazeSquare.h:4:0,
+                 from ..\MazeConstructor.h:3,
+                 from ..\HumanPlayer.h:4,
+                 from ..\GameControll.h:15,
+                 from ..\ScreenController.h:14,
+                 from ..\GameControll.cpp:10:
+..\items.h:56:8: warning: "/*" within comment [-Wcomment]
+ #endif /* ITEMS_H_ */
+         
+g++ "-LC:\\Users\\Jolleh\\Documents\\SFML-2.5.1-windows-gcc-7.3.0-mingw-32-bit\\SFML-2.5.1\\lib" -o MazeKindaWorks.exe GameControll.o HumanPlayer.o Items.o MazeConstructor.o MazeSquare.o ScreenController.o newMazeSquare.o "..\\..\\..\\..\\..\\..\\Documents\\SFML-2.5.1-windows-gcc-7.3.0-mingw-32-bit\\SFML-2.5.1\\lib\\libsfml-audio.a" "..\\..\\..\\..\\..\\..\\Documents\\SFML-2.5.1-windows-gcc-7.3.0-mingw-32-bit\\SFML-2.5.1\\lib\\libsfml-graphics.a" "..\\..\\..\\..\\..\\..\\Documents\\SFML-2.5.1-windows-gcc-7.3.0-mingw-32-bit\\SFML-2.5.1\\lib\\libsfml-network.a" "..\\..\\..\\..\\..\\..\\Documents\\SFML-2.5.1-windows-gcc-7.3.0-mingw-32-bit\\SFML-2.5.1\\lib\\libsfml-window.a" "..\\..\\..\\..\\..\\..\\Documents\\SFML-2.5.1-windows-gcc-7.3.0-mingw-32-bit\\SFML-2.5.1\\lib\\libsfml-system.a" -lsfml-graphics -lsfml-audio -lsfml-network -lsfml-window -lsfml-system 
+22:15:21 **** Incremental Build of configuration Debug for project MazeKindaWorks ****
+Info: Internal Builder is used for build
+g++ "-IC:\\Users\\Jolleh\\Documents\\SFML-2.5.1-windows-gcc-7.3.0-mingw-32-bit\\SFML-2.5.1\\include" -O0 -g3 -Wall -c -fmessage-length=0 -o GameControll.o "..\\GameControll.cpp" 
+..\GameControll.cpp:7:9: warning: #pragma once in main file
+ #pragma once
+         ^~~~
+In file included from ..\MazeSquare.h:4:0,
+                 from ..\MazeConstructor.h:3,
+                 from ..\HumanPlayer.h:4,
+                 from ..\GameControll.h:15,
+                 from ..\ScreenController.h:14,
+                 from ..\GameControll.cpp:10:
+..\items.h:56:8: warning: "/*" within comment [-Wcomment]
+ #endif /* ITEMS_H_ */
+         
+g++ "-LC:\\Users\\Jolleh\\Documents\\SFML-2.5.1-windows-gcc-7.3.0-mingw-32-bit\\SFML-2.5.1\\lib" -o MazeKindaWorks.exe GameControll.o HumanPlayer.o Items.o MazeConstructor.o MazeSquare.o ScreenController.o newMazeSquare.o "..\\..\\..\\..\\..\\..\\Documents\\SFML-2.5.1-windows-gcc-7.3.0-mingw-32-bit\\SFML-2.5.1\\lib\\libsfml-audio.a" "..\\..\\..\\..\\..\\..\\Documents\\SFML-2.5.1-windows-gcc-7.3.0-mingw-32-bit\\SFML-2.5.1\\lib\\libsfml-graphics.a" "..\\..\\..\\..\\..\\..\\Documents\\SFML-2.5.1-windows-gcc-7.3.0-mingw-32-bit\\SFML-2.5.1\\lib\\libsfml-network.a" "..\\..\\..\\..\\..\\..\\Documents\\SFML-2.5.1-windows-gcc-7.3.0-mingw-32-bit\\SFML-2.5.1\\lib\\libsfml-window.a" "..\\..\\..\\..\\..\\..\\Documents\\SFML-2.5.1-windows-gcc-7.3.0-mingw-32-bit\\SFML-2.5.1\\lib\\libsfml-system.a" -lsfml-graphics -lsfml-audio -lsfml-network -lsfml-window -lsfml-system 
+Info: Nothing to build for MazeKindaWorks
+Info: Nothing to build for MazeKindaWorks
+22:21:36 **** Incremental Build of configuration Debug for project MazeKindaWorks ****
+Info: Internal Builder is used for build
+g++ "-IC:\\Users\\Jolleh\\Documents\\SFML-2.5.1-windows-gcc-7.3.0-mingw-32-bit\\SFML-2.5.1\\include" -O0 -g3 -Wall -c -fmessage-length=0 -o HumanPlayer.o "..\\HumanPlayer.cpp" 
+..\HumanPlayer.cpp:1:9: warning: #pragma once in main file
+ #pragma once
+         ^~~~
+In file included from ..\MazeSquare.h:4:0,
+                 from ..\MazeConstructor.h:3,
+                 from ..\HumanPlayer.h:4,
+                 from ..\HumanPlayer.cpp:2:
+..\items.h:56:8: warning: "/*" within comment [-Wcomment]
+ #endif /* ITEMS_H_ */
+         
+g++ "-LC:\\Users\\Jolleh\\Documents\\SFML-2.5.1-windows-gcc-7.3.0-mingw-32-bit\\SFML-2.5.1\\lib" -o MazeKindaWorks.exe GameControll.o HumanPlayer.o Items.o MazeConstructor.o MazeSquare.o ScreenController.o newMazeSquare.o "..\\..\\..\\..\\..\\..\\Documents\\SFML-2.5.1-windows-gcc-7.3.0-mingw-32-bit\\SFML-2.5.1\\lib\\libsfml-audio.a" "..\\..\\..\\..\\..\\..\\Documents\\SFML-2.5.1-windows-gcc-7.3.0-mingw-32-bit\\SFML-2.5.1\\lib\\libsfml-graphics.a" "..\\..\\..\\..\\..\\..\\Documents\\SFML-2.5.1-windows-gcc-7.3.0-mingw-32-bit\\SFML-2.5.1\\lib\\libsfml-network.a" "..\\..\\..\\..\\..\\..\\Documents\\SFML-2.5.1-windows-gcc-7.3.0-mingw-32-bit\\SFML-2.5.1\\lib\\libsfml-window.a" "..\\..\\..\\..\\..\\..\\Documents\\SFML-2.5.1-windows-gcc-7.3.0-mingw-32-bit\\SFML-2.5.1\\lib\\libsfml-system.a" -lsfml-graphics -lsfml-audio -lsfml-network -lsfml-window -lsfml-system 
+22:22:29 **** Incremental Build of configuration Debug for project MazeKindaWorks ****
+Info: Internal Builder is used for build
+g++ "-IC:\\Users\\Jolleh\\Documents\\SFML-2.5.1-windows-gcc-7.3.0-mingw-32-bit\\SFML-2.5.1\\include" -O0 -g3 -Wall -c -fmessage-length=0 -o HumanPlayer.o "..\\HumanPlayer.cpp" 
+..\HumanPlayer.cpp:1:9: warning: #pragma once in main file
+ #pragma once
+         ^~~~
+In file included from ..\MazeSquare.h:4:0,
+                 from ..\MazeConstructor.h:3,
+                 from ..\HumanPlayer.h:4,
+                 from ..\HumanPlayer.cpp:2:
+..\items.h:56:8: warning: "/*" within comment [-Wcomment]
+ #endif /* ITEMS_H_ */
+         
+g++ "-LC:\\Users\\Jolleh\\Documents\\SFML-2.5.1-windows-gcc-7.3.0-mingw-32-bit\\SFML-2.5.1\\lib" -o MazeKindaWorks.exe GameControll.o HumanPlayer.o Items.o MazeConstructor.o MazeSquare.o ScreenController.o newMazeSquare.o "..\\..\\..\\..\\..\\..\\Documents\\SFML-2.5.1-windows-gcc-7.3.0-mingw-32-bit\\SFML-2.5.1\\lib\\libsfml-audio.a" "..\\..\\..\\..\\..\\..\\Documents\\SFML-2.5.1-windows-gcc-7.3.0-mingw-32-bit\\SFML-2.5.1\\lib\\libsfml-graphics.a" "..\\..\\..\\..\\..\\..\\Documents\\SFML-2.5.1-windows-gcc-7.3.0-mingw-32-bit\\SFML-2.5.1\\lib\\libsfml-network.a" "..\\..\\..\\..\\..\\..\\Documents\\SFML-2.5.1-windows-gcc-7.3.0-mingw-32-bit\\SFML-2.5.1\\lib\\libsfml-window.a" "..\\..\\..\\..\\..\\..\\Documents\\SFML-2.5.1-windows-gcc-7.3.0-mingw-32-bit\\SFML-2.5.1\\lib\\libsfml-system.a" -lsfml-graphics -lsfml-audio -lsfml-network -lsfml-window -lsfml-system 
+22:23:59 **** Incremental Build of configuration Debug for project MazeKindaWorks ****
+Info: Internal Builder is used for build
+g++ "-IC:\\Users\\Jolleh\\Documents\\SFML-2.5.1-windows-gcc-7.3.0-mingw-32-bit\\SFML-2.5.1\\include" -O0 -g3 -Wall -c -fmessage-length=0 -o HumanPlayer.o "..\\HumanPlayer.cpp" 
+..\HumanPlayer.cpp:1:9: warning: #pragma once in main file
+ #pragma once
+         ^~~~
+In file included from ..\MazeSquare.h:4:0,
+                 from ..\MazeConstructor.h:3,
+                 from ..\HumanPlayer.h:4,
+                 from ..\HumanPlayer.cpp:2:
+..\items.h:56:8: warning: "/*" within comment [-Wcomment]
+ #endif /* ITEMS_H_ */
+         
+g++ "-IC:\\Users\\Jolleh\\Documents\\SFML-2.5.1-windows-gcc-7.3.0-mingw-32-bit\\SFML-2.5.1\\include" -O0 -g3 -Wall -c -fmessage-length=0 -o GameControll.o "..\\GameControll.cpp" 
+..\GameControll.cpp:7:9: warning: #pragma once in main file
+ #pragma once
+         ^~~~
+In file included from ..\MazeSquare.h:4:0,
+                 from ..\MazeConstructor.h:3,
+                 from ..\HumanPlayer.h:4,
+                 from ..\GameControll.h:15,
+                 from ..\ScreenController.h:14,
+                 from ..\GameControll.cpp:10:
+..\items.h:56:8: warning: "/*" within comment [-Wcomment]
+ #endif /* ITEMS_H_ */
+         
+g++ "-LC:\\Users\\Jolleh\\Documents\\SFML-2.5.1-windows-gcc-7.3.0-mingw-32-bit\\SFML-2.5.1\\lib" -o MazeKindaWorks.exe GameControll.o HumanPlayer.o Items.o MazeConstructor.o MazeSquare.o ScreenController.o newMazeSquare.o "..\\..\\..\\..\\..\\..\\Documents\\SFML-2.5.1-windows-gcc-7.3.0-mingw-32-bit\\SFML-2.5.1\\lib\\libsfml-audio.a" "..\\..\\..\\..\\..\\..\\Documents\\SFML-2.5.1-windows-gcc-7.3.0-mingw-32-bit\\SFML-2.5.1\\lib\\libsfml-graphics.a" "..\\..\\..\\..\\..\\..\\Documents\\SFML-2.5.1-windows-gcc-7.3.0-mingw-32-bit\\SFML-2.5.1\\lib\\libsfml-network.a" "..\\..\\..\\..\\..\\..\\Documents\\SFML-2.5.1-windows-gcc-7.3.0-mingw-32-bit\\SFML-2.5.1\\lib\\libsfml-window.a" "..\\..\\..\\..\\..\\..\\Documents\\SFML-2.5.1-windows-gcc-7.3.0-mingw-32-bit\\SFML-2.5.1\\lib\\libsfml-system.a" -lsfml-graphics -lsfml-audio -lsfml-network -lsfml-window -lsfml-system 

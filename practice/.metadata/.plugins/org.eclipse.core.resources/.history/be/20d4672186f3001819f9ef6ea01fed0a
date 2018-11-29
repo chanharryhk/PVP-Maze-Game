@@ -74,6 +74,7 @@ void HumanPlayer::moveUp(sf::Time timeChange) {
 		//delete &mSprite;
 		if (currentMaze[x][y] == currentMaze[xfinal][yfinal]){
 			isEnd = true;
+			cout<<"check"<<endl;
 		}
 	}
 
@@ -95,6 +96,7 @@ void HumanPlayer::moveDown(sf::Time timeChange) {
 		//delete &mSprite;
 		if (currentMaze[x][y] == currentMaze[xfinal][yfinal]){
 			isEnd = true;
+			cout<<"check"<<endl;
 		}
 	}
 
@@ -117,6 +119,7 @@ void HumanPlayer::moveLeft(sf::Time timeChange) {
 		//delete &mSprite;
 		if (currentMaze[x][y] == currentMaze[xfinal][yfinal]){
 			isEnd = true;
+			cout<<"check"<<endl;
 		}
 	}
 
@@ -138,6 +141,7 @@ void HumanPlayer::moveRight(sf::Time timeChange) {
 		//delete &mSprite;
 		if (currentMaze[x][y] == currentMaze[xfinal][yfinal]){
 			isEnd = true;
+			cout<<"check"<<endl;
 		}
 	}
 

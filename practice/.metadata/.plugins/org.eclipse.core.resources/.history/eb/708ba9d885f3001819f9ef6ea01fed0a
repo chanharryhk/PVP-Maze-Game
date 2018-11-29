@@ -72,9 +72,8 @@ void HumanPlayer::moveUp(sf::Time timeChange) {
 		}
 		//isMoving = false;
 		//delete &mSprite;
-		if (currentMaze[x][y] == currentMaze[xfinal][yfinal]){
+		if (currentMaze[x][y] == currentMaze[xfinal][yfinal])
 			isEnd = true;
-		}
 	}
 
 	canInput = true;

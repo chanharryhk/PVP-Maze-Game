@@ -528,19 +528,12 @@ void GameScreen::Game(sf::RenderWindow& window, bool AI) {
 					}
 				}
 			}
-			if (hPlayer.isEnd == true) {
-				endScreen(window, 1);
-				stayOpen = false;
 
-			} else if (hPlayer2.isEnd == true) {
-				endScreen(window, 2);
-				stayOpen = false;
-			}
 				}
 
 		if(AI){
 			elapsed2 = clock2.getElapsedTime();
-			if (elapsed2.asMilliseconds() > 100 && hPlayer2.canInput){
+			if (elapsed2.asMilliseconds() > 60 && hPlayer2.canInput){
 
 			int destinationX = maze_constructor.correctPath.front().x;
 								int destinationY = maze_constructor.correctPath.front().y;
@@ -769,7 +762,14 @@ void GameScreen::Game(sf::RenderWindow& window, bool AI) {
 											window.display();
 		}
 
+		if (hPlayer.isEnd == true) {
+			endScreen(window, 1);
+			stayOpen = false;
 
+		} else if (hPlayer2.isEnd == true) {
+			endScreen(window, 2);
+			stayOpen = false;
+		}
 	}
 
 

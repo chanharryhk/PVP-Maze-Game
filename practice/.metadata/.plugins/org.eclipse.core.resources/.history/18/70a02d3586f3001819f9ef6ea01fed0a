@@ -528,14 +528,7 @@ void GameScreen::Game(sf::RenderWindow& window, bool AI) {
 					}
 				}
 			}
-			if (hPlayer.isEnd == true) {
-				endScreen(window, 1);
-				stayOpen = false;
 
-			} else if (hPlayer2.isEnd == true) {
-				endScreen(window, 2);
-				stayOpen = false;
-			}
 				}
 
 		if(AI){
@@ -769,7 +762,14 @@ void GameScreen::Game(sf::RenderWindow& window, bool AI) {
 											window.display();
 		}
 
+		if (hPlayer.isEnd == true) {
+			endScreen(window, 1);
+			stayOpen = false;
 
+		} else if (hPlayer2.isEnd == true) {
+			endScreen(window, 2);
+			stayOpen = false;
+		}
 	}
 
 
