@@ -117,7 +117,7 @@ MazeConstructor::MazeConstructor(int size) {
 
 }
 
-MazeConstructor::~MazeConstructor(){
+/*MazeConstructor::~MazeConstructor(){
 	//if (maze != nullptr){
 		for (int y = 0; y < mazeSize; y++){
 			//if (maze[y] != nullptr){
@@ -133,4 +133,4 @@ MazeConstructor::~MazeConstructor(){
 		delete[] &maze;
 		//maze = nullptr;
 	//}
-}
+}*/

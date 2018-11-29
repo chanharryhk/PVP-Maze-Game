@@ -7,7 +7,7 @@ using namespace std;
 class MazeConstructor {
 public:
 	MazeConstructor(int size);
-	~MazeConstructor();
+	//~MazeConstructor();
 	int mazeSize;
 	vector < vector<MazeSquare>> maze;	//contains size x size matrix of MazeSquares to represent maze
 	vector<MazeSquare> correctPath;	//contains path of maze cells leading to goal. Used for AI

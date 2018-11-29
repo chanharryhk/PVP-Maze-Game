@@ -73,8 +73,6 @@ void GameScreen::endScreen(sf::RenderWindow& window, int whoWins) {
 			if (event.type == sf::Event::MouseButtonPressed) {
 				if (mou.x > 10 && mou.x < 630 && mou.y > 300 && mou.y < 350) {
 					stayOpen = false;
-					TitleScreen s;
-					s.StartGame(window);
 
 				} else if (mou.x > 10 && mou.x < 630 && mou.y > 360
 						&& mou.y < 410) {
@@ -98,7 +96,7 @@ void GameScreen::endScreen(sf::RenderWindow& window, int whoWins) {
 
 }
 
-void PauseMenu::PauseGame(sf::RenderWindow& window) {
+bool PauseMenu::PauseGame(sf::RenderWindow& window) {
 
 	sf::RenderWindow window2(sf::VideoMode(640, 480), "");
 	sf::RectangleShape rectangle(sf::Vector2f(120, 50));
@@ -155,8 +153,7 @@ void PauseMenu::PauseGame(sf::RenderWindow& window) {
 				} else if (mou.x > 10 && mou.x < 630 && mou.y > 360
 						&& mou.y < 410) {
 					window2.close();
-					TitleScreen s;
-					s.StartGame(window);
+					return false;
 
 				}
 			}
@@ -187,7 +184,7 @@ void PauseMenu::PauseGame(sf::RenderWindow& window) {
 		window2.display();
 
 	}
-
+	return true;
 }
 
 sf::Texture setUpTexture(std::string fileName) {
@@ -291,7 +288,7 @@ void GameScreen::Game(sf::RenderWindow& window, bool AI) {
 				if (mou.x > SIZE * 40.0f && mou.x < SIZE * 40.0f + 0.5f
 						&& mou.y > 20.0f && mou.y < 20.0f + 2.f) {
 					PauseMenu p;
-					p.PauseGame(window);
+					stayOpen = p.PauseGame(window);
 				}
 			}
 			switch (event.type) {
@@ -303,7 +300,7 @@ void GameScreen::Game(sf::RenderWindow& window, bool AI) {
 				if (event.key.code == sf::Keyboard::P
 						|| event.key.code == sf::Keyboard::Escape) {
 					PauseMenu p;
-					p.PauseGame(window);
+					stayOpen = p.PauseGame(window);
 				} else if (event.key.code == sf::Keyboard::R) {
 					window.close();
 				}
@@ -770,11 +767,11 @@ void GameScreen::Game(sf::RenderWindow& window, bool AI) {
 		}
 		if (hPlayer.isEnd == true) {
 			endScreen(window, 1);
-			//stayOpen = false;
+			stayOpen = false;
 
 		} else if (hPlayer2.isEnd == true) {
 			endScreen(window, 2);
-			//stayOpen = false;
+			stayOpen = false;
 		}
 	}
 }
