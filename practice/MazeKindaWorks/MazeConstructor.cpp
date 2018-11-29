@@ -111,7 +111,10 @@ MazeConstructor::MazeConstructor(int size) {
 			depth += 1;
 		}
 	}
-	correctPath.back().goal = true;	//TODO: replace with goal object once implemented
+
+	xGoal = correctPath.back().x;
+	yGoal = correctPath.back().y;
+
 }
 
 MazeConstructor::~MazeConstructor(){
@@ -131,4 +134,3 @@ MazeConstructor::~MazeConstructor(){
 		//maze = nullptr;
 	//}
 }
-

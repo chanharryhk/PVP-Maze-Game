@@ -1,4 +1,4 @@
-22:03:03 **** Incremental Build of configuration Debug for project MazeKindaWorks ****
+21:24:10 **** Incremental Build of configuration Debug for project MazeKindaWorks ****
 Info: Internal Builder is used for build
 g++ "-IC:\\Users\\Jolleh\\Documents\\SFML-2.5.1-windows-gcc-7.3.0-mingw-32-bit\\SFML-2.5.1\\include" -O0 -g3 -Wall -c -fmessage-length=0 -o GameControll.o "..\\GameControll.cpp" 
 ..\GameControll.cpp:7:9: warning: #pragma once in main file
@@ -13,7 +13,7 @@ In file included from ..\MazeSquare.h:4:0,
 ..\items.h:56:8: warning: "/*" within comment [-Wcomment]
  #endif /* ITEMS_H_ */
          
-g++ "-LC:\\Users\\Jolleh\\Documents\\SFML-2.5.1-windows-gcc-7.3.0-mingw-32-bit\\SFML-2.5.1\\lib" -o MazeKindaWorks.exe GameControll.o HumanPlayer.o MazeConstructor.o MazeSquare.o ScreenController.o newMazeSquare.o "..\\..\\..\\..\\..\\..\\Documents\\SFML-2.5.1-windows-gcc-7.3.0-mingw-32-bit\\SFML-2.5.1\\lib\\libsfml-audio.a" "..\\..\\..\\..\\..\\..\\Documents\\SFML-2.5.1-windows-gcc-7.3.0-mingw-32-bit\\SFML-2.5.1\\lib\\libsfml-graphics.a" "..\\..\\..\\..\\..\\..\\Documents\\SFML-2.5.1-windows-gcc-7.3.0-mingw-32-bit\\SFML-2.5.1\\lib\\libsfml-window.a" "..\\..\\..\\..\\..\\..\\Documents\\SFML-2.5.1-windows-gcc-7.3.0-mingw-32-bit\\SFML-2.5.1\\lib\\libsfml-main.a" "..\\..\\..\\..\\..\\..\\Documents\\SFML-2.5.1-windows-gcc-7.3.0-mingw-32-bit\\SFML-2.5.1\\lib\\libsfml-system.a" "..\\..\\..\\..\\..\\..\\Documents\\SFML-2.5.1-windows-gcc-7.3.0-mingw-32-bit\\SFML-2.5.1\\lib\\libsfml-network.a" -lsfml-graphics -lsfml-audio -lsfml-network -lsfml-window -lsfml-system 
+g++ "-LC:\\Users\\Jolleh\\Documents\\SFML-2.5.1-windows-gcc-7.3.0-mingw-32-bit\\SFML-2.5.1\\lib" -o MazeKindaWorks.exe GameControll.o HumanPlayer.o Items.o MazeConstructor.o MazeSquare.o ScreenController.o newMazeSquare.o "..\\..\\..\\..\\..\\..\\Documents\\SFML-2.5.1-windows-gcc-7.3.0-mingw-32-bit\\SFML-2.5.1\\lib\\libsfml-audio.a" "..\\..\\..\\..\\..\\..\\Documents\\SFML-2.5.1-windows-gcc-7.3.0-mingw-32-bit\\SFML-2.5.1\\lib\\libsfml-graphics.a" "..\\..\\..\\..\\..\\..\\Documents\\SFML-2.5.1-windows-gcc-7.3.0-mingw-32-bit\\SFML-2.5.1\\lib\\libsfml-network.a" "..\\..\\..\\..\\..\\..\\Documents\\SFML-2.5.1-windows-gcc-7.3.0-mingw-32-bit\\SFML-2.5.1\\lib\\libsfml-window.a" "..\\..\\..\\..\\..\\..\\Documents\\SFML-2.5.1-windows-gcc-7.3.0-mingw-32-bit\\SFML-2.5.1\\lib\\libsfml-system.a" -lsfml-graphics -lsfml-audio -lsfml-network -lsfml-window -lsfml-system 
 
-22:03:04 Build Finished. 0 errors, 2 warnings. (took 1s.519ms)
+21:24:11 Build Finished. 0 errors, 2 warnings. (took 1s.568ms)
 

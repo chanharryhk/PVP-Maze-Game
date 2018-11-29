@@ -10,7 +10,7 @@
 
 #include <iostream>
 using namespace std;
-//#include "Graphics.hpp"
+#include "SFML/Graphics.hpp"
 #include "GameControll.h"
 class ScreenController{
 public:

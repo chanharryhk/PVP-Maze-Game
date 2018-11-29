@@ -13,14 +13,11 @@ using namespace std;
 #include "SFML/Graphics.hpp"
 #include "ScreenController.h"
 #include "HumanPlayer.h"
+#include <time.h>
 class GameScreen{
 public:
-	void Game(sf::RenderWindow& window);
-<<<<<<< HEAD:practice/GameControll.h
+	void Game(sf::RenderWindow& window, bool AI);
 	void endScreen(sf::RenderWindow& window, int whoWins);
-=======
-
->>>>>>> 3537484742e75eb4be83bd640eae8450004ebd73:practice/MazeKindaWorks/GameControll.h
 };
 
 class PauseMenu{

@@ -1,16 +1,20 @@
 #pragma once
 #include "HumanPlayer.h"
+#include "MazeConstructor.h"
+#include "MazeSquare.h"
 
 #include <iostream>
 #include <SFML\Graphics.hpp>
 #define moveSpeed .1
 #define SQUARE_SIZE 40 	// Length of each square of the maze
 
-
+#define SIZE 15
 
 // Constructor - takes in file name of the sprite texture and the maze that the player will be placed in
-HumanPlayer::HumanPlayer(const sf::Texture& imagePath, vector<vector<MazeSquare>> Maze) {
+HumanPlayer::HumanPlayer(const sf::Texture& imagePath, vector<vector<MazeSquare>> Maze, sf::Vector2f start, int xgoal, int ygoal) {
 
+	xfinal = xgoal;
+	yfinal = ygoal;
 
 	mSprite.setTexture(imagePath);
 	currentMaze = Maze;
@@ -22,9 +26,10 @@ HumanPlayer::HumanPlayer(const sf::Texture& imagePath, vector<vector<MazeSquare>
 	currentSquare = currentMaze[x][y];
 	isMoving = false;
 	canInput = true;
+	isEnd = false;
 	// Set the starting position of the player
 	//mSprite.setPosition(15.0f, 15.0f);
-	mSprite.setPosition(15.0f, 15.0f);
+	mSprite.setPosition(start.x, start.y);
 	// Sets the size of the sprite
 	mSprite.setTextureRect(sf::IntRect(15, 15, 20, 20));
 }
@@ -58,7 +63,7 @@ void HumanPlayer::moveUp(sf::Time timeChange) {
 	if (!currentSquare.upWall) {
 		y--;
 		currentSquare = currentMaze[x][y];
-
+		mSprite.setRotation(0.0f);		// Face up
 		float newYPos = mSprite.getPosition().y - SQUARE_SIZE;
 		// Move to the square above
 		isMoving = true;
@@ -67,7 +72,10 @@ void HumanPlayer::moveUp(sf::Time timeChange) {
 		}
 		//isMoving = false;
 		//delete &mSprite;
+		if (currentMaze[x][y] == currentMaze[xfinal][yfinal])
+			isEnd = true;
 	}
+
 	canInput = true;
 }
 
@@ -75,7 +83,7 @@ void HumanPlayer::moveDown(sf::Time timeChange) {
 	if (!currentSquare.downWall) {
 		y++;
 		currentSquare = currentMaze[x][y];
-
+		mSprite.setRotation(180.0f);	// Face down
 		float newYPos = mSprite.getPosition().y + SQUARE_SIZE;
 		// Move to the square below
 		//isMoving = true;
@@ -84,15 +92,20 @@ void HumanPlayer::moveDown(sf::Time timeChange) {
 		}
 		isMoving = false;
 		//delete &mSprite;
+		if (currentMaze[x][y] == currentMaze[xfinal][yfinal]){
+			isEnd = true;
+		}
 	}
+
 	canInput = true;
 }
 
 void HumanPlayer::moveLeft(sf::Time timeChange) {
-	if (!currentSquare.leftWall) {
+	if (!currentSquare.leftWall ) {
 		//cout<<x<<endl;
 		x--;
 		currentSquare = currentMaze[x][y];
+		mSprite.setRotation(270.0f);	// Face left
 		float newXPos = mSprite.getPosition().x - SQUARE_SIZE;
 		// Move to the square to the left
 		//isMoving = false;
@@ -101,7 +114,11 @@ void HumanPlayer::moveLeft(sf::Time timeChange) {
 		}
 		//isMoving = false;
 		//delete &mSprite;
+		if (currentMaze[x][y] == currentMaze[xfinal][yfinal]){
+			isEnd = true;
+		}
 	}
+
 	canInput = true;
 }
 
@@ -110,7 +127,7 @@ void HumanPlayer::moveRight(sf::Time timeChange) {
 		//isMoving = true;
 		x++;
 		currentSquare = currentMaze[x][y];
-
+		mSprite.setRotation(90.0f);		// Face right
 		float newXPos = mSprite.getPosition().x + SQUARE_SIZE;
 		// Move to the square to the right
 		while (mSprite.getPosition().x <= newXPos) {
@@ -118,6 +135,10 @@ void HumanPlayer::moveRight(sf::Time timeChange) {
 		}
 		//isMoving = false;
 		//delete &mSprite;
+		if (currentMaze[x][y] == currentMaze[xfinal][yfinal]){
+			isEnd = true;
+		}
 	}
+
 	canInput = true;
 }
