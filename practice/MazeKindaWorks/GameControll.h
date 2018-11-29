@@ -15,7 +15,7 @@ using namespace std;
 #include "HumanPlayer.h"
 class GameScreen{
 public:
-	void Game(sf::RenderWindow& window, bool AI);
+	void Game(sf::RenderWindow& window, bool AI, vector<sf::Keyboard::Key> player1Controls, vector<sf::Keyboard::Key> player2Controls);
 	void endScreen(sf::RenderWindow& window, int whoWins);
 };
 

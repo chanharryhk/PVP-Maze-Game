@@ -61,7 +61,7 @@ void TitleScreen::StartGame(sf::RenderWindow& window, sf::Music& mus) {
 
 	sf::Text text1;
 
-	text1.setString("Placeholder For Name Of Game 2");
+	text1.setString("Maze of Bad Decisions");
 	text1.setCharacterSize(37);
 	text1.setFont(font);
 	text1.setFillColor(sf::Color::Cyan);
@@ -517,7 +517,7 @@ void SetupScreen::SetupGame(sf::RenderWindow& window) {
 
 	sf::Text text1;
 
-	text1.setString("Placeholder For Name Of Game 2");
+	text1.setString("Maze of Bad Decisions");
 	text1.setCharacterSize(37);
 	text1.setFont(font);
 	text1.setFillColor(sf::Color::Cyan);
@@ -570,14 +570,14 @@ void SetupScreen::SetupGame(sf::RenderWindow& window) {
 						&& mou.y < winSize.y / 2 + 25) {
 					click.play();
 					GameScreen game;
-					game.Game(window, true);
+					game.Game(window, true, player1Controls, player2Controls);
 				} else if (mou.x > winSize.x / 2 - 310
 						&& mou.x < winSize.x / 2 + 310
 						&& mou.y > winSize.y / 2 + 35
 						&& mou.y < winSize.y / 2 + 85) {
 					click.play();
 					GameScreen game;
-					game.Game(window, false);
+					game.Game(window, false, player1Controls, player2Controls);
 				} else if (mou.x > winSize.x / 2 - 310
 						&& mou.x < winSize.x / 2 + 310
 						&& mou.y > winSize.y / 2 + 95
@@ -1137,4 +1137,3 @@ string InstructionsScreen::fromKtoS(const sf::Keyboard::Key& k) {
 	}
 	return ret;
 }
-
