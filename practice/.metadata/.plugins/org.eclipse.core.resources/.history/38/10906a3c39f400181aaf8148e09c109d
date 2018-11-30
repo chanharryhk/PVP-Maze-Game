@@ -199,7 +199,7 @@ sf::Texture setUpTexture(std::string fileName) {
 	return texture;
 }
 
-void GameScreen::Game(sf::RenderWindow& window, bool AI, vector<sf::Keyboard::Key> player1Controls, vector<sf::Keyboard::Key> player2Controls) {
+void GameScreen::Game(sf::RenderWindow& window, bool AI) {
 
 	sf::RectangleShape grid[2 * SIZE + 1][SIZE];
 	sf::Time elapsed;
@@ -742,7 +742,7 @@ void GameScreen::Game(sf::RenderWindow& window, bool AI, vector<sf::Keyboard::Ke
 
 		if (elapsed.asMilliseconds() > movespeed) {
 			//Humanplayer 1
-			if (sf::Keyboard::isKeyPressed(player1Controls[0]) && hPlayer.canInput
+			if (sf::Keyboard::isKeyPressed(sf::Keyboard::W) && hPlayer.canInput
 					&& elapsed.asMilliseconds() != 0
 					&& elapsed2.asMilliseconds() != 0) {
 				hPlayer.getImage(p1UP);
@@ -752,7 +752,7 @@ void GameScreen::Game(sf::RenderWindow& window, bool AI, vector<sf::Keyboard::Ke
 
 				//hPlayer.canInput = true;
 
-			} else if (sf::Keyboard::isKeyPressed(player1Controls[2])
+			} else if (sf::Keyboard::isKeyPressed(sf::Keyboard::S)
 					&& hPlayer.canInput && elapsed.asMilliseconds() != 0
 					&& elapsed2.asMilliseconds() != 0) {
 				hPlayer.getImage(p1DOWN);
@@ -761,7 +761,7 @@ void GameScreen::Game(sf::RenderWindow& window, bool AI, vector<sf::Keyboard::Ke
 				clock.restart();
 				//hPlayer.canInput = true;
 
-			} else if (sf::Keyboard::isKeyPressed(player1Controls[3])
+			} else if (sf::Keyboard::isKeyPressed(sf::Keyboard::D)
 					&& hPlayer.canInput && elapsed.asMilliseconds() != 0
 					&& elapsed2.asMilliseconds() != 0) {
 				hPlayer.getImage(p1RIGHT);
@@ -770,7 +770,7 @@ void GameScreen::Game(sf::RenderWindow& window, bool AI, vector<sf::Keyboard::Ke
 				clock.restart();
 				//hPlayer.canInput = true;
 
-			} else if (sf::Keyboard::isKeyPressed(player1Controls[1])
+			} else if (sf::Keyboard::isKeyPressed(sf::Keyboard::A)
 					&& hPlayer.canInput && elapsed.asMilliseconds() != 0
 					&& elapsed2.asMilliseconds() != 0) {
 				hPlayer.getImage(p1LEFT);
@@ -783,7 +783,7 @@ void GameScreen::Game(sf::RenderWindow& window, bool AI, vector<sf::Keyboard::Ke
 		if (!AI) {
 			if (elapsed2.asMilliseconds() > movespeed2) {
 				//HumanPlayer 2
-				if (sf::Keyboard::isKeyPressed(player2Controls[0])
+				if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up)
 						&& hPlayer2.canInput && elapsed.asMilliseconds() != 0
 						&& elapsed2.asMilliseconds() != 0) {
 					hPlayer2.getImage(p2UP);
@@ -792,7 +792,7 @@ void GameScreen::Game(sf::RenderWindow& window, bool AI, vector<sf::Keyboard::Ke
 					clock2.restart();
 					//hPlayer.canInput = true;
 
-				} else if (sf::Keyboard::isKeyPressed(player2Controls[2])
+				} else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Down)
 						&& hPlayer2.canInput && elapsed.asMilliseconds() != 0
 						&& elapsed2.asMilliseconds() != 0) {
 					hPlayer2.getImage(p2DOWN);
@@ -801,7 +801,7 @@ void GameScreen::Game(sf::RenderWindow& window, bool AI, vector<sf::Keyboard::Ke
 					clock2.restart();
 					//hPlayer.canInput = true;
 
-				} else if (sf::Keyboard::isKeyPressed(player2Controls[3])
+				} else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right)
 						&& hPlayer2.canInput && elapsed.asMilliseconds() != 0
 						&& elapsed2.asMilliseconds() != 0) {
 					hPlayer2.getImage(p2RIGHT);
@@ -810,7 +810,7 @@ void GameScreen::Game(sf::RenderWindow& window, bool AI, vector<sf::Keyboard::Ke
 					clock2.restart();
 					//hPlayer.canInput = true;
 
-				} else if (sf::Keyboard::isKeyPressed(player2Controls[1])
+				} else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left)
 						&& hPlayer2.canInput && elapsed.asMilliseconds() != 0
 						&& elapsed2.asMilliseconds() != 0) {
 					hPlayer2.getImage(p2LEFT);
@@ -875,26 +875,26 @@ void GameScreen::Game(sf::RenderWindow& window, bool AI, vector<sf::Keyboard::Ke
 		}
 		//HAVE ITEM
 
-		if (sf::Keyboard::isKeyPressed(player1Controls[4]) && movespeed >= 0
+		if (sf::Keyboard::isKeyPressed(sf::Keyboard::F) && movespeed >= 0
 				&& haveItem && whichItem == 1) {
 			movespeed = 50;
 			haveItem = false;
 			whichItem = 0;
 			showItem = 0;
-		} else if (sf::Keyboard::isKeyPressed(player1Controls[4]) && movespeed >= 0
+		} else if (sf::Keyboard::isKeyPressed(sf::Keyboard::F) && movespeed >= 0
 				&& haveItem && whichItem == 2) {
 			movespeed2 = 200;
 			haveItem = false;
 			whichItem = 0;
 			showItem = 0;
 		}
-		if (sf::Keyboard::isKeyPressed(player2Controls[4]) && movespeed2 >= 0
+		if (sf::Keyboard::isKeyPressed(sf::Keyboard::L) && movespeed2 >= 0
 				&& haveItem2 && whichItem == 1) {
 			movespeed2 = 50;
 			haveItem2 = false;
 			whichItem = 0;
 			showItem2 = 0;
-		} else if (sf::Keyboard::isKeyPressed(player2Controls[4])
+		} else if (sf::Keyboard::isKeyPressed(sf::Keyboard::L)
 				&& movespeed2 >= 0 && haveItem2 && whichItem == 2) {
 			movespeed = 200;
 			haveItem2 = false;
