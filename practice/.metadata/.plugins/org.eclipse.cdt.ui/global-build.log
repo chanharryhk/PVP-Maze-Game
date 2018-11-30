@@ -3101,3 +3101,335 @@ g++ "-IC:\\Users\\Jolleh\\Documents\\SFML-2.5.1-windows-gcc-7.3.0-mingw-32-bit\\
  #pragma once
          ^~~~
 g++ "-LC:\\Users\\Jolleh\\Documents\\SFML-2.5.1-windows-gcc-7.3.0-mingw-32-bit\\SFML-2.5.1\\lib" -o MazeKindaWorks.exe GameControll.o HumanPlayer.o Items.o MazeConstructor.o MazeSquare.o ScreenController.o newMazeSquare.o "..\\..\\..\\..\\..\\..\\Documents\\SFML-2.5.1-windows-gcc-7.3.0-mingw-32-bit\\SFML-2.5.1\\lib\\libsfml-audio.a" "..\\..\\..\\..\\..\\..\\Documents\\SFML-2.5.1-windows-gcc-7.3.0-mingw-32-bit\\SFML-2.5.1\\lib\\libsfml-graphics.a" "..\\..\\..\\..\\..\\..\\Documents\\SFML-2.5.1-windows-gcc-7.3.0-mingw-32-bit\\SFML-2.5.1\\lib\\libsfml-network.a" "..\\..\\..\\..\\..\\..\\Documents\\SFML-2.5.1-windows-gcc-7.3.0-mingw-32-bit\\SFML-2.5.1\\lib\\libsfml-system.a" "..\\..\\..\\..\\..\\..\\Documents\\SFML-2.5.1-windows-gcc-7.3.0-mingw-32-bit\\SFML-2.5.1\\lib\\libsfml-window.a" -lsfml-graphics -lsfml-audio -lsfml-network -lsfml-window -lsfml-system 
+16:35:58 **** Incremental Build of configuration Debug for project MazeKindaWorks ****
+Info: Internal Builder is used for build
+g++ "-IC:\\Users\\Jolleh\\Documents\\SFML-2.5.1-windows-gcc-7.3.0-mingw-32-bit\\SFML-2.5.1\\include" -O0 -g3 -Wall -c -fmessage-length=0 -o Items.o "..\\Items.cpp" 
+g++ "-IC:\\Users\\Jolleh\\Documents\\SFML-2.5.1-windows-gcc-7.3.0-mingw-32-bit\\SFML-2.5.1\\include" -O0 -g3 -Wall -c -fmessage-length=0 -o GameControll.o "..\\GameControll.cpp" 
+..\GameControll.cpp:7:9: warning: #pragma once in main file
+ #pragma once
+         ^~~~
+g++ "-IC:\\Users\\Jolleh\\Documents\\SFML-2.5.1-windows-gcc-7.3.0-mingw-32-bit\\SFML-2.5.1\\include" -O0 -g3 -Wall -c -fmessage-length=0 -o HumanPlayer.o "..\\HumanPlayer.cpp" 
+..\HumanPlayer.cpp:1:9: warning: #pragma once in main file
+ #pragma once
+         ^~~~
+g++ "-IC:\\Users\\Jolleh\\Documents\\SFML-2.5.1-windows-gcc-7.3.0-mingw-32-bit\\SFML-2.5.1\\include" -O0 -g3 -Wall -c -fmessage-length=0 -o MazeSquare.o "..\\MazeSquare.cpp" 
+g++ "-IC:\\Users\\Jolleh\\Documents\\SFML-2.5.1-windows-gcc-7.3.0-mingw-32-bit\\SFML-2.5.1\\include" -O0 -g3 -Wall -c -fmessage-length=0 -o MazeConstructor.o "..\\MazeConstructor.cpp" 
+..\MazeConstructor.cpp:1:9: warning: #pragma once in main file
+ #pragma once
+         ^~~~
+g++ "-IC:\\Users\\Jolleh\\Documents\\SFML-2.5.1-windows-gcc-7.3.0-mingw-32-bit\\SFML-2.5.1\\include" -O0 -g3 -Wall -c -fmessage-length=0 -o ScreenController.o "..\\ScreenController.cpp" 
+g++ "-LC:\\Users\\Jolleh\\Documents\\SFML-2.5.1-windows-gcc-7.3.0-mingw-32-bit\\SFML-2.5.1\\lib" -o MazeKindaWorks.exe GameControll.o HumanPlayer.o Items.o MazeConstructor.o MazeSquare.o ScreenController.o newMazeSquare.o "..\\..\\..\\..\\..\\..\\Documents\\SFML-2.5.1-windows-gcc-7.3.0-mingw-32-bit\\SFML-2.5.1\\lib\\libsfml-audio.a" "..\\..\\..\\..\\..\\..\\Documents\\SFML-2.5.1-windows-gcc-7.3.0-mingw-32-bit\\SFML-2.5.1\\lib\\libsfml-graphics.a" "..\\..\\..\\..\\..\\..\\Documents\\SFML-2.5.1-windows-gcc-7.3.0-mingw-32-bit\\SFML-2.5.1\\lib\\libsfml-network.a" "..\\..\\..\\..\\..\\..\\Documents\\SFML-2.5.1-windows-gcc-7.3.0-mingw-32-bit\\SFML-2.5.1\\lib\\libsfml-system.a" "..\\..\\..\\..\\..\\..\\Documents\\SFML-2.5.1-windows-gcc-7.3.0-mingw-32-bit\\SFML-2.5.1\\lib\\libsfml-window.a" -lsfml-graphics -lsfml-audio -lsfml-network -lsfml-window -lsfml-system 
+16:46:26 **** Incremental Build of configuration Debug for project MazeKindaWorks ****
+Info: Internal Builder is used for build
+g++ "-IC:\\Users\\Jolleh\\Documents\\SFML-2.5.1-windows-gcc-7.3.0-mingw-32-bit\\SFML-2.5.1\\include" -O0 -g3 -Wall -c -fmessage-length=0 -o ScreenController.o "..\\ScreenController.cpp" 
+..\ScreenController.cpp: In member function 'void TitleScreen::StartGame(sf::RenderWindow&, sf::Music&)':
+..\ScreenController.cpp:100:15: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+     if (mou.x > winSize.x / 2 - 310 && mou.x < winSize.x / 2 + 310
+         ~~~~~~^~~~~~~~~~~~~~~~~~~~~
+..\ScreenController.cpp:100:46: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+     if (mou.x > winSize.x / 2 - 310 && mou.x < winSize.x / 2 + 310
+                                        ~~~~~~^~~~~~~~~~~~~~~~~~~~~
+..\ScreenController.cpp:110:15: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+     if (mou.x > winSize.x / 2 - 310 && mou.x < winSize.x / 2 + 310
+         ~~~~~~^~~~~~~~~~~~~~~~~~~~~
+..\ScreenController.cpp:110:46: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+     if (mou.x > winSize.x / 2 - 310 && mou.x < winSize.x / 2 + 310
+                                        ~~~~~~^~~~~~~~~~~~~~~~~~~~~
+..\ScreenController.cpp:111:16: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+       && mou.y > winSize.y / 2 - 25
+          ~~~~~~^~~~~~~~~~~~~~~~~~~~
+..\ScreenController.cpp:112:16: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+       && mou.y < winSize.y / 2 + 25) {
+          ~~~~~~^~~~~~~~~~~~~~~~~~~~
+..\ScreenController.cpp:118:22: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+     } else if (mou.x > winSize.x / 2 - 310
+                ~~~~~~^~~~~~~~~~~~~~~~~~~~~
+..\ScreenController.cpp:119:16: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+       && mou.x < winSize.x / 2 + 310
+          ~~~~~~^~~~~~~~~~~~~~~~~~~~~
+..\ScreenController.cpp:120:16: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+       && mou.y > winSize.y / 2 + 35
+          ~~~~~~^~~~~~~~~~~~~~~~~~~~
+..\ScreenController.cpp:121:16: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+       && mou.y < winSize.y / 2 + 85) {
+          ~~~~~~^~~~~~~~~~~~~~~~~~~~
+..\ScreenController.cpp:129:22: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+     } else if (mou.x > winSize.x / 2 - 310
+                ~~~~~~^~~~~~~~~~~~~~~~~~~~~
+..\ScreenController.cpp:130:16: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+       && mou.x < winSize.x / 2 + 310
+          ~~~~~~^~~~~~~~~~~~~~~~~~~~~
+..\ScreenController.cpp:131:16: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+       && mou.y > winSize.y / 2 + 95
+          ~~~~~~^~~~~~~~~~~~~~~~~~~~
+..\ScreenController.cpp:132:16: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+       && mou.y < winSize.y / 2 + 145) {
+          ~~~~~~^~~~~~~~~~~~~~~~~~~~~
+..\ScreenController.cpp: In member function 'void InstructionsScreen::Open(sf::RenderWindow&, sf::Music&)':
+..\ScreenController.cpp:283:31: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+        && (event.text.unicode == player1Controls[i])) {
+                                
+..\ScreenController.cpp:290:31: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+        && (event.text.unicode == player2Controls[i])) {
+                                
+..\ScreenController.cpp:377:18: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+        && (mou.y > winSize.y / 2 + 220)
+            ~~~~~~^~~~~~~~~~~~~~~~~~~~~
+..\ScreenController.cpp:378:18: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+        && (mou.y < winSize.y / 2 + 270)) {
+            ~~~~~~^~~~~~~~~~~~~~~~~~~~~
+..\ScreenController.cpp:414:17: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+       && (mou.y > winSize.y / 2 + 220)
+           ~~~~~~^~~~~~~~~~~~~~~~~~~~~
+..\ScreenController.cpp:415:17: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+       && (mou.y < winSize.y / 2 + 270)) {
+           ~~~~~~^~~~~~~~~~~~~~~~~~~~~
+..\ScreenController.cpp: In member function 'void SetupScreen::SetupGame(sf::RenderWindow&)':
+..\ScreenController.cpp:558:15: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+     if (mou.x > winSize.x / 2 - 310 && mou.x < winSize.x / 2 + 310
+         ~~~~~~^~~~~~~~~~~~~~~~~~~~~
+..\ScreenController.cpp:558:46: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+     if (mou.x > winSize.x / 2 - 310 && mou.x < winSize.x / 2 + 310
+                                        ~~~~~~^~~~~~~~~~~~~~~~~~~~~
+..\ScreenController.cpp:568:15: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+     if (mou.x > winSize.x / 2 - 310 && mou.x < winSize.x / 2 + 310
+         ~~~~~~^~~~~~~~~~~~~~~~~~~~~
+..\ScreenController.cpp:568:46: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+     if (mou.x > winSize.x / 2 - 310 && mou.x < winSize.x / 2 + 310
+                                        ~~~~~~^~~~~~~~~~~~~~~~~~~~~
+..\ScreenController.cpp:569:16: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+       && mou.y > winSize.y / 2 - 25
+          ~~~~~~^~~~~~~~~~~~~~~~~~~~
+..\ScreenController.cpp:570:16: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+       && mou.y < winSize.y / 2 + 25) {
+          ~~~~~~^~~~~~~~~~~~~~~~~~~~
+..\ScreenController.cpp:574:22: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+     } else if (mou.x > winSize.x / 2 - 310
+                ~~~~~~^~~~~~~~~~~~~~~~~~~~~
+..\ScreenController.cpp:575:16: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+       && mou.x < winSize.x / 2 + 310
+          ~~~~~~^~~~~~~~~~~~~~~~~~~~~
+..\ScreenController.cpp:576:16: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+       && mou.y > winSize.y / 2 + 35
+          ~~~~~~^~~~~~~~~~~~~~~~~~~~
+..\ScreenController.cpp:577:16: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+       && mou.y < winSize.y / 2 + 85) {
+          ~~~~~~^~~~~~~~~~~~~~~~~~~~
+..\ScreenController.cpp:581:22: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+     } else if (mou.x > winSize.x / 2 - 310
+                ~~~~~~^~~~~~~~~~~~~~~~~~~~~
+..\ScreenController.cpp:582:16: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+       && mou.x < winSize.x / 2 + 310
+          ~~~~~~^~~~~~~~~~~~~~~~~~~~~
+..\ScreenController.cpp:583:16: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+       && mou.y > winSize.y / 2 + 95
+          ~~~~~~^~~~~~~~~~~~~~~~~~~~
+..\ScreenController.cpp:584:16: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+       && mou.y < winSize.y / 2 + 145) {
+          ~~~~~~^~~~~~~~~~~~~~~~~~~~~
+g++ "-IC:\\Users\\Jolleh\\Documents\\SFML-2.5.1-windows-gcc-7.3.0-mingw-32-bit\\SFML-2.5.1\\include" -O0 -g3 -Wall -c -fmessage-length=0 -o Items.o "..\\Items.cpp" 
+g++ "-IC:\\Users\\Jolleh\\Documents\\SFML-2.5.1-windows-gcc-7.3.0-mingw-32-bit\\SFML-2.5.1\\include" -O0 -g3 -Wall -c -fmessage-length=0 -o MazeSquare.o "..\\MazeSquare.cpp" 
+g++ "-IC:\\Users\\Jolleh\\Documents\\SFML-2.5.1-windows-gcc-7.3.0-mingw-32-bit\\SFML-2.5.1\\include" -O0 -g3 -Wall -c -fmessage-length=0 -o GameControll.o "..\\GameControll.cpp" 
+..\GameControll.cpp:7:9: warning: #pragma once in main file
+ #pragma once
+         ^~~~
+..\GameControll.cpp: In member function 'void GameScreen::endScreen(sf::RenderWindow&, int)':
+..\GameControll.cpp:77:24: error: no matching function for call to 'TitleScreen::StartGame(sf::RenderWindow&)'
+      s.StartGame(window);
+                        ^
+In file included from ..\GameControll.cpp:10:0:
+..\ScreenController.h:27:7: note: candidate: void TitleScreen::StartGame(sf::RenderWindow&, sf::Music&)
+  void StartGame(sf::RenderWindow& window, sf::Music& mus);
+       ^~~~~~~~~
+..\ScreenController.h:27:7: note:   candidate expects 2 arguments, 1 provided
+..\GameControll.cpp: In member function 'void PauseMenu::PauseGame(sf::RenderWindow&)':
+..\GameControll.cpp:159:24: error: no matching function for call to 'TitleScreen::StartGame(sf::RenderWindow&)'
+      s.StartGame(window);
+                        ^
+In file included from ..\GameControll.cpp:10:0:
+..\ScreenController.h:27:7: note: candidate: void TitleScreen::StartGame(sf::RenderWindow&, sf::Music&)
+  void StartGame(sf::RenderWindow& window, sf::Music& mus);
+       ^~~~~~~~~
+..\ScreenController.h:27:7: note:   candidate expects 2 arguments, 1 provided
+..\GameControll.cpp: In function 'int main()':
+..\GameControll.cpp:959:20: error: no matching function for call to 'TitleScreen::StartGame(sf::RenderWindow&)'
+  w.StartGame(window);
+                    ^
+In file included from ..\GameControll.cpp:10:0:
+..\ScreenController.h:27:7: note: candidate: void TitleScreen::StartGame(sf::RenderWindow&, sf::Music&)
+  void StartGame(sf::RenderWindow& window, sf::Music& mus);
+       ^~~~~~~~~
+..\ScreenController.h:27:7: note:   candidate expects 2 arguments, 1 provided
+16:50:13 **** Incremental Build of configuration Debug for project MazeKindaWorks ****
+Info: Internal Builder is used for build
+g++ "-IC:\\Users\\Jolleh\\Documents\\SFML-2.5.1-windows-gcc-7.3.0-mingw-32-bit\\SFML-2.5.1\\include" -O0 -g3 -Wall -c -fmessage-length=0 -o MazeConstructor.o "..\\MazeConstructor.cpp" 
+..\MazeConstructor.cpp:1:9: warning: #pragma once in main file
+ #pragma once
+         ^~~~
+g++ "-IC:\\Users\\Jolleh\\Documents\\SFML-2.5.1-windows-gcc-7.3.0-mingw-32-bit\\SFML-2.5.1\\include" -O0 -g3 -Wall -c -fmessage-length=0 -o newMazeSquare.o "..\\newMazeSquare.cpp" 
+..\newMazeSquare.cpp:43:1: warning: "/*" within comment [-Wcomment]
+ /*
+  
+g++ "-IC:\\Users\\Jolleh\\Documents\\SFML-2.5.1-windows-gcc-7.3.0-mingw-32-bit\\SFML-2.5.1\\include" -O0 -g3 -Wall -c -fmessage-length=0 -o GameControll.o "..\\GameControll.cpp" 
+..\GameControll.cpp:7:9: warning: #pragma once in main file
+ #pragma once
+         ^~~~
+g++ "-IC:\\Users\\Jolleh\\Documents\\SFML-2.5.1-windows-gcc-7.3.0-mingw-32-bit\\SFML-2.5.1\\include" -O0 -g3 -Wall -c -fmessage-length=0 -o HumanPlayer.o "..\\HumanPlayer.cpp" 
+..\HumanPlayer.cpp:1:9: warning: #pragma once in main file
+ #pragma once
+         ^~~~
+g++ "-LC:\\Users\\Jolleh\\Documents\\SFML-2.5.1-windows-gcc-7.3.0-mingw-32-bit\\SFML-2.5.1\\lib" -o MazeKindaWorks.exe GameControll.o HumanPlayer.o Items.o MazeConstructor.o MazeSquare.o ScreenController.o newMazeSquare.o "..\\..\\..\\..\\..\\..\\Documents\\SFML-2.5.1-windows-gcc-7.3.0-mingw-32-bit\\SFML-2.5.1\\lib\\libsfml-audio.a" "..\\..\\..\\..\\..\\..\\Documents\\SFML-2.5.1-windows-gcc-7.3.0-mingw-32-bit\\SFML-2.5.1\\lib\\libsfml-graphics.a" "..\\..\\..\\..\\..\\..\\Documents\\SFML-2.5.1-windows-gcc-7.3.0-mingw-32-bit\\SFML-2.5.1\\lib\\libsfml-network.a" "..\\..\\..\\..\\..\\..\\Documents\\SFML-2.5.1-windows-gcc-7.3.0-mingw-32-bit\\SFML-2.5.1\\lib\\libsfml-network.a" "..\\..\\..\\..\\..\\..\\Documents\\SFML-2.5.1-windows-gcc-7.3.0-mingw-32-bit\\SFML-2.5.1\\lib\\libsfml-window.a" -lsfml-graphics -lsfml-audio -lsfml-network -lsfml-window -lsfml-system 
+Info: Nothing to build for MazeKindaWorks
+16:59:40 **** Incremental Build of configuration Debug for project MazeKindaWorks ****
+Info: Internal Builder is used for build
+g++ "-IC:\\Users\\Jolleh\\Documents\\SFML-2.5.1-windows-gcc-7.3.0-mingw-32-bit\\SFML-2.5.1\\include" -O0 -g3 -Wall -c -fmessage-length=0 -o GameControll.o "..\\GameControll.cpp" 
+..\GameControll.cpp:7:9: warning: #pragma once in main file
+ #pragma once
+         ^~~~
+g++ "-IC:\\Users\\Jolleh\\Documents\\SFML-2.5.1-windows-gcc-7.3.0-mingw-32-bit\\SFML-2.5.1\\include" -O0 -g3 -Wall -c -fmessage-length=0 -o ScreenController.o "..\\ScreenController.cpp" 
+..\ScreenController.cpp: In member function 'void TitleScreen::StartGame(sf::RenderWindow&, sf::Music&)':
+..\ScreenController.cpp:100:15: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+     if (mou.x > winSize.x / 2 - 310 && mou.x < winSize.x / 2 + 310
+         ~~~~~~^~~~~~~~~~~~~~~~~~~~~
+..\ScreenController.cpp:100:46: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+     if (mou.x > winSize.x / 2 - 310 && mou.x < winSize.x / 2 + 310
+                                        ~~~~~~^~~~~~~~~~~~~~~~~~~~~
+..\ScreenController.cpp:110:15: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+     if (mou.x > winSize.x / 2 - 310 && mou.x < winSize.x / 2 + 310
+         ~~~~~~^~~~~~~~~~~~~~~~~~~~~
+..\ScreenController.cpp:110:46: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+     if (mou.x > winSize.x / 2 - 310 && mou.x < winSize.x / 2 + 310
+                                        ~~~~~~^~~~~~~~~~~~~~~~~~~~~
+..\ScreenController.cpp:111:16: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+       && mou.y > winSize.y / 2 - 25
+          ~~~~~~^~~~~~~~~~~~~~~~~~~~
+..\ScreenController.cpp:112:16: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+       && mou.y < winSize.y / 2 + 25) {
+          ~~~~~~^~~~~~~~~~~~~~~~~~~~
+..\ScreenController.cpp:118:22: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+     } else if (mou.x > winSize.x / 2 - 310
+                ~~~~~~^~~~~~~~~~~~~~~~~~~~~
+..\ScreenController.cpp:119:16: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+       && mou.x < winSize.x / 2 + 310
+          ~~~~~~^~~~~~~~~~~~~~~~~~~~~
+..\ScreenController.cpp:120:16: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+       && mou.y > winSize.y / 2 + 35
+          ~~~~~~^~~~~~~~~~~~~~~~~~~~
+..\ScreenController.cpp:121:16: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+       && mou.y < winSize.y / 2 + 85) {
+          ~~~~~~^~~~~~~~~~~~~~~~~~~~
+..\ScreenController.cpp:129:22: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+     } else if (mou.x > winSize.x / 2 - 310
+                ~~~~~~^~~~~~~~~~~~~~~~~~~~~
+..\ScreenController.cpp:130:16: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+       && mou.x < winSize.x / 2 + 310
+          ~~~~~~^~~~~~~~~~~~~~~~~~~~~
+..\ScreenController.cpp:131:16: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+       && mou.y > winSize.y / 2 + 95
+          ~~~~~~^~~~~~~~~~~~~~~~~~~~
+..\ScreenController.cpp:132:16: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+       && mou.y < winSize.y / 2 + 145) {
+          ~~~~~~^~~~~~~~~~~~~~~~~~~~~
+..\ScreenController.cpp: In member function 'void InstructionsScreen::Open(sf::RenderWindow&, sf::Music&)':
+..\ScreenController.cpp:283:31: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+        && (event.text.unicode == player1Controls[i])) {
+                                
+..\ScreenController.cpp:290:31: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+        && (event.text.unicode == player2Controls[i])) {
+                                
+..\ScreenController.cpp:377:18: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+        && (mou.y > winSize.y / 2 + 220)
+            ~~~~~~^~~~~~~~~~~~~~~~~~~~~
+..\ScreenController.cpp:378:18: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+        && (mou.y < winSize.y / 2 + 270)) {
+            ~~~~~~^~~~~~~~~~~~~~~~~~~~~
+..\ScreenController.cpp:414:17: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+       && (mou.y > winSize.y / 2 + 220)
+           ~~~~~~^~~~~~~~~~~~~~~~~~~~~
+..\ScreenController.cpp:415:17: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+       && (mou.y < winSize.y / 2 + 270)) {
+           ~~~~~~^~~~~~~~~~~~~~~~~~~~~
+..\ScreenController.cpp: In member function 'void SetupScreen::SetupGame(sf::RenderWindow&)':
+..\ScreenController.cpp:558:15: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+     if (mou.x > winSize.x / 2 - 310 && mou.x < winSize.x / 2 + 310
+         ~~~~~~^~~~~~~~~~~~~~~~~~~~~
+..\ScreenController.cpp:558:46: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+     if (mou.x > winSize.x / 2 - 310 && mou.x < winSize.x / 2 + 310
+                                        ~~~~~~^~~~~~~~~~~~~~~~~~~~~
+..\ScreenController.cpp:568:15: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+     if (mou.x > winSize.x / 2 - 310 && mou.x < winSize.x / 2 + 310
+         ~~~~~~^~~~~~~~~~~~~~~~~~~~~
+..\ScreenController.cpp:568:46: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+     if (mou.x > winSize.x / 2 - 310 && mou.x < winSize.x / 2 + 310
+                                        ~~~~~~^~~~~~~~~~~~~~~~~~~~~
+..\ScreenController.cpp:569:16: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+       && mou.y > winSize.y / 2 - 25
+          ~~~~~~^~~~~~~~~~~~~~~~~~~~
+..\ScreenController.cpp:570:16: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+       && mou.y < winSize.y / 2 + 25) {
+          ~~~~~~^~~~~~~~~~~~~~~~~~~~
+..\ScreenController.cpp:574:22: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+     } else if (mou.x > winSize.x / 2 - 310
+                ~~~~~~^~~~~~~~~~~~~~~~~~~~~
+..\ScreenController.cpp:575:16: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+       && mou.x < winSize.x / 2 + 310
+          ~~~~~~^~~~~~~~~~~~~~~~~~~~~
+..\ScreenController.cpp:576:16: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+       && mou.y > winSize.y / 2 + 35
+          ~~~~~~^~~~~~~~~~~~~~~~~~~~
+..\ScreenController.cpp:577:16: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+       && mou.y < winSize.y / 2 + 85) {
+          ~~~~~~^~~~~~~~~~~~~~~~~~~~
+..\ScreenController.cpp:581:22: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+     } else if (mou.x > winSize.x / 2 - 310
+                ~~~~~~^~~~~~~~~~~~~~~~~~~~~
+..\ScreenController.cpp:582:16: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+       && mou.x < winSize.x / 2 + 310
+          ~~~~~~^~~~~~~~~~~~~~~~~~~~~
+..\ScreenController.cpp:583:16: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+       && mou.y > winSize.y / 2 + 95
+          ~~~~~~^~~~~~~~~~~~~~~~~~~~
+..\ScreenController.cpp:584:16: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+       && mou.y < winSize.y / 2 + 145) {
+          ~~~~~~^~~~~~~~~~~~~~~~~~~~~
+g++ "-LC:\\Users\\Jolleh\\Documents\\SFML-2.5.1-windows-gcc-7.3.0-mingw-32-bit\\SFML-2.5.1\\lib" -o MazeKindaWorks.exe GameControll.o HumanPlayer.o Items.o MazeConstructor.o MazeSquare.o ScreenController.o newMazeSquare.o "..\\..\\..\\..\\..\\..\\Documents\\SFML-2.5.1-windows-gcc-7.3.0-mingw-32-bit\\SFML-2.5.1\\lib\\libsfml-audio.a" "..\\..\\..\\..\\..\\..\\Documents\\SFML-2.5.1-windows-gcc-7.3.0-mingw-32-bit\\SFML-2.5.1\\lib\\libsfml-graphics.a" "..\\..\\..\\..\\..\\..\\Documents\\SFML-2.5.1-windows-gcc-7.3.0-mingw-32-bit\\SFML-2.5.1\\lib\\libsfml-network.a" "..\\..\\..\\..\\..\\..\\Documents\\SFML-2.5.1-windows-gcc-7.3.0-mingw-32-bit\\SFML-2.5.1\\lib\\libsfml-network.a" "..\\..\\..\\..\\..\\..\\Documents\\SFML-2.5.1-windows-gcc-7.3.0-mingw-32-bit\\SFML-2.5.1\\lib\\libsfml-window.a" -lsfml-graphics -lsfml-audio -lsfml-network -lsfml-window -lsfml-system 
+17:00:59 **** Incremental Build of configuration Debug for project MazeKindaWorks ****
+Info: Internal Builder is used for build
+g++ "-IC:\\Users\\Jolleh\\Documents\\SFML-2.5.1-windows-gcc-7.3.0-mingw-32-bit\\SFML-2.5.1\\include" -O0 -g3 -Wall -c -fmessage-length=0 -o GameControll.o "..\\GameControll.cpp" 
+..\GameControll.cpp:7:9: warning: #pragma once in main file
+ #pragma once
+         ^~~~
+g++ "-LC:\\Users\\Jolleh\\Documents\\SFML-2.5.1-windows-gcc-7.3.0-mingw-32-bit\\SFML-2.5.1\\lib" -o MazeKindaWorks.exe GameControll.o HumanPlayer.o Items.o MazeConstructor.o MazeSquare.o ScreenController.o newMazeSquare.o "..\\..\\..\\..\\..\\..\\Documents\\SFML-2.5.1-windows-gcc-7.3.0-mingw-32-bit\\SFML-2.5.1\\lib\\libsfml-audio.a" "..\\..\\..\\..\\..\\..\\Documents\\SFML-2.5.1-windows-gcc-7.3.0-mingw-32-bit\\SFML-2.5.1\\lib\\libsfml-graphics.a" "..\\..\\..\\..\\..\\..\\Documents\\SFML-2.5.1-windows-gcc-7.3.0-mingw-32-bit\\SFML-2.5.1\\lib\\libsfml-network.a" "..\\..\\..\\..\\..\\..\\Documents\\SFML-2.5.1-windows-gcc-7.3.0-mingw-32-bit\\SFML-2.5.1\\lib\\libsfml-network.a" "..\\..\\..\\..\\..\\..\\Documents\\SFML-2.5.1-windows-gcc-7.3.0-mingw-32-bit\\SFML-2.5.1\\lib\\libsfml-window.a" -lsfml-graphics -lsfml-audio -lsfml-network -lsfml-window -lsfml-system 
+Info: Nothing to build for MazeKindaWorks
+Info: Nothing to build for MazeKindaWorks
+17:07:53 **** Incremental Build of configuration Debug for project MazeKindaWorks ****
+Info: Internal Builder is used for build
+g++ "-IC:\\Users\\Jolleh\\Documents\\SFML-2.5.1-windows-gcc-7.3.0-mingw-32-bit\\SFML-2.5.1\\include" -O0 -g3 -Wall -c -fmessage-length=0 -o GameControll.o "..\\GameControll.cpp" 
+..\GameControll.cpp:7:9: warning: #pragma once in main file
+ #pragma once
+         ^~~~
+g++ "-LC:\\Users\\Jolleh\\Documents\\SFML-2.5.1-windows-gcc-7.3.0-mingw-32-bit\\SFML-2.5.1\\lib" -o MazeKindaWorks.exe GameControll.o HumanPlayer.o Items.o MazeConstructor.o MazeSquare.o ScreenController.o newMazeSquare.o "..\\..\\..\\..\\..\\..\\Documents\\SFML-2.5.1-windows-gcc-7.3.0-mingw-32-bit\\SFML-2.5.1\\lib\\libsfml-audio.a" "..\\..\\..\\..\\..\\..\\Documents\\SFML-2.5.1-windows-gcc-7.3.0-mingw-32-bit\\SFML-2.5.1\\lib\\libsfml-graphics.a" "..\\..\\..\\..\\..\\..\\Documents\\SFML-2.5.1-windows-gcc-7.3.0-mingw-32-bit\\SFML-2.5.1\\lib\\libsfml-network.a" "..\\..\\..\\..\\..\\..\\Documents\\SFML-2.5.1-windows-gcc-7.3.0-mingw-32-bit\\SFML-2.5.1\\lib\\libsfml-network.a" "..\\..\\..\\..\\..\\..\\Documents\\SFML-2.5.1-windows-gcc-7.3.0-mingw-32-bit\\SFML-2.5.1\\lib\\libsfml-window.a" -lsfml-graphics -lsfml-audio -lsfml-network -lsfml-window -lsfml-system 
+17:10:21 **** Incremental Build of configuration Debug for project MazeKindaWorks ****
+Info: Internal Builder is used for build
+g++ "-IC:\\Users\\Jolleh\\Documents\\SFML-2.5.1-windows-gcc-7.3.0-mingw-32-bit\\SFML-2.5.1\\include" -O0 -g3 -Wall -c -fmessage-length=0 -o GameControll.o "..\\GameControll.cpp" 
+..\GameControll.cpp:7:9: warning: #pragma once in main file
+ #pragma once
+         ^~~~
+g++ "-LC:\\Users\\Jolleh\\Documents\\SFML-2.5.1-windows-gcc-7.3.0-mingw-32-bit\\SFML-2.5.1\\lib" -o MazeKindaWorks.exe GameControll.o HumanPlayer.o Items.o MazeConstructor.o MazeSquare.o ScreenController.o newMazeSquare.o "..\\..\\..\\..\\..\\..\\Documents\\SFML-2.5.1-windows-gcc-7.3.0-mingw-32-bit\\SFML-2.5.1\\lib\\libsfml-audio.a" "..\\..\\..\\..\\..\\..\\Documents\\SFML-2.5.1-windows-gcc-7.3.0-mingw-32-bit\\SFML-2.5.1\\lib\\libsfml-graphics.a" "..\\..\\..\\..\\..\\..\\Documents\\SFML-2.5.1-windows-gcc-7.3.0-mingw-32-bit\\SFML-2.5.1\\lib\\libsfml-network.a" "..\\..\\..\\..\\..\\..\\Documents\\SFML-2.5.1-windows-gcc-7.3.0-mingw-32-bit\\SFML-2.5.1\\lib\\libsfml-network.a" "..\\..\\..\\..\\..\\..\\Documents\\SFML-2.5.1-windows-gcc-7.3.0-mingw-32-bit\\SFML-2.5.1\\lib\\libsfml-window.a" -lsfml-graphics -lsfml-audio -lsfml-network -lsfml-window -lsfml-system 
+Info: Nothing to build for MazeKindaWorks
+17:14:45 **** Incremental Build of configuration Debug for project MazeKindaWorks ****
+Info: Internal Builder is used for build
+g++ "-IC:\\Users\\Jolleh\\Documents\\SFML-2.5.1-windows-gcc-7.3.0-mingw-32-bit\\SFML-2.5.1\\include" -O0 -g3 -Wall -c -fmessage-length=0 -o GameControll.o "..\\GameControll.cpp" 
+..\GameControll.cpp:7:9: warning: #pragma once in main file
+ #pragma once
+         ^~~~
+g++ "-LC:\\Users\\Jolleh\\Documents\\SFML-2.5.1-windows-gcc-7.3.0-mingw-32-bit\\SFML-2.5.1\\lib" -o MazeKindaWorks.exe GameControll.o HumanPlayer.o Items.o MazeConstructor.o MazeSquare.o ScreenController.o newMazeSquare.o "..\\..\\..\\..\\..\\..\\Documents\\SFML-2.5.1-windows-gcc-7.3.0-mingw-32-bit\\SFML-2.5.1\\lib\\libsfml-audio.a" "..\\..\\..\\..\\..\\..\\Documents\\SFML-2.5.1-windows-gcc-7.3.0-mingw-32-bit\\SFML-2.5.1\\lib\\libsfml-graphics.a" "..\\..\\..\\..\\..\\..\\Documents\\SFML-2.5.1-windows-gcc-7.3.0-mingw-32-bit\\SFML-2.5.1\\lib\\libsfml-network.a" "..\\..\\..\\..\\..\\..\\Documents\\SFML-2.5.1-windows-gcc-7.3.0-mingw-32-bit\\SFML-2.5.1\\lib\\libsfml-network.a" "..\\..\\..\\..\\..\\..\\Documents\\SFML-2.5.1-windows-gcc-7.3.0-mingw-32-bit\\SFML-2.5.1\\lib\\libsfml-window.a" -lsfml-graphics -lsfml-audio -lsfml-network -lsfml-window -lsfml-system 
+Info: Nothing to build for MazeKindaWorks
+19:27:47 **** Incremental Build of configuration Debug for project MazeKindaWorks ****
+Info: Internal Builder is used for build
+g++ "-IC:\\Users\\Jolleh\\Documents\\SFML-2.5.1-windows-gcc-7.3.0-mingw-32-bit\\SFML-2.5.1\\include" -O0 -g3 -Wall -c -fmessage-length=0 -o GameControll.o "..\\GameControll.cpp" 
+..\GameControll.cpp:7:9: warning: #pragma once in main file
+ #pragma once
+         ^~~~
+g++ "-LC:\\Users\\Jolleh\\Documents\\SFML-2.5.1-windows-gcc-7.3.0-mingw-32-bit\\SFML-2.5.1\\lib" -o MazeKindaWorks.exe GameControll.o HumanPlayer.o Items.o MazeConstructor.o MazeSquare.o ScreenController.o newMazeSquare.o "..\\..\\..\\..\\..\\..\\Documents\\SFML-2.5.1-windows-gcc-7.3.0-mingw-32-bit\\SFML-2.5.1\\lib\\libsfml-audio.a" "..\\..\\..\\..\\..\\..\\Documents\\SFML-2.5.1-windows-gcc-7.3.0-mingw-32-bit\\SFML-2.5.1\\lib\\libsfml-graphics.a" "..\\..\\..\\..\\..\\..\\Documents\\SFML-2.5.1-windows-gcc-7.3.0-mingw-32-bit\\SFML-2.5.1\\lib\\libsfml-network.a" "..\\..\\..\\..\\..\\..\\Documents\\SFML-2.5.1-windows-gcc-7.3.0-mingw-32-bit\\SFML-2.5.1\\lib\\libsfml-network.a" "..\\..\\..\\..\\..\\..\\Documents\\SFML-2.5.1-windows-gcc-7.3.0-mingw-32-bit\\SFML-2.5.1\\lib\\libsfml-window.a" -lsfml-graphics -lsfml-audio -lsfml-network -lsfml-window -lsfml-system 
+Info: Nothing to build for MazeKindaWorks

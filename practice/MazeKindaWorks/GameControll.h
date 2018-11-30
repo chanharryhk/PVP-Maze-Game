@@ -21,6 +21,6 @@ public:
 
 class PauseMenu{
 public:
-	void PauseGame(sf::RenderWindow& window);
+	bool PauseGame(sf::RenderWindow& window);
 };
 #endif /* SCREENCONTROLLER_H_ */

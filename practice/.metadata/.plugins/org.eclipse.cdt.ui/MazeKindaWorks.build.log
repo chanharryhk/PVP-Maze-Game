@@ -1,11 +1,1 @@
-14:25:07 **** Incremental Build of configuration Debug for project MazeKindaWorks ****
-Info: Internal Builder is used for build
-g++ "-IC:\\Users\\Jolleh\\Documents\\SFML-2.5.1-windows-gcc-7.3.0-mingw-32-bit\\SFML-2.5.1\\include" -O0 -g3 -Wall -c -fmessage-length=0 -o ScreenController.o "..\\ScreenController.cpp" 
-g++ "-IC:\\Users\\Jolleh\\Documents\\SFML-2.5.1-windows-gcc-7.3.0-mingw-32-bit\\SFML-2.5.1\\include" -O0 -g3 -Wall -c -fmessage-length=0 -o GameControll.o "..\\GameControll.cpp" 
-..\GameControll.cpp:7:9: warning: #pragma once in main file
- #pragma once
-         ^~~~
-g++ "-LC:\\Users\\Jolleh\\Documents\\SFML-2.5.1-windows-gcc-7.3.0-mingw-32-bit\\SFML-2.5.1\\lib" -o MazeKindaWorks.exe GameControll.o HumanPlayer.o Items.o MazeConstructor.o MazeSquare.o ScreenController.o newMazeSquare.o "..\\..\\..\\..\\..\\..\\Documents\\SFML-2.5.1-windows-gcc-7.3.0-mingw-32-bit\\SFML-2.5.1\\lib\\libsfml-audio.a" "..\\..\\..\\..\\..\\..\\Documents\\SFML-2.5.1-windows-gcc-7.3.0-mingw-32-bit\\SFML-2.5.1\\lib\\libsfml-graphics.a" "..\\..\\..\\..\\..\\..\\Documents\\SFML-2.5.1-windows-gcc-7.3.0-mingw-32-bit\\SFML-2.5.1\\lib\\libsfml-network.a" "..\\..\\..\\..\\..\\..\\Documents\\SFML-2.5.1-windows-gcc-7.3.0-mingw-32-bit\\SFML-2.5.1\\lib\\libsfml-system.a" "..\\..\\..\\..\\..\\..\\Documents\\SFML-2.5.1-windows-gcc-7.3.0-mingw-32-bit\\SFML-2.5.1\\lib\\libsfml-window.a" -lsfml-graphics -lsfml-audio -lsfml-network -lsfml-window -lsfml-system 
-
-14:25:10 Build Finished. 0 errors, 1 warnings. (took 2s.939ms)
-
+Info: Nothing to build for MazeKindaWorks

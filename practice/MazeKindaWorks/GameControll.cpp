@@ -49,8 +49,8 @@ void GameScreen::endScreen(sf::RenderWindow& window, int whoWins) {
 		buttonText[i].setCharacterSize(24);
 		buttonText[i].setFont(font);
 		buttonText[i].setPosition(320.f, 325.f + (60.f * i));
-		buttonText[i].setFillColor(sf::Color::Blue);
-		buttonBlock[i].setFillColor(sf::Color::Green);
+		buttonText[i].setFillColor(sf::Color(255, 20, 147));
+		buttonBlock[i].setFillColor(sf::Color::Cyan);
 		buttonBlock[i].setOutlineColor(sf::Color::Red);
 		buttonBlock[i].setPosition(10.f, 300.f + (60.f * i));
 
@@ -73,12 +73,11 @@ void GameScreen::endScreen(sf::RenderWindow& window, int whoWins) {
 			if (event.type == sf::Event::MouseButtonPressed) {
 				if (mou.x > 10 && mou.x < 630 && mou.y > 300 && mou.y < 350) {
 					stayOpen = false;
-					TitleScreen s;
-					s.StartGame(window);
 
 				} else if (mou.x > 10 && mou.x < 630 && mou.y > 360
 						&& mou.y < 410) {
 					window.close();
+					stayOpen = false;
 
 				}
 			}
@@ -98,7 +97,7 @@ void GameScreen::endScreen(sf::RenderWindow& window, int whoWins) {
 
 }
 
-void PauseMenu::PauseGame(sf::RenderWindow& window) {
+bool PauseMenu::PauseGame(sf::RenderWindow& window) {
 
 	sf::RenderWindow window2(sf::VideoMode(640, 480), "");
 	sf::RectangleShape rectangle(sf::Vector2f(120, 50));
@@ -121,7 +120,7 @@ void PauseMenu::PauseGame(sf::RenderWindow& window) {
 	text1.setPosition(160.f, 100.f);
 	text1.setCharacterSize(37);
 	text1.setFont(font);
-	text1.setFillColor(sf::Color::Cyan);
+	text1.setFillColor(sf::Color(255, 20, 147));
 	buttonText[0].setString("RESUME GAME");
 	buttonText[1].setString("EXIT");
 
@@ -129,8 +128,8 @@ void PauseMenu::PauseGame(sf::RenderWindow& window) {
 		buttonText[i].setCharacterSize(24);
 		buttonText[i].setFont(font);
 		buttonText[i].setPosition(320.f, 325.f + (60.f * i));
-		buttonText[i].setFillColor(sf::Color::Blue);
-		buttonBlock[i].setFillColor(sf::Color::Green);
+		buttonText[i].setFillColor(sf::Color(255, 20, 147));
+		buttonBlock[i].setFillColor(sf::Color::Cyan);
 		buttonBlock[i].setOutlineColor(sf::Color::Red);
 		buttonBlock[i].setPosition(10.f, 300.f + (60.f * i));
 
@@ -155,8 +154,8 @@ void PauseMenu::PauseGame(sf::RenderWindow& window) {
 				} else if (mou.x > 10 && mou.x < 630 && mou.y > 360
 						&& mou.y < 410) {
 					window2.close();
-					TitleScreen s;
-					s.StartGame(window);
+
+					return false;
 
 				}
 			}
@@ -187,7 +186,7 @@ void PauseMenu::PauseGame(sf::RenderWindow& window) {
 		window2.display();
 
 	}
-
+	return true;
 }
 
 sf::Texture setUpTexture(std::string fileName) {
@@ -388,7 +387,7 @@ void GameScreen::Game(sf::RenderWindow& window, bool AI) {
 				if (mou.x > SIZE * 40.0f && mou.x < SIZE * 40.0f + 0.5f
 						&& mou.y > 20.0f && mou.y < 20.0f + 2.f) {
 					PauseMenu p;
-					p.PauseGame(window);
+					stayOpen = p.PauseGame(window);
 				}
 			}
 			switch (event.type) {
@@ -400,7 +399,7 @@ void GameScreen::Game(sf::RenderWindow& window, bool AI) {
 				if (event.key.code == sf::Keyboard::P
 						|| event.key.code == sf::Keyboard::Escape) {
 					PauseMenu p;
-					p.PauseGame(window);
+					stayOpen = p.PauseGame(window);
 				}
 				break;
 			default:
@@ -424,6 +423,7 @@ void GameScreen::Game(sf::RenderWindow& window, bool AI) {
 				}
 
 				if (randDirection == 0) {
+					hPlayer2.getImage(p2LEFT);
 					hPlayer2.canInput = false;
 					maze_constructor.correctPath.insert(
 							maze_constructor.correctPath.begin(),
@@ -433,6 +433,7 @@ void GameScreen::Game(sf::RenderWindow& window, bool AI) {
 					randDirection = 5;
 
 				} else if (randDirection == 1) {
+					hPlayer2.getImage(p2RIGHT);
 					hPlayer2.canInput = false;
 					maze_constructor.correctPath.insert(
 							maze_constructor.correctPath.begin(),
@@ -442,6 +443,7 @@ void GameScreen::Game(sf::RenderWindow& window, bool AI) {
 					randDirection = 5;
 
 				} else if (randDirection == 2) {
+					hPlayer2.getImage(p2UP);
 					hPlayer2.canInput = false;
 					maze_constructor.correctPath.insert(
 							maze_constructor.correctPath.begin(),
@@ -451,6 +453,7 @@ void GameScreen::Game(sf::RenderWindow& window, bool AI) {
 					randDirection = 5;
 
 				} else if (randDirection == 3) {
+					hPlayer2.getImage(p2DOWN);
 					hPlayer2.canInput = false;
 					maze_constructor.correctPath.insert(
 							maze_constructor.correctPath.begin(),
@@ -459,6 +462,7 @@ void GameScreen::Game(sf::RenderWindow& window, bool AI) {
 					clock2.restart();
 					randDirection = 5;
 				} else if (randDirection2 == 0) {
+					hPlayer2.getImage(p2LEFT);
 					hPlayer2.canInput = false;
 					maze_constructor.correctPath.insert(
 							maze_constructor.correctPath.begin(),
@@ -467,7 +471,9 @@ void GameScreen::Game(sf::RenderWindow& window, bool AI) {
 					clock2.restart();
 					randDirection2 = 5;
 				} else if (randDirection2 == 1) {
+
 					hPlayer2.canInput = false;
+					hPlayer2.getImage(p2RIGHT);
 					maze_constructor.correctPath.insert(
 							maze_constructor.correctPath.begin(),
 							maze_1[hPlayer2.x][hPlayer2.y]);
@@ -475,6 +481,7 @@ void GameScreen::Game(sf::RenderWindow& window, bool AI) {
 					clock2.restart();
 					randDirection2 = 5;
 				} else if (randDirection2 == 2) {
+					hPlayer2.getImage(p2UP);
 					hPlayer2.canInput = false;
 					maze_constructor.correctPath.insert(
 							maze_constructor.correctPath.begin(),
@@ -483,6 +490,7 @@ void GameScreen::Game(sf::RenderWindow& window, bool AI) {
 					clock2.restart();
 					randDirection2 = 5;
 				} else if (randDirection2 == 3) {
+					hPlayer2.getImage(p2DOWN);
 					hPlayer2.canInput = false;
 					maze_constructor.correctPath.insert(
 							maze_constructor.correctPath.begin(),
@@ -491,24 +499,28 @@ void GameScreen::Game(sf::RenderWindow& window, bool AI) {
 					clock2.restart();
 					randDirection2 = 5;
 				} else if (hPlayer2.x > destinationX) {
+					hPlayer2.getImage(p2LEFT);
 					hPlayer2.canInput = false;
 					hPlayer2.moveLeft(elapsed2);
 					clock2.restart();
 					maze_constructor.correctPath.erase(
 							maze_constructor.correctPath.begin());
 				} else if (hPlayer2.x < destinationX) {
+					hPlayer2.getImage(p2RIGHT);
 					hPlayer2.canInput = false;
 					hPlayer2.moveRight(elapsed2);
 					clock2.restart();
 					maze_constructor.correctPath.erase(
 							maze_constructor.correctPath.begin());
 				} else if (hPlayer2.y > destinationY) {
+					hPlayer2.getImage(p2UP);
 					hPlayer2.canInput = false;
 					hPlayer2.moveUp(elapsed2);
 					clock2.restart();
 					maze_constructor.correctPath.erase(
 							maze_constructor.correctPath.begin());
 				} else if (hPlayer2.y < destinationY) {
+					hPlayer2.getImage(p2DOWN);
 					hPlayer2.canInput = false;
 					hPlayer2.moveDown(elapsed2);
 					clock2.restart();
@@ -944,11 +956,11 @@ void GameScreen::Game(sf::RenderWindow& window, bool AI) {
 		window.display();
 		if (hPlayer.isEnd == true) {
 			endScreen(window, 1);
-			//stayOpen = false;
+			stayOpen = false;
 
 		} else if (hPlayer2.isEnd == true) {
 			endScreen(window, 2);
-			//stayOpen = false;
+			stayOpen = false;
 		}
 	}
 }
@@ -956,6 +968,12 @@ void GameScreen::Game(sf::RenderWindow& window, bool AI) {
 int main() {
 	sf::RenderWindow window(sf::VideoMode(1400, 800), "SFML works!");
 	TitleScreen w;
-	w.StartGame(window);
+	sf::Music z;
+	z.openFromFile("sounds/despacito.ogg");
+	z.play();
+	z.setLoop(true);
+	z.setVolume(10);
+	z.setPitch(1.5);
+	w.StartGame(window, z);
 
 }
